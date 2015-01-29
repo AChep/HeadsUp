@@ -27,7 +27,7 @@ import android.support.v4.app.DialogFragment;
 import android.text.Html;
 
 import com.achep.acdisplay.Config;
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.ui.DialogBuilder;
 import com.achep.base.utils.RawReader;
 

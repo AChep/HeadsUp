@@ -32,7 +32,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.acdisplay.blacklist.Blacklist;
 import com.achep.acdisplay.blacklist.options.HideOption;
 import com.achep.acdisplay.blacklist.options.NonClearableOption;

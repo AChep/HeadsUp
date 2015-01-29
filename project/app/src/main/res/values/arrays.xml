@@ -26,16 +26,6 @@
         <item>Other</item>
     </string-array>
 
-    <!-- Dynamic background -->
-    <string-array name="dynamic_background">
-        <item>Artwork</item>
-        <item>Notification icon</item>
-    </string-array>
-    <string-array name="dynamic_background_entries" translatable="false">
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
     <!-- Privacy modes -->
     <string-array name="privacy_mode">
         <item>Hide notifications\' content</item>
@@ -62,26 +52,15 @@
         <item>-2</item>
     </string-array>
 
-    <!-- BatteryMeterView parameters -->
-    <array name="batterymeter_color_levels" translatable="false">
-        <item>4</item>
-        <item>15</item>
-        <item>100</item>
-    </array>
-    <array name="batterymeter_color_values" translatable="false">
-        <item>@color/batterymeter_critical</item>
-        <item>@color/batterymeter_low</item>
-        <item>@color/batterymeter_full</item>
-    </array>
-    <array name="batterymeter_bolt_points" translatable="false">
-        <item>73</item> <item>0</item>
-        <item>392</item><item>0</item>
-        <item>201</item><item>259</item>
-        <item>442</item><item>259</item>
-        <item>4</item>  <item>703</item>
-        <item>157</item><item>334</item>
-        <item>0</item>  <item>334</item>
-    </array>
+    <!-- Heads up styling -->
+    <string-array name="themes">
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+    <string-array name="themes_entries" translatable="false">
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
 
     <!--
         Smiley

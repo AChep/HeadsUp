@@ -47,7 +47,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.achep.acdisplay.App;
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.billing.Bitcoin;
 import com.achep.base.billing.PayPal;
 import com.achep.base.ui.DialogBuilder;

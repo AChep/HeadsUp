@@ -25,7 +25,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.Device;
 
 public class DashboardLayout extends ViewGroup {

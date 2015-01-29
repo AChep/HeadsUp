@@ -41,7 +41,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.acdisplay.interfaces.INotificatiable;
 import com.achep.acdisplay.notifications.Action;
 import com.achep.acdisplay.notifications.Formatter;

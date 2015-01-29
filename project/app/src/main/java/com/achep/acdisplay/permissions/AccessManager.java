@@ -33,23 +33,16 @@ public class AccessManager implements IOnLowMemory {
 
     @NonNull
     private final PermissionGroup mMasterPermissions;
-    @NonNull
-    private final PermissionGroup mKeyguardPermissions;
 
     public AccessManager(@NonNull Context context) {
         context = context.getApplicationContext();
         PermissionGroup.Builder builder;
 
         builder = new PermissionGroup.Builder(context);
-        builder.add(Permission.PERMISSION_DEVICE_ADMIN);
         builder.add(Device.hasJellyBeanMR2Api()
                 ? Permission.PERMISSION_NOTIFICATION_LISTENER
                 : Permission.PERMISSION_ACCESSIBILITY);
         mMasterPermissions = builder.build();
-
-        builder = new PermissionGroup.Builder(context);
-        if (Device.hasLollipopApi()) builder.add(Permission.PERMISSION_USAGE_STATS);
-        mKeyguardPermissions = builder.build();
     }
 
     /**
@@ -58,7 +51,6 @@ public class AccessManager implements IOnLowMemory {
     @Override
     public void onLowMemory() {
         mMasterPermissions.onLowMemory();
-        mKeyguardPermissions.onLowMemory();
     }
 
     /**
@@ -68,15 +60,6 @@ public class AccessManager implements IOnLowMemory {
     @NonNull
     public PermissionGroup getMasterPermissions() {
         return mMasterPermissions;
-    }
-
-    /**
-     * @return The group of permissions which is required for
-     * keyguard's functionality.
-     */
-    @NonNull
-    public PermissionGroup getKeyguardPermissions() {
-        return mKeyguardPermissions;
     }
 
 }

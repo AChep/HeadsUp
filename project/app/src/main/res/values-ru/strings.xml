@@ -19,9 +19,7 @@
   -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_description">AcDisplay это новый способ управления уведомлениями в Android. Он даст вам знать о новых уведомлениях через прекрасный минималистичный интерфейс, одновременно позволяя легко управлять ими. Если вы хотите узнать что происходит - просто достаньте устройство из кармана.</string>
-
-    <string name="plugin_xposed_description">Помогает AcDisplay глубже интегрироваться в систему.</string>
+    <string name="app_description">HeadsUp это приложение, основанное на AcDisplay, которое предназначено для отображения уведомлений на включенном экране. Оно даст вам знать о новых событиях не отрывая от текущих дел, показывая набольшое всплывающее окно и позволяя вам эффективно распоряжаться уведомлениями.</string>
 
     <!--
         Device admin / notification access
@@ -29,21 +27,11 @@
 
     <string name="permissions_auto_disabled">AcDisplay был отключен из-за удаления прав администратора.</string>
     <string name="permissions_dialog_title">Необходимые разрешения:</string>
-    <string name="permissions_device_admin">Администратор устройства</string>
-    <string name="permissions_device_admin_removed">AcDisplay был удален из списка администраторов устройства.</string>
-    <!-- Description of why do we need device admin rights -->
-    <string name="permissions_device_admin_description">Необходимо, чтобы управлять собственной задержкой выключения экрана.</string>
-    <!-- Shown as a toast, when clicking a button failed. -->
-    <string name="permissions_device_admin_grant_manually">Перейдите в Настройки > Безопасность > Администраторы устройства и включите AcDisplay.</string>
     <string name="permissions_notifications">Уведомления</string>
     <!-- Description of why do we need notification listener rights -->
     <string name="permissions_notifications_description">Необходимо, чтобы иметь доступ к уведомлениям.</string>
     <!-- Shown as a toast, when clicking a button failed. -->
     <string name="permissions_notifications_grant_manually">Перейдите в Настройки > Безопасность > Доступ к уведомлениям и включите AcDisplay.</string>
-    <!-- A title of 'Provide device admin rights' system dialog -->
-    <string name="permissions_usage_stats">Статистика использования</string>
-    <!-- Description of why do we need device admin rights -->
-    <string name="permissions_usage_stats_description">Необходимо, чтобы избегать перекрытия таких приложений, как будильник либо приложение звонков.</string>
 
     <!--
         Actions
@@ -69,50 +57,14 @@
     <string name="enabled">Включен</string>
     <string name="disabled">Отключен</string>
 
-    <!--
-        Media
-        -->
-
-    <!-- Pressing button goes to previous track. -->
-    <string name="media_prev_description">Кнопка перехода к предыдущему треку</string>
-    <!-- Pressing button goes to next track. -->
-    <string name="media_next_description">Кнопка перехода к следующему треку</string>
-    <!-- Pressing button pauses playback -->
-    <string name="media_pause_description">Кнопка паузы</string>
-    <!-- Pressing button pauses playback -->
-    <string name="media_play_description">Кнопка воспроизведения</string>
-    <!-- Pressing button pauses playback -->
-    <string name="media_stop_description">Кнопка выключения</string>
-
-    <!--
-        Coins
-        -->
-
-    <!-- App widget -->
-
     <!-- Test notification -->
+    <string name="notification_init_text">Просто отклоните это уведомление.</string>
     <string name="notification_test_message">Пример того, как выглядит уведомление.</string>
-    <string name="notification_test_message_large">Смахните уведомление вниз для его удаления.\nПроведите в любом месте для разблокировки.</string>
 
     <string name="privacy_mode_hidden_content">Содержимое скрыто.</string>
-
-    <!-- Initial notification -->
-    <string name="notification_init_text">Просто отклоните это уведомление.</string>
 
     <!-- Remote actions -->
     <string name="remote_enable_acdisplay">AcDisplay включен.</string>
     <string name="remote_disable_acdisplay">AcDisplay отключен.</string>
-
-    <!-- Foreground service that may contain both Keyguard and Active mode. -->
-    <string name="service_bath">Сервисы AcDisplay</string>
-    <string name="service_bath_keyguard">Экран блокировки</string>
-    <string name="service_bath_active_mode">Активный режим</string>
-    <string name="service_bath_active_mode_dump">Дампер сенсоров</string>
-
-    <!-- Example: Mon, 7 April -->
-    <string name="status_date_format">EEE, d MMMM</string>
-
-    <!-- Content description of the battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_battery_level">Battery <xliff:g id="number" example="100">%d</xliff:g> percent.</string>
 
 </resources>

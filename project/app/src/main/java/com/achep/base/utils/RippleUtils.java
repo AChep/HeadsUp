@@ -23,7 +23,7 @@ import android.content.res.ColorStateList;
 import android.support.annotation.NonNull;
 import android.view.View;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.Device;
 import com.achep.base.ui.activities.ActivityBase;
 

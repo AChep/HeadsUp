@@ -25,9 +25,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 
 import com.achep.acdisplay.permissions.PermissionAccessibility;
-import com.achep.acdisplay.permissions.PermissionDeviceAdmin;
 import com.achep.acdisplay.permissions.PermissionNotificationListener;
-import com.achep.acdisplay.permissions.PermissionUsageStats;
 import com.achep.base.interfaces.IOnLowMemory;
 import com.achep.base.interfaces.IPermission;
 import com.achep.base.interfaces.ISubscriptable;
@@ -49,13 +47,6 @@ public abstract class Permission implements
             PermissionAccessibility.class.getSimpleName();
 
     /**
-     * @see com.achep.acdisplay.permissions.PermissionDeviceAdmin
-     */
-    @NonNull
-    public static final String PERMISSION_DEVICE_ADMIN =
-            PermissionDeviceAdmin.class.getSimpleName();
-
-    /**
      * @see com.achep.acdisplay.permissions.PermissionNotificationListener
      */
     @NonNull
@@ -63,28 +54,15 @@ public abstract class Permission implements
             PermissionNotificationListener.class.getSimpleName();
 
     /**
-     * @see com.achep.acdisplay.permissions.PermissionUsageStats
-     */
-    @NonNull
-    public static final String PERMISSION_USAGE_STATS =
-            PermissionUsageStats.class.getSimpleName();
-
-    /**
      * @see com.achep.base.permissions.Permission#PERMISSION_ACCESSIBILITY
-     * @see com.achep.base.permissions.Permission#PERMISSION_DEVICE_ADMIN
      * @see com.achep.base.permissions.Permission#PERMISSION_NOTIFICATION_LISTENER
-     * @see com.achep.base.permissions.Permission#PERMISSION_USAGE_STATS
      */
     @NonNull
     public static Permission newInstance(@NonNull Context context, @NonNull String name) {
         if (PERMISSION_ACCESSIBILITY.equals(name)) {
             return new PermissionAccessibility(context);
-        } else if (PERMISSION_DEVICE_ADMIN.equals(name)) {
-            return new PermissionDeviceAdmin(context);
         } else if (PERMISSION_NOTIFICATION_LISTENER.equals(name)) {
             return new PermissionNotificationListener(context);
-        } else if (PERMISSION_USAGE_STATS.equals(name)) {
-            return new PermissionUsageStats(context);
         }
 
         throw new IllegalArgumentException();

@@ -35,7 +35,7 @@ import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Toast;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.Build;
 import com.achep.base.ui.DialogBuilder;
 import com.achep.base.utils.ToastUtils;

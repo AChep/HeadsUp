@@ -45,7 +45,7 @@ def make_sure_path_exists(path):
 print('Downloading latest build from Crowdin...')
 for i in range(1, 5):
     try:
-        url = 'https://crowdin.net/download/project/acdisplay.zip'
+        url = 'https://crowdin.net/download/project/headsup.zip'
         with urllib.request.urlopen(url) as response, open(translations_file_zip_name, 'wb') as out_file:
             shutil.copyfileobj(response, out_file)
             break

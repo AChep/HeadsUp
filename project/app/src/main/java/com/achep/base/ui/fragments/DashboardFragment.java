@@ -30,7 +30,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.dashboard.DashboardCategory;
 import com.achep.base.dashboard.DashboardTile;
 import com.achep.base.ui.activities.SettingsActivity;

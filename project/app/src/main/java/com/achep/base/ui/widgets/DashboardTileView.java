@@ -28,7 +28,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.dashboard.DashboardTile;
 import com.achep.base.ui.activities.SettingsActivity;
 import com.achep.base.utils.RippleUtils;

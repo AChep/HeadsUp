@@ -26,11 +26,6 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/settings_action"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/donate_action"
         android:icon="@drawable/ic_action_donate_white"
         android:title="@string/action_donate"

@@ -21,7 +21,6 @@ package com.achep.acdisplay.ui.activities;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -30,25 +29,18 @@ import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.PowerManager;
 import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.CompoundButton;
 
 import com.achep.acdisplay.App;
 import com.achep.acdisplay.Config;
 import com.achep.acdisplay.DialogHelper;
-import com.achep.acdisplay.R;
 import com.achep.base.content.ConfigBase;
-import com.achep.base.permissions.Permission;
-import com.achep.base.ui.SwitchBarPermissible;
 import com.achep.base.ui.activities.ActivityBase;
-import com.achep.base.ui.widgets.SwitchBar;
 import com.achep.base.utils.PackageUtils;
+import com.achep.headsup.R;
 
 /**
  * Created by Artem on 21.01.14.
@@ -64,8 +56,6 @@ public class MainActivity extends ActivityBase implements ConfigBase.OnConfigCha
         PendingIntent pendingIntent = PendingIntent.getActivity(context,
                 id, new Intent(context, MainActivity.class),
                 PendingIntent.FLAG_UPDATE_CURRENT);
-        Notification.BigTextStyle bts = new Notification.BigTextStyle()
-                .bigText(res.getString(R.string.notification_test_message_large));
         Notification.Builder builder = new Notification.Builder(context)
                 .setContentTitle(res.getString(R.string.app_name))
                 .setContentText(res.getString(R.string.notification_test_message))
@@ -73,18 +63,13 @@ public class MainActivity extends ActivityBase implements ConfigBase.OnConfigCha
                 .setLargeIcon(BitmapFactory.decodeResource(res, R.mipmap.ic_launcher))
                 .setSmallIcon(R.drawable.stat_acdisplay)
                 .setAutoCancel(true)
-                .setStyle(bts)
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         nm.notify(id, builder.build());
     }
 
-    private SwitchBarPermissible mSwitchPermission;
     private MenuItem mSendTestNotificationMenuItem;
-    private Config mConfig;
-
-    private boolean mBroadcasting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,35 +77,34 @@ public class MainActivity extends ActivityBase implements ConfigBase.OnConfigCha
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        mConfig = Config.getInstance();
-        mConfig.registerListener(this);
-
-
-        Permission[] permissions = App.getAccessManager().getMasterPermissions().permissions;
-        SwitchBar switchBar = (SwitchBar) findViewById(R.id.switch_bar);
-        mSwitchPermission = new SwitchBarPermissible(this, switchBar, permissions);
-        mSwitchPermission.setChecked(mConfig.isEnabled());
-        mSwitchPermission.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                updateSendTestNotificationMenuItem();
-                if (mBroadcasting) {
-                    return;
-                }
-
-                ActionBarActivity context = MainActivity.this;
-                mConfig.setEnabled(context, checked, MainActivity.this);
-            }
-        });
-
-        Config.Triggers triggers = mConfig.getTriggers();
+        Config.Triggers triggers = Config.getInstance().getTriggers();
         if (!triggers.isDonationAsked() && triggers.getLaunchCount() >= 15) {
-            triggers.setDonationAsked(this, true, this);
+            triggers.setDonationAsked(this, true, null);
             DialogHelper.showCryDialog(this);
         }
 
         handleAppUpgrade();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Config.getInstance().registerListener(this);
+        updateSendTestNotificationMenuItem();
+    }
+
+    @Override
+    protected void onPause() {
+        Config.getInstance().unregisterListener(this);
+        super.onPause();
+    }
+
+    private void updateSendTestNotificationMenuItem() {
+        if (mSendTestNotificationMenuItem != null) {
+            boolean enabled = Config.getInstance().isEnabled();
+            mSendTestNotificationMenuItem.setVisible(enabled);
+        }
     }
 
     private void handleAppUpgrade() {
@@ -132,7 +116,7 @@ public class MainActivity extends ActivityBase implements ConfigBase.OnConfigCha
             return;
         }
 
-        Config.Triggers triggers = mConfig.getTriggers();
+        Config.Triggers triggers = Config.getInstance().getTriggers();
 
         final int versionCode = pi.versionCode;
         final int versionCodeOld = triggers.getPreviousVersion();
@@ -140,45 +124,22 @@ public class MainActivity extends ActivityBase implements ConfigBase.OnConfigCha
         if (versionCodeOld < versionCode) {
             triggers.setPreviousVersion(this, pi.versionCode, null);
 
-            if (versionCodeOld <= 34 /* version 3.0.2 */) {
+            if (versionCodeOld <= 3 /* version 1.0.2 */) {
                 DialogHelper.showCompatDialog(MainActivity.this);
             }
         }
     }
 
-    private void updateSendTestNotificationMenuItem() {
-        if (mSendTestNotificationMenuItem != null) {
-            mSendTestNotificationMenuItem.setVisible(mSwitchPermission.isChecked());
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mSwitchPermission.resume();
-    }
-
-    @Override
-    protected void onPause() {
-        mSwitchPermission.pause();
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mConfig.unregisterListener(this);
-    }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onConfigChanged(@NonNull ConfigBase config,
                                 @NonNull String key,
                                 @NonNull Object value) {
         switch (key) {
             case Config.KEY_ENABLED:
-                mBroadcasting = true;
-                mSwitchPermission.setChecked((Boolean) value);
-                mBroadcasting = false;
+                updateSendTestNotificationMenuItem();
                 break;
         }
     }
@@ -195,11 +156,8 @@ public class MainActivity extends ActivityBase implements ConfigBase.OnConfigCha
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.settings_action:
-                startActivity(new Intent(this, Settings2.class));
-                break;
             case R.id.test_action:
-                startAcDisplayTest(true);
+                sendTestNotification(this);
                 break;
 
             //-- DIALOGS ------------------------------------------------------
@@ -220,46 +178,6 @@ public class MainActivity extends ActivityBase implements ConfigBase.OnConfigCha
                 return super.onOptionsItemSelected(item);
         }
         return true;
-    }
-
-    /**
-     * Turns screen off and sends a test notification.
-     *
-     * @param cheat {@code true} if it simply starts {@link AcDisplayActivity},
-     *              {@code false} if it turns device off and then uses notification
-     *              to wake it up.
-     */
-    private void startAcDisplayTest(boolean cheat) {
-        if (cheat) {
-            startActivity(new Intent(this, AcDisplayActivity.class));
-            sendTestNotification(this);
-            return;
-        }
-
-        int delay = getResources().getInteger(R.integer.config_test_notification_delay);
-
-        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        PowerManager.WakeLock wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Test notification.");
-        wakeLock.acquire(delay);
-
-        try {
-            // Go sleep
-            DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-            dpm.lockNow();
-
-            new Handler().postDelayed(new Runnable() {
-
-                private final Context context = getApplicationContext();
-
-                @Override
-                public void run() {
-                    sendTestNotification(context);
-                }
-            }, delay);
-        } catch (SecurityException e) {
-            Log.wtf(TAG, "Failed to turn screen off!");
-            wakeLock.release();
-        }
     }
 
 }

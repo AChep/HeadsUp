@@ -29,7 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.utils.PreferenceManagerUtils;
 
 import java.lang.reflect.InvocationTargetException;

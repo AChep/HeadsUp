@@ -33,7 +33,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.content.ConfigBase;
 import com.achep.base.interfaces.ICheckable;
 import com.achep.base.permissions.Permission;

@@ -31,7 +31,6 @@ import android.util.Log;
 
 import com.achep.acdisplay.App;
 import com.achep.acdisplay.Config;
-import com.achep.acdisplay.Presenter;
 import com.achep.acdisplay.blacklist.AppConfig;
 import com.achep.acdisplay.blacklist.Blacklist;
 import com.achep.base.Device;
@@ -114,7 +113,6 @@ public class NotificationPresenter implements
 
     private final Config mConfig;
     private final Blacklist mBlacklist;
-    private final Presenter mPresenter;
 
     // Threading
     private final Handler mHandler;
@@ -157,16 +155,6 @@ public class NotificationPresenter implements
                     v = (int) value;
                     handleNotifyPriorityChanged(v, mMaxPriority);
                     mMaxPriority = v;
-                    break;
-                case Config.KEY_UI_DYNAMIC_BACKGROUND_MODE:
-                    enabled = Operator.bitAnd((int) value, Config.DYNAMIC_BG_NOTIFICATION_MASK);
-                    for (OpenNotification notification : getLargeList().list()) {
-                        if (enabled) {
-                            notification.loadBackgroundAsync();
-                        } else {
-                            notification.clearBackground();
-                        }
-                    }
                     break;
                 case Config.KEY_UI_EMOTICONS:
                     boolean b = (boolean) value;
@@ -327,8 +315,6 @@ public class NotificationPresenter implements
         mBlacklistListener = new BlacklistListener();
         mBlacklist = Blacklist.getInstance();
         mBlacklist.registerListener(mBlacklistListener);
-
-        mPresenter = Presenter.getInstance();
     }
 
     @NonNull
@@ -356,8 +342,7 @@ public class NotificationPresenter implements
 
     /**
      * Posts notification to global list, notifies every follower
-     * about this change, and tries to launch
-     * {@link com.achep.acdisplay.ui.activities.AcDisplayActivity}.
+     * about this change.
      * <p><i>
      * To create {@link OpenNotification}, use
      * {@link OpenNotification#newInstance(StatusBarNotification)} or
@@ -400,10 +385,6 @@ public class NotificationPresenter implements
             n.setEmoticonsEnabled(config.isEmoticonsEnabled());
             // Selective load exactly what we need and nothing more.
             // This will reduce RAM consumption for a bit (1% or so.)
-            if (Operator.bitAnd(
-                    config.getDynamicBackgroundMode(),
-                    Config.DYNAMIC_BG_NOTIFICATION_MASK))
-                n.loadBackgroundAsync();
 
             localValid = isValidForLocal(n);
         }
@@ -421,7 +402,8 @@ public class NotificationPresenter implements
 
         if (flagWakeUp && result == RESULT_SUCCESS) {
             // Try start gui
-            mPresenter.tryStartGuiCauseNotification(context, n);
+//            mPresenter.tryStartGuiCauseNotification(context, n);
+//            TODO:
         }
 
         // Release listeners and send all pending
@@ -506,16 +488,6 @@ public class NotificationPresenter implements
         return mFormatter;
     }
 
-    @Nullable
-    public OpenNotification getFreshNotification() {
-        for (OpenNotification n : getList()) {
-            long delta = Math.max(n.getNotification().priority, 1) * FRESH_NOTIFICATION_EXPIRY_TIME;
-            long past = SystemClock.elapsedRealtime() - delta;
-            if (!n.isRead() && n.getLoadTimestamp() > past) return n;
-        }
-        return null;
-    }
-
     @NonNull
     public ArrayList<OpenNotification> getList() {
         return mLList.list();
@@ -577,12 +549,6 @@ public class NotificationPresenter implements
     }
 
     //-- NOTIFICATION UTILS ---------------------------------------------------
-
-    @SuppressLint("NewApi")
-    public boolean isTestNotification(@NonNull Context context, @NonNull OpenNotification n) {
-        StatusBarNotification sbn = n.getStatusBarNotification();
-        return n.isMine() && sbn != null && sbn.getId() == App.ID_NOTIFY_TEST;
-    }
 
     @SuppressLint("NewApi")
     public boolean isInitNotification(@NonNull Context context, @NonNull OpenNotification n) {

@@ -28,7 +28,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.util.Log;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.acdisplay.services.AccessibilityService;
 import com.achep.base.Device;
 import com.achep.base.permissions.Permission;

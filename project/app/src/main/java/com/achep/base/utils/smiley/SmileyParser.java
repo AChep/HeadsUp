@@ -25,7 +25,7 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 
 import java.util.HashMap;
 import java.util.regex.Matcher;

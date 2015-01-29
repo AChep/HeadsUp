@@ -22,10 +22,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.achep.acdisplay.services.KeyguardService;
-import com.achep.acdisplay.services.SensorsDumpService;
-import com.achep.acdisplay.services.activemode.ActiveModeService;
-
 /**
  * Created by Artem on 11.03.14.
  */
@@ -40,9 +36,6 @@ public class ReceiverSystem extends BroadcastReceiver {
             case Intent.ACTION_BOOT_COMPLETED:
             case Intent.ACTION_POWER_CONNECTED:
             case Intent.ACTION_POWER_DISCONNECTED:
-                ActiveModeService.handleState(context);
-                KeyguardService.handleState(context);
-                SensorsDumpService.handleState(context);
                 break;
         }
     }

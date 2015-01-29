@@ -37,7 +37,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.Device;
 
 import org.apache.commons.lang.builder.EqualsBuilder;

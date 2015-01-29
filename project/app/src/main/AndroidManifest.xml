@@ -19,9 +19,9 @@
   --><!-- Welcome to Hell. Take care of your mind. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.achep.acdisplay"
-    android:versionCode="42"
-    android:versionName="3.0.10">
+    package="com.achep.headsup"
+    android:versionCode="4"
+    android:versionName="3.0">
 
     <!--
         Normally replaced by build script. Required by
@@ -38,17 +38,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-
-    <!-- Needed to detect activity changes. -->
-    <!--suppress DeprecatedClassUsageInspection -->
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission
-        android:name="android.permission.PACKAGE_USAGE_STATS"
-        tools:ignore="ProtectedPermissions" />
-
-    <!-- Needed to change system screen off timeout settings. -->
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <!-- Needed to be able to get notifications from system. -->
     <permission android:name="android.permission.STATUS_BAR_SERVICE" />
@@ -58,7 +47,7 @@
     <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
-        android:name=".App"
+        android:name="com.achep.acdisplay.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:isGame="false"
@@ -68,16 +57,7 @@
         tools:ignore="UnusedAttribute">
 
         <activity
-            android:name=".ui.activities.AcDisplayActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:launchMode="singleInstance"
-            android:screenOrientation="nosensor"
-            android:theme="@style/MaterialTheme.AcDisplay" />
-
-        <activity
-            android:name=".ui.activities.MainActivity"
+            android:name="com.achep.acdisplay.ui.activities.MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -86,47 +66,32 @@
         </activity>
 
         <activity
-            android:name=".ui.activities.Settings2"
-            android:label="@string/settings"
-            android:launchMode="singleTask"
-            android:parentActivityName=".ui.activities.MainActivity"
-            android:taskAffinity=".settings"
-            android:theme="@style/MaterialTheme.Dashboard" />
-
-        <activity
-            android:name="com.achep.base.ui.activities.SubSettings"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:parentActivityName=".ui.activities.Settings2"
-            android:taskAffinity=".settings" />
-
-        <activity
-            android:name=".ui.activities.BlacklistActivity"
+            android:name="com.achep.acdisplay.ui.activities.BlacklistActivity"
             android:label="@string/blacklist"
             android:launchMode="singleTask"
-            android:parentActivityName=".ui.activities.Settings2"
+            android:parentActivityName="com.achep.acdisplay.ui.activities.MainActivity"
             android:taskAffinity=".settings"
             android:theme="@android:style/Theme.Holo" />
 
         <activity
-            android:name=".ui.activities.SubBlacklistActivity"
+            android:name="com.achep.acdisplay.ui.activities.SubBlacklistActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/blacklist_app_config"
-            android:parentActivityName=".ui.activities.BlacklistActivity"
+            android:parentActivityName="com.achep.acdisplay.ui.activities.BlacklistActivity"
             android:taskAffinity=".settings"
             android:theme="@android:style/Theme.Holo" />
 
         <!-- This is needed to access notifications and to control music. -->
         <service
-            android:name=".services.MediaService"
+            android:name="com.achep.acdisplay.services.MediaService"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
-                <action android:name="com.achep.acdisplay.BIND_MEDIA_CONTROL_SERVICE" />
             </intent-filter>
         </service>
 
         <service
-            android:name=".services.AccessibilityService"
+            android:name="com.achep.acdisplay.services.AccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
@@ -136,16 +101,11 @@
                 android:resource="@xml/extras_accessibility_config" />
         </service>
 
-        <!-- Foreground service that may contain both Keyguard and Active mode. -->
-        <service
-            android:name=".services.BathService"
-            android:label="@string/service_bath" />
-
         <!--
             This is transparent activity for handling internal intents.
             -->
         <activity
-            android:name=".receiver.LocalReceiverActivity"
+            android:name="com.achep.acdisplay.receiver.LocalReceiverActivity"
             android:excludeFromRecents="true"
             android:exported="false"
             android:launchMode="singleInstance"
@@ -153,12 +113,12 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="acdisplay" />
+                <data android:scheme="headsup" />
             </intent-filter>
         </activity>
 
         <!-- A receiver to start some services. -->
-        <receiver android:name=".receiver.ReceiverSystem">
+        <receiver android:name="com.achep.acdisplay.receiver.ReceiverSystem">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
@@ -166,22 +126,8 @@
             </intent-filter>
         </receiver>
 
-        <!-- Device admin rights. -->
-        <receiver
-            android:name=".receiver.AdminReceiver"
-            android:description="@string/permissions_device_admin_description"
-            android:label="@string/permissions_device_admin_title"
-            android:permission="android.permission.BIND_DEVICE_ADMIN">
-            <meta-data
-                android:name="android.app.device_admin"
-                android:resource="@xml/extras_device_admin" />
-            <intent-filter>
-                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
-            </intent-filter>
-        </receiver>
-
         <!-- Receiver for a widget -->
-        <receiver android:name=".providers.ToggleWidgetProvider">
+        <receiver android:name="com.achep.acdisplay.providers.ToggleWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
                 <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
@@ -196,8 +142,8 @@
 
         <!-- For sending logs as attachments -->
         <provider
-            android:name=".providers.LogAttachmentProvider"
-            android:authorities="com.achep.acdisplay.logs"
+            android:name="com.achep.acdisplay.providers.LogAttachmentProvider"
+            android:authorities="com.achep.headsup.logs"
             android:exported="true"
             tools:ignore="ExportedContentProvider" />
 
@@ -206,13 +152,13 @@
             -->
 
         <receiver
-            android:name=".receiver.ReceiverPublic"
+            android:name="com.achep.acdisplay.receiver.ReceiverPublic"
             android:exported="true"
             tools:ignore="ExportedReceiver">
             <intent-filter>
-                <action android:name="com.achep.acdisplay.ENABLE" />
-                <action android:name="com.achep.acdisplay.DISABLE" />
-                <action android:name="com.achep.acdisplay.TOGGLE" />
+                <action android:name="com.achep.headsup.ENABLE" />
+                <action android:name="com.achep.headsup.DISABLE" />
+                <action android:name="com.achep.headsup.TOGGLE" />
             </intent-filter>
         </receiver>
 
@@ -225,7 +171,7 @@
             http://powertoggles.com
             -->
         <receiver
-            android:name=".plugins.powertoggles.ToggleReceiver"
+            android:name="com.achep.acdisplay.plugins.powertoggles.ToggleReceiver"
             android:exported="true"
             android:icon="@drawable/ic_toggle_acdisplay"
             android:label="@string/app_name"
@@ -234,20 +180,6 @@
                 <action android:name="com.painless.pc.ACTION_SET_STATE" />
             </intent-filter>
         </receiver>
-
-        <!--
-            Xposed module.
-            http://xposed.info
-            -->
-        <meta-data
-            android:name="xposedmodule"
-            android:value="true" />
-        <meta-data
-            android:name="xposedminversion"
-            android:value="2.0*" />
-        <meta-data
-            android:name="xposeddescription"
-            android:value="@string/plugin_xposed_description" />
 
     </application>
 

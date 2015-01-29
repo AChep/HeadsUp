@@ -33,37 +33,6 @@
     <dimen name="notification_action_icon_size">24dp</dimen>
     <dimen name="notification_subtext_size">12sp</dimen>
 
-    <!-- AcDisplay -->
-    <dimen name="circle_radius_target">140dp</dimen>
-    <dimen name="circle_radius_decrease_threshold">4dp</dimen>
-
-    <!-- AcDisplay -->
-    <dimen name="scene_max_width">256dp</dimen>
-
-    <!--
-        Snake
-        -->
-
-    <!-- The size of divider between snake's "pixels" -->
-    <dimen name="snake_divider_size">1dp</dimen>
-
-    <!--
-        Media
-        -->
-
-    <!-- Desirable size of artwork -->
-    <dimen name="media_artwork_size">120dp</dimen>
-    <!-- The size of media buttons -->
-    <dimen name="media_btn_size">48dp</dimen>
-    <!-- The size of media buttons (excluding padding) -->
-    <dimen name="media_btn_actual_size">18dp</dimen>
-    <!-- The width of media widget -->
-    <dimen name="media_scene_width">236dp</dimen>
-
-    <!-- Status bar battery icons dimensions -->
-    <dimen name="status_bar_battery_height">16dp</dimen>
-    <dimen name="status_bar_battery_width">10.5dp</dimen>
-
     <!-- Preference fragment padding, bottom -->
     <dimen name="preference_fragment_padding_bottom">0dp</dimen>
     <!-- Preference fragment padding, sides -->

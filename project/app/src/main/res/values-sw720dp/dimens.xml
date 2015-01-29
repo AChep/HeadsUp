@@ -20,12 +20,6 @@
 <resources>
 
     <!--
-        AcDisplay
-        -->
-
-    <dimen name="scene_max_width">320dp</dimen>
-
-    <!--
         Dashboard
         -->
 

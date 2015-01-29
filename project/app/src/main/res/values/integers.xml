@@ -22,5 +22,4 @@
     <!-- Dashboard number of columns -->
     <integer name="dashboard_num_columns">1</integer>
 
-    <integer name="icons_columns_count">5</integer>
 </resources>

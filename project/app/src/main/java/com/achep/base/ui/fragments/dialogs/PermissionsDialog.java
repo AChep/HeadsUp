@@ -30,7 +30,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.permissions.Permission;
 import com.achep.base.ui.DialogBuilder;
 import com.achep.base.ui.adapters.PermissionAdapter;

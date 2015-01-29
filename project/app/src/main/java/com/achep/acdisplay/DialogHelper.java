@@ -37,6 +37,7 @@ import com.achep.base.ui.fragments.dialogs.DonateDialog;
 import com.achep.base.ui.fragments.dialogs.FeedbackDialog;
 import com.achep.base.ui.fragments.dialogs.HelpDialog;
 import com.achep.base.ui.fragments.dialogs.PermissionsDialog;
+import com.achep.headsup.R;
 
 /**
  * Helper class for showing fragment dialogs.
@@ -83,10 +84,6 @@ public class DialogHelper {
         int[] pairs = {
                 R.string.compat_dialog_item_notification,
                 android.os.Build.VERSION_CODES.JELLY_BEAN_MR2,
-                R.string.compat_dialog_item_immersive_mode,
-                android.os.Build.VERSION_CODES.KITKAT,
-                R.string.compat_dialog_item_music_widget,
-                android.os.Build.VERSION_CODES.KITKAT,
         };
 
         // Check over all pairs.

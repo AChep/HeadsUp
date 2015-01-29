@@ -29,7 +29,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 
 /**
  * Description of a single dashboard tile that the user can select.

@@ -31,7 +31,7 @@ import android.text.Spanned;
 import android.text.style.StyleSpan;
 
 import com.achep.acdisplay.Config;
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.utils.CsUtils;
 import com.achep.base.utils.NullUtils;
 import com.achep.base.utils.Operator;

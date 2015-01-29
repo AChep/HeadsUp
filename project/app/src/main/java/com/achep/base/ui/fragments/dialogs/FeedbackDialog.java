@@ -43,7 +43,7 @@ import android.widget.Spinner;
 
 import com.achep.acdisplay.Config;
 import com.achep.acdisplay.DialogHelper;
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.acdisplay.providers.LogAttachmentProvider;
 import com.achep.base.Build;
 import com.achep.base.Device;

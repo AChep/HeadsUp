@@ -1,21 +1,21 @@
-AcDisplay
+HeadsUp
 ==========
-[![Build Status](https://travis-ci.org/AChep/AcDisplay.svg?branch=master)](https://travis-ci.org/AChep/AcDisplay) [![Crowdin](https://d322cqt584bo4o.cloudfront.net/acdisplay/localized.png)](http://translate.acdisplay.org)
+[![Build Status](https://travis-ci.org/AChep/HeadsUp.svg?branch=master)](https://travis-ci.org/AChep/HeadsUp) [![Crowdin](https://d322cqt584bo4o.cloudfront.net/headsup/localized.png)](https://crowdin.com/project/headsup)
 
-<img alt="Main screen: handling notification" align="right" height="300"
-   src="https://github.com/AChep/AcDisplay/raw/master/screenshots/screenshot2.png" />
+<img alt="Main screen: handling HeadsUp" align="right" height="300"
+   src="https://github.com/AChep/HeadsUp/raw/master/screenshots/screenshot2.png" />
 <img alt="Main screen" align="right" height="300"
-   src="https://github.com/AChep/AcDisplay/raw/master/screenshots/screenshot1.png" />
+   src="https://github.com/AChep/HeadsUp/raw/master/screenshots/screenshot1.png" />
 
-*AcDisplay is a new way of handling notifications in Android.*
+*HeadsUp will inform you about new notifications by showing a little popup window in top of the screen.*
 
-It will inform you about new notifications by showing a minimal, beautiful screen, allowing you to open them directly from the lock screen. And if you want to see what's going on, you can simply take your phone out of your pocket to view all the latest notifications, in a similarly pleasing and minimalistic manner.
+HeadsUp is a fork of [AcDisplay][AcDisplay] mainly focused on displaying notifications while your device is on. It will inform you about new notifications, while you're browsing/gaming/watching movies, by showing a minimal, beautiful popup, allowing you to open them directly or perform an action.
 
-**[Join app's community on Google+](http://community.acdisplay.org)**
+**[Join app's community on Google+](https://plus.google.com/u/0/communities/109603115264950891558)**
 **[Join app's dev channel on freenode](http://webchat.freenode.net?channels=acdisplay)**
 
-<a href="http://get.acdisplay.org">
-  <img alt="Get AcDisplay on Google Play" vspace="20"
+<a href="https://play.google.com/store/apps/details?id=com.achep.headsup">
+  <img alt="Get HeadsUp on Google Play" vspace="20"
        src="http://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
 </a>
 
@@ -24,8 +24,8 @@ Download & Build
 Clone the project and come in:
 
 ``` bash
-$ git clone git://github.com/AChep/AcDisplay.git
-$ cd AcDisplay/project/
+$ git clone git://github.com/AChep/HeadsUp.git
+$ cd HeadsUp/project/
 ```
 
 To build debug version: (only English and Russian locales included)
@@ -49,8 +49,8 @@ To build release version:
 # First you need to set the path to your keystore and the alias.
 # You may want to put those to your ~/.bashrc file to save them
 # for future bash sessions.
-$ export ACDISPLAY_SIGN_STORE_FILE=path_to_your_keystore
-$ export ACDISPLAY_SIGN_KEY_ALIAS=key_alias
+$ export HEADSUP_SIGN_STORE_FILE=path_to_your_keystore
+$ export HEADSUP_SIGN_KEY_ALIAS=key_alias
 
 $ ./gradlew assembleRelease
 # You will be asked for passwords in proccess.
@@ -64,5 +64,8 @@ Import to Android Studio
 - Make sure JDK-7 or later is installed.
 - Make sure latest Android Studio is installed.
 - Launch Android Studio.
-- Select: File -> Import project; and choose ./AcDisplay/project directory.
+- Select: File -> Import project; and choose ./HeadsUp/project directory.
 - Wait until it done.
+
+
+[AcDisplay]:http://acdisplay.org

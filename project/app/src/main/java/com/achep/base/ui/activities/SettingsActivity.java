@@ -40,8 +40,7 @@ import android.util.Log;
 import android.util.Xml;
 import android.view.ViewGroup;
 
-import com.achep.acdisplay.R;
-import com.achep.acdisplay.ui.activities.Settings2;
+import com.achep.headsup.R;
 import com.achep.base.Device;
 import com.achep.base.dashboard.DashboardCategory;
 import com.achep.base.dashboard.DashboardTile;
@@ -186,7 +185,7 @@ public abstract class SettingsActivity extends ActivityBase implements
         final ComponentName cn = intent.getComponent();
         final String className = cn.getClassName();
 
-        boolean isShowingDashboard = className.equals(Settings2.class.getName());
+        boolean isShowingDashboard = false; // className.equals(Settings2.class.getName());
 
         // This is a "Sub Settings" when:
         // - this is a real SubSettings

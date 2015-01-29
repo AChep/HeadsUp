@@ -25,6 +25,6 @@ import com.achep.base.providers.LogsProviderBase;
  */
 public class LogAttachmentProvider extends LogsProviderBase {
 
-    public static final String AUTHORITY = "com.achep.acdisplay.logs";
+    public static final String AUTHORITY = "com.achep.headsup.logs";
 
 }

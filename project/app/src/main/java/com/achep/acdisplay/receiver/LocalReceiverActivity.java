@@ -30,7 +30,7 @@ import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.utils.PackageUtils;
 import com.achep.base.utils.ToastUtils;
 
@@ -41,9 +41,7 @@ public class LocalReceiverActivity extends Activity {
 
     private static final String TAG = "LocalReceiverActivity";
 
-    private static final String HOST_UNINSTALL = "uninstall";
     private static final String HOST_LAUNCH_APP_INFO = "launch_app_info";
-    private static final String HOST_REMOVE_ADMIN_ACCESS = "remove_admin_access";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,19 +60,6 @@ public class LocalReceiverActivity extends Activity {
                 || (host = data.getHost()) == null) return;
 
         switch (host) {
-            case HOST_REMOVE_ADMIN_ACCESS:
-                removeDeviceAdminRights();
-                break;
-            case HOST_UNINSTALL:
-                try {
-                    removeDeviceAdminRights();
-                    startActivity(new Intent(
-                            Intent.ACTION_UNINSTALL_PACKAGE,
-                            Uri.fromParts("package", PackageUtils.getName(this), null)));
-                } catch (ActivityNotFoundException e) {
-                    Log.wtf(TAG, "Failed to start Uninstall activity.");
-                }
-                break;
             case HOST_LAUNCH_APP_INFO:
                 try {
                     startActivity(new Intent(
@@ -84,20 +69,6 @@ public class LocalReceiverActivity extends Activity {
                     Log.wtf(TAG, "Failed to start ApplicationDetails activity.");
                 }
                 break;
-        }
-    }
-
-    private void removeDeviceAdminRights() {
-        ComponentName component = AdminReceiver.newComponentName(this);
-        DevicePolicyManager dpm = (DevicePolicyManager)
-                getSystemService(Context.DEVICE_POLICY_SERVICE);
-
-        if (dpm.isAdminActive(component)) {
-            try {
-                dpm.removeActiveAdmin(component);
-                ToastUtils.showShort(this, R.string.permissions_device_admin_removed);
-            } catch (SecurityException ignored) {
-            }
         }
     }
 

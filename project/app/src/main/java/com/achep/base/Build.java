@@ -20,7 +20,7 @@ package com.achep.base;
 
 import android.support.annotation.NonNull;
 
-import com.achep.acdisplay.BuildConfig;
+import com.achep.headsup.BuildConfig;
 
 /**
  * Contains a number of build constants mostly redirected from

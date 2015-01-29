@@ -21,31 +21,13 @@
 
     <!-- The default value of the master-switch -->
     <bool name="config_default_enabled">false</bool>
-    <bool name="config_default_keyguard_enabled">false</bool>
-    <bool name="config_default_keyguard_without_notifies_enabled">true</bool>
-    <bool name="config_default_active_mode_enabled">false</bool>
-    <bool name="config_default_active_mode_without_notifies_enabled">true</bool>
-    <bool name="config_default_enabled_only_while_charging">false</bool>
-    <bool name="config_default_notify_wake_up_on">true</bool>
-    <bool name="config_default_ui_show_wallpaper">false</bool>
-    <bool name="config_default_inactive_time_enabled">false</bool>
-    <bool name="config_default_ui_status_battery_sticky">false</bool>
-    <bool name="config_default_ui_full_screen">true</bool>
-    <bool name="config_default_feel_widget_pinnable">true</bool>
-    <bool name="config_default_feel_widget_readable">false</bool>
-    <bool name="config_default_feel_screen_off_after_last_notify">false</bool>
-    <bool name="config_default_ui_unlock_animation">true</bool>
-    <bool name="config_default_dev_sensors_dump">false</bool>
     <bool name="config_default_ui_override_fonts">true</bool>
     <bool name="config_default_ui_emoticons">true</bool>
-    <integer name="config_default_timeout_normal">10000</integer>
-    <integer name="config_default_timeout_short">5000</integer>
-    <integer name="config_default_inactive_time_from">60</integer>
-    <integer name="config_default_inactive_time_to">300</integer>
-    <integer name="config_default_ui_show_shadow_dynamic_bg">3</integer>
-    <integer name="config_default_ui_icon_size_dp">56</integer>
+    <bool name="config_default_hide_on_touch_outside_enabled">true</bool>
     <integer name="config_default_notify_min_priority">0</integer>
     <integer name="config_default_notify_max_priority">2</integer>
     <integer name="config_default_privacy_mode">0</integer>
+    <integer name="config_default_notify_decay_time">5000</integer>
+    <string name="config_default_ui_theme" translatable="false">light</string>
 
 </resources>

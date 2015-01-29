@@ -28,7 +28,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.achep.acdisplay.Config;
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.content.ConfigBase;
 import com.achep.base.ui.DialogBuilder;
 
@@ -80,16 +80,12 @@ public class TimeoutPreference extends DialogPreference implements
 
         Config config = Config.getInstance();
 
-        mProgresses = new int[2];
+        mProgresses = new int[1];
         mGroups = new Group[mProgresses.length];
         mGroups[0] = new Group(
                 (SeekBar) root.findViewById(R.id.normal_timeout_seekbar),
                 (TextView) root.findViewById(R.id.normal_timeout_value),
-                config.getOption(Config.KEY_TIMEOUT_NORMAL));
-        mGroups[1] = new Group(
-                (SeekBar) root.findViewById(R.id.short_timeout_seekbar),
-                (TextView) root.findViewById(R.id.short_timeout_value),
-                config.getOption(Config.KEY_TIMEOUT_SHORT));
+                config.getOption(Config.KEY_NOTIFY_DECAY_TIME));
 
         final int max = res.getInteger(R.integer.config_timeout_maxDurationMillis) / MULTIPLIER;
         mMin = res.getInteger(R.integer.config_timeout_minDurationMillis) / MULTIPLIER;

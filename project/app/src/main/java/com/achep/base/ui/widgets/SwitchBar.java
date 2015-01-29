@@ -31,7 +31,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.achep.acdisplay.R;
+import com.achep.headsup.R;
 import com.achep.base.interfaces.ICheckable;
 import com.achep.base.utils.RippleUtils;
 

@@ -18,33 +18,23 @@
  */
 package com.achep.acdisplay.services;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.annotation.TargetApi;
 import android.content.Intent;
-import android.media.AudioManager;
-import android.media.RemoteController;
-import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.util.Log;
 
-import com.achep.acdisplay.App;
-import com.achep.acdisplay.R;
 import com.achep.acdisplay.notifications.NotificationListener;
-import com.achep.base.Device;
 
 /**
  * Created by achep on 07.06.14.
  *
  * @author Artem Chepurnoy
  */
-@SuppressWarnings("deprecation") // RemoteController is completely outdated.
-@SuppressLint("NewApi") // RemoteController is a new thing.
-public class MediaService extends NotificationListenerService implements
-        RemoteController.OnClientUpdateListener {
+@TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+public class MediaService extends NotificationListenerService {
 
     private static final String TAG = "MediaService";
 
@@ -52,34 +42,9 @@ public class MediaService extends NotificationListenerService implements
 
     private final NotificationListener mNotificationListener = NotificationListener.newInstance();
 
-    private final IBinder mBinder = new B();
-    private AudioManager mAudioManager;
-
-    private boolean mRegistered;
-    private RemoteController mRemoteController;
-    private RemoteController.OnClientUpdateListener mExternalListener;
-
-    public class B extends Binder {
-
-        public MediaService getService() {
-            return MediaService.this;
-        }
-
-    }
-
-    private static boolean isRemoteControllerSupported() {
-        return Device.hasKitKatApi() && !Device.hasLollipopApi();
-    }
-
     @Override
     public IBinder onBind(@NonNull Intent intent) {
         switch (intent.getAction()) {
-            case App.ACTION_BIND_MEDIA_CONTROL_SERVICE:
-                if (!isRemoteControllerSupported()) {
-                    // Should never happen normally.
-                    throw new RuntimeException("Not supported Android version!");
-                }
-                return mBinder;
             default:
                 sService = this;
                 mNotificationListener.onListenerBind(this);
@@ -90,8 +55,6 @@ public class MediaService extends NotificationListenerService implements
     @Override
     public boolean onUnbind(@NonNull Intent intent) {
         switch (intent.getAction()) {
-            case App.ACTION_BIND_MEDIA_CONTROL_SERVICE:
-                break;
             default:
                 mNotificationListener.onListenerUnbind(this);
                 sService = null;
@@ -116,94 +79,6 @@ public class MediaService extends NotificationListenerService implements
     @Override
     public void onNotificationRemoved(@NonNull StatusBarNotification notification) {
         mNotificationListener.onNotificationRemoved(this, notification);
-    }
-
-    //-- REMOTE CONTROLLER ----------------------------------------------------
-
-    @Override
-    public void onCreate() {
-        if (isRemoteControllerSupported()) {
-            mRemoteController = new RemoteController(this, this);
-            mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        if (isRemoteControllerSupported()) {
-            setRemoteControllerDisabled();
-        }
-    }
-
-    public void setRemoteControllerEnabled() {
-        if (mRegistered) {
-            return;
-        }
-
-        mRegistered = mAudioManager.registerRemoteController(mRemoteController);
-
-        if (mRegistered) {
-            final int size = getResources().getDimensionPixelSize(R.dimen.media_artwork_size);
-            mRemoteController.setArtworkConfiguration(size, size);
-            //setSynchronizationMode(mRemoteController, RemoteController.POSITION_SYNCHRONIZATION_CHECK);
-        } else {
-            Log.e(TAG, "Error while registering RemoteController!");
-        }
-    }
-
-    public void setRemoteControllerDisabled() {
-        if (!mRegistered) {
-            return;
-        }
-
-        mAudioManager.unregisterRemoteController(mRemoteController);
-        mRegistered = false;
-    }
-
-    public RemoteController getRemoteController() {
-        return mRemoteController;
-    }
-
-    /**
-     * Sets up external callback for client update events.
-     */
-    public void setClientUpdateListener(@Nullable RemoteController.OnClientUpdateListener listener) {
-        mExternalListener = listener;
-    }
-
-    @Override
-    public void onClientChange(boolean clearing) {
-        if (mExternalListener != null) {
-            mExternalListener.onClientChange(clearing);
-        }
-    }
-
-    @Override
-    public void onClientPlaybackStateUpdate(int state) {
-        if (mExternalListener != null) {
-            mExternalListener.onClientPlaybackStateUpdate(state);
-        }
-    }
-
-    @Override
-    public void onClientPlaybackStateUpdate(int state, long stateChangeTimeMs, long currentPosMs, float speed) {
-        if (mExternalListener != null) {
-            mExternalListener.onClientPlaybackStateUpdate(state, stateChangeTimeMs, currentPosMs, speed);
-        }
-    }
-
-    @Override
-    public void onClientTransportControlUpdate(int transportControlFlags) {
-        if (mExternalListener != null) {
-            mExternalListener.onClientTransportControlUpdate(transportControlFlags);
-        }
-    }
-
-    @Override
-    public void onClientMetadataUpdate(RemoteController.MetadataEditor metadataEditor) {
-        if (mExternalListener != null) {
-            mExternalListener.onClientMetadataUpdate(metadataEditor);
-        }
     }
 
 }

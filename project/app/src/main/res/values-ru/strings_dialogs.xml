@@ -24,11 +24,11 @@
         -->
 
     <string name="about_dialog_message"><![CDATA[
-        AcDisplay — это бесплатное приложение с <a href="http://repo.acdisplay.org">открытым исходным кодом</a>.
-        Авторское право 2013-%2$s <a href="http://artemchep.com">Артём Чепурной</a>. Все права защищены.<br/>
+        HeadsUp — это бесплатное приложение с <a href="https://github.com/AChep/HeadsUp">открытым исходным кодом</a>.
+        Авторское право 2014-%2$s <a href="http://artemchep.com">Артём Чепурной</a>. Все права защищены.<br/>
         <br/>
         Большое спасибо этим открытым библиотекам: %1$s, а также всем, кто
-        <a href="http://translate.acdisplay.org">помог с переводом приложения</a> или пожертвовал на его развитие.
+        <a href="https://crowdin.com/project/headsup">помог с переводом приложения</a> или пожертвовал на его развитие.
     ]]></string>
 
     <!--
@@ -36,7 +36,7 @@
         -->
 
     <string name="donate_dialog_title">Пожертвовать</string>
-    <string name="donate_dialog_message">AcDisplay – это бесплатное приложение с открытым исходным кодом. Вы можете выразить свою благодарность и поддержать разработку через пожертвования:</string>
+    <string name="donate_dialog_message">HeadsUp – это бесплатное приложение с открытым исходным кодом. Вы можете выразить свою благодарность и поддержать разработку через пожертвования:</string>
     <string name="donate_alert_no_responsibility">Компания Google не несет никакой ответственности за альтернативные методы платежей.</string>
     <string name="donate_billing_not_supported">Покупки внутри приложения не поддерживаются этим устройством.</string>
     <string name="donate_thanks">Большое спасибо!</string>
@@ -59,7 +59,7 @@
 
     <string name="cry_dialog_title">Поддержать развитие</string>
     <string name="cry_dialog_message"><![CDATA[
-        AcDisplay — это бесплатное приложение с <a href="http://repo.acdisplay.org">открытым исходным кодом</a>
+        HeadsUp — это бесплатное приложение с <a href="https://github.com/AChep/HeadsUp">открытым исходным кодом</a>
         и для его развития требуется множество времени и ресурсов. Пожалуйста, подумайте о пожертвовании,
         как о выражении вашей благодарности и поддержке будущего развития.
     ]]></string>
@@ -89,7 +89,5 @@
     <string name="compat_dialog_title">Режим совместимости</string>
     <string name="compat_dialog_message">Приложение работает в режиме совместимости для поддержки Андроид %1$s: %2$s</string>
     <string name="compat_dialog_item_notification">Из-за того, что приложение вынуждено использовать сервис дополнительных возможностей, оно не может узнать об очистке либо обновлении уведомлений, а также не может очистить уведомление из панели уведомлений.</string>
-    <string name="compat_dialog_item_immersive_mode">Панель навигации всегда отображается.</string>
-    <string name="compat_dialog_item_music_widget">Нет виджета музыки.</string>
 
 </resources>

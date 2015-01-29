@@ -26,12 +26,6 @@
         <item>Другое</item>
     </string-array>
 
-    <!-- Dynamic background -->
-    <string-array name="dynamic_background">
-        <item>Обложка трека</item>
-        <item>Иконка уведомления</item>
-    </string-array>
-
     <!-- Privacy modes -->
     <string-array name="privacy_mode">
         <item>Скрыть содержимое уведомлений</item>
@@ -45,6 +39,12 @@
         <item>Нормальные (+уведомления от старых приложений)</item>
         <item>Не важные (обновления ПО, нежелательная почта)</item>
         <item>Контекстная и фоновая информация (погода, старые события, советы)</item>
+    </string-array>
+
+    <!-- Heads up styling -->
+    <string-array name="themes">
+        <item>Светлая</item>
+        <item>Тёмная</item>
     </string-array>
 
 </resources>

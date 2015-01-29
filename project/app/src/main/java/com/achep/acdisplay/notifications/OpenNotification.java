@@ -35,9 +35,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.graphics.Palette;
 import android.text.TextUtils;
 
-import com.achep.acdisplay.graphics.BackgroundFactory;
 import com.achep.acdisplay.graphics.IconFactory;
-import com.achep.acdisplay.utils.BitmapUtils;
 import com.achep.base.Device;
 import com.achep.base.async.AsyncTask;
 import com.achep.base.interfaces.ISubscriptable;
@@ -80,7 +78,6 @@ public abstract class OpenNotification implements
 
     public static final int EVENT_ICON = 1;
     public static final int EVENT_READ = 2;
-    public static final int EVENT_BACKGROUND = 3;
     public static final int EVENT_BRAND_COLOR = 4;
 
     @Nullable
@@ -128,21 +125,6 @@ public abstract class OpenNotification implements
                 public void onGenerated(@NonNull Bitmap bitmap) {
                     mIconWorker = null;
                     setIcon(bitmap);
-                }
-            };
-
-    // Dynamic background.
-    @Nullable
-    private Bitmap mBackgroundBitmap;
-    @Nullable
-    private AsyncTask<Void, Void, Bitmap> mBackgroundWorker;
-    @NonNull
-    private final BackgroundFactory.BackgroundAsyncListener mBackgroundCallback =
-            new BackgroundFactory.BackgroundAsyncListener() {
-                @Override
-                public void onGenerated(@NonNull Bitmap bitmap) {
-                    mBackgroundWorker = null;
-                    setBackground(bitmap);
                 }
             };
 
@@ -240,11 +222,6 @@ public abstract class OpenNotification implements
     }
 
     @Nullable
-    public Bitmap getBackground() {
-        return mBackgroundBitmap;
-    }
-
-    @Nullable
     public Bitmap getIcon() {
         return mIconBitmap;
     }
@@ -314,7 +291,6 @@ public abstract class OpenNotification implements
     public interface OnNotificationDataChangedListener {
 
         /**
-         * @see #EVENT_BACKGROUND
          * @see #EVENT_ICON
          * @see #EVENT_READ
          */
@@ -353,47 +329,6 @@ public abstract class OpenNotification implements
     private void setIcon(@Nullable Bitmap bitmap) {
         if (mIconBitmap == (mIconBitmap = bitmap)) return;
         notifyListeners(EVENT_ICON);
-    }
-
-    //-- BACKGROUND -----------------------------------------------------------
-
-    private void setBackground(@Nullable Bitmap bitmap) {
-        if (mBackgroundBitmap == (mBackgroundBitmap = bitmap)) return;
-        notifyListeners(EVENT_BACKGROUND);
-    }
-
-    /**
-     * Asynchronously generates the background of notification. The background is
-     * used by {@link com.achep.acdisplay.ui.fragments.AcDisplayFragment}.
-     *
-     * @see #clearBackground()
-     */
-    public void loadBackgroundAsync() {
-        // Clear old background.
-        clearBackground();
-
-        // Generate new background.
-        Bitmap bitmap = mNotification.largeIcon;
-        if (isBackgroundFine(bitmap)) {
-            assert bitmap != null;
-            mBackgroundWorker = BackgroundFactory.generateAsync(bitmap, mBackgroundCallback);
-        }
-    }
-
-    /**
-     * Stops the {@link #mBackgroundWorker background loader} and sets the background
-     * to {@code null}.
-     *
-     * @see #loadBackgroundAsync()
-     */
-    public void clearBackground() {
-        AsyncTask.stop(mBackgroundWorker);
-        mBackgroundWorker = null;
-        setBackground(null);
-    }
-
-    private boolean isBackgroundFine(@Nullable Bitmap bitmap) {
-        return bitmap != null && !BitmapUtils.hasTransparentCorners(bitmap);
     }
 
     //-- EMOTICONS ------------------------------------------------------------
@@ -466,7 +401,6 @@ public abstract class OpenNotification implements
      * Clears some notification's resources.
      */
     public void recycle() {
-        clearBackground();
         AsyncTask.stop(mPaletteWorker);
         AsyncTask.stop(mIconWorker);
     }

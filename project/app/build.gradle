@@ -76,7 +76,7 @@ android {
             "EEE MMMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH); // Don't change it!
     String timeStamp = timeStampFormat.format(Calendar.getInstance().getTime());
 
-    String key = System.getenv("ACDISPLAY_GOOGLE_PLAY_PUBLIC_KEY");
+    String key = System.getenv("HEADSUP_GOOGLE_PLAY_PUBLIC_KEY");
     if (key == null) key = "this-is-a-debug-build-blank-key";
     String keySalt = UUID.randomUUID().toString();
     String keyEncrypted = encryptPublicKey(key, keySalt);
@@ -89,8 +89,8 @@ android {
 
     signingConfigs {
         release {
-            storeFile file(System.getenv("ACDISPLAY_SIGN_STORE_FILE") + "")
-            keyAlias System.getenv("ACDISPLAY_SIGN_KEY_ALIAS") + ""
+            storeFile file(System.getenv("HEADSUP_SIGN_STORE_FILE") + "")
+            keyAlias System.getenv("HEADSUP_SIGN_KEY_ALIAS") + ""
             // These two lines make gradle believe that the signingConfigs
             // section is complete. Without them, tasks like installRelease
             // will not be available!
@@ -217,7 +217,7 @@ project.task('askForPasswords') << {
         Console console = System.console();
         console.printf("\n\n\u001B[36m\u001B[1mSigning config\u001B[0m\n")
 
-        if ("true".equals(System.getenv("ACDISPLAY_USE_TEST_KEY") + "")
+        if ("true".equals(System.getenv("HEADSUP_USE_TEST_KEY") + "")
                 || "yes".equals(console.readLine("Use default test key [yes/no]: "))) {
             android.signingConfigs.release.storeFile = file("test-key.keystore")
             android.signingConfigs.release.keyAlias = "acdisplay-test-build"
