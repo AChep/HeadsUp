@@ -61,7 +61,7 @@ public class MainActivity extends ActivityBase implements ConfigBase.OnConfigCha
                 .setContentText(res.getString(R.string.notification_test_message))
                 .setContentIntent(pendingIntent)
                 .setLargeIcon(BitmapFactory.decodeResource(res, R.mipmap.ic_launcher))
-                .setSmallIcon(R.drawable.stat_acdisplay)
+                .setSmallIcon(R.drawable.stat_headsup)
                 .setAutoCancel(true)
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
 
