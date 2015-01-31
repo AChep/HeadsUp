@@ -184,7 +184,7 @@ public class NotificationWidget extends LinearLayout implements INotificatiable 
      * @return {@code true} if given {@link android.widget.TextView} have dark
      * color of text (average of RGB is lower than 127), {@code false} otherwise.
      */
-    private boolean hasDarkTextColor(TextView textView) {
+    protected boolean hasDarkTextColor(TextView textView) {
         int color = textView.getCurrentTextColor();
         return getAverageRgb(color) < 127;
     }
