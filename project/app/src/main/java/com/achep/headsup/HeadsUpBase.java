@@ -457,7 +457,7 @@ public class HeadsUpBase implements
             // Get selected theme.
             // TODO: Implement custom themes.
             final String theme = getConfig().getTheme();
-            final int themeRes = theme.equals("dark")
+            final int themeRes = "dark".equals(theme)
                     ? R.style.HeadsUp_Theme_Dark
                     : R.style.HeadsUp_Theme;
 
