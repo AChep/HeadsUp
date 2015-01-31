@@ -499,6 +499,8 @@ public class HeadsUpBase implements
                 mHolder.widgetList.remove(index);
 
                 mHolder.rootView.preventInstantInteractivity();
+            } else {
+                hide(false);
             }
         }
     }
