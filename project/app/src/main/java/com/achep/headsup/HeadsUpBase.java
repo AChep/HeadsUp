@@ -315,6 +315,7 @@ public class HeadsUpBase implements
             detachFromWindow();
 
             // Erase container view.
+            mHandler.removeCallbacksAndMessages(null);
             mHolder.containerView.removeAllViews();
             mHolder.containerOffset = 0;
             mHolder.widgetList.clear();
