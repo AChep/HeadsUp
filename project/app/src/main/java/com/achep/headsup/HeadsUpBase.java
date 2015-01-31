@@ -506,8 +506,6 @@ public class HeadsUpBase implements
                 return;
             }
         }
-
-        hide(false);
     }
 
     /**
