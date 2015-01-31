@@ -28,6 +28,7 @@ import android.util.TypedValue;
 
 import com.achep.acdisplay.plugins.powertoggles.ToggleReceiver;
 import com.achep.base.content.ConfigBase;
+import com.achep.headsup.HeadsUpBase;
 import com.achep.headsup.R;
 
 import java.util.HashMap;

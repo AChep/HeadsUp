@@ -39,6 +39,10 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
 
+    <!-- Needed to be able to show a headsup. -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+
     <!-- Needed to be able to get notifications from system. -->
     <permission android:name="android.permission.STATUS_BAR_SERVICE" />
     <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />

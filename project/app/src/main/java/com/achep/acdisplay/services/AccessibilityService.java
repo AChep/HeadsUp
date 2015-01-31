@@ -20,12 +20,15 @@ package com.achep.acdisplay.services;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.Notification;
+import android.content.Context;
 import android.os.Parcelable;
 import android.view.accessibility.AccessibilityEvent;
 
+import com.achep.acdisplay.Config;
 import com.achep.acdisplay.notifications.NotificationPresenter;
 import com.achep.acdisplay.notifications.OpenNotification;
 import com.achep.base.Device;
+import com.achep.headsup.HeadsUpBase;
 
 /**
  * Created by Artem Chepurnoy on 06.09.2014.
@@ -41,6 +44,19 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
         info.feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC;
         info.notificationTimeout = 100;
         setServiceInfo(info);
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Context context = getApplicationContext();
+        HeadsUpBase.getInstance().start(context);
+    }
+
+    @Override
+    public void onDestroy() {
+        HeadsUpBase.getInstance().stop();
+        super.onDestroy();
     }
 
     @Override

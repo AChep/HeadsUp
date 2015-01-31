@@ -17,15 +17,19 @@
   ~ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
   ~ MA  02110-1301, USA.
   -->
-<resources>
+<com.achep.headsup.HeadsUpView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/bg_shade"
+        android:clipChildren="false"
+        android:orientation="vertical" />
 
-    <drawable name="bg_dashboard_category_dark">@drawable/bg_dashboard_category_compat_dark</drawable>
-    <drawable name="bg_dashboard_tile">@android:drawable/list_selector_background</drawable>
-    <drawable name="bg_timeout">#3fff</drawable>
-    <drawable name="bg_timeout_progress">#3fff</drawable>
-
-    <drawable name="transparent">@null</drawable>
-    <drawable name="ripple">@null</drawable>
-
-</resources>
+</com.achep.headsup.HeadsUpView>

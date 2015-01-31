@@ -17,15 +17,16 @@
   ~ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
   ~ MA  02110-1301, USA.
   -->
-<resources>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@android:id/background"
+        android:drawable="@drawable/bg_timeout" />
+    <item android:id="@android:id/secondaryProgress">
+        <shape />
+    </item>
+    <item android:id="@android:id/progress">
+        <clip android:drawable="@drawable/bg_timeout_progress" />
+    </item>
 
-    <drawable name="bg_dashboard_category_dark">@drawable/bg_dashboard_category_compat_dark</drawable>
-    <drawable name="bg_dashboard_tile">@android:drawable/list_selector_background</drawable>
-    <drawable name="bg_timeout">#3fff</drawable>
-    <drawable name="bg_timeout_progress">#3fff</drawable>
-
-    <drawable name="transparent">@null</drawable>
-    <drawable name="ripple">@null</drawable>
-
-</resources>
+</layer-list>

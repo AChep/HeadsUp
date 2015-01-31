@@ -74,6 +74,7 @@ public class NotificationWidget extends LinearLayout implements INotificatiable 
     private TextView mWhenTextView;
     private TextView mSubtextTextView;
     private ViewGroup mMessageContainer;
+    private View mActionsDivider;
     private ViewGroup mActionsContainer;
 
     private OnClickListener mOnClickListener;
@@ -166,6 +167,7 @@ public class NotificationWidget extends LinearLayout implements INotificatiable 
         mWhenTextView = (TextView) findViewById(R.id.when);
         mSubtextTextView = (TextView) findViewById(R.id.subtext);
         mActionsContainer = (ViewGroup) findViewById(R.id.actions);
+        mActionsDivider = findViewById(R.id.actions_divider);
 
         if (mSmallIcon != null) mSmallIcon.setNotificationIndicateReadStateEnabled(false);
         mIcon.setNotificationIndicateReadStateEnabled(false);
@@ -194,6 +196,7 @@ public class NotificationWidget extends LinearLayout implements INotificatiable 
      */
     @SuppressLint("NewApi")
     private void setActions(@NonNull OpenNotification notification, @Nullable Action[] actions) {
+        ViewUtils.setVisible(mActionsDivider, actions != null);
         if (actions == null) {
             mActionsContainer.removeAllViews();
             return;

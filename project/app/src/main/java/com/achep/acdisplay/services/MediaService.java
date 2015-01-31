@@ -19,6 +19,7 @@
 package com.achep.acdisplay.services;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
@@ -27,6 +28,7 @@ import android.service.notification.StatusBarNotification;
 import android.support.annotation.NonNull;
 
 import com.achep.acdisplay.notifications.NotificationListener;
+import com.achep.headsup.HeadsUpBase;
 
 /**
  * Created by achep on 07.06.14.
@@ -48,6 +50,7 @@ public class MediaService extends NotificationListenerService {
             default:
                 sService = this;
                 mNotificationListener.onListenerBind(this);
+                HeadsUpBase.getInstance().start(this);
                 return super.onBind(intent);
         }
     }
@@ -56,6 +59,7 @@ public class MediaService extends NotificationListenerService {
     public boolean onUnbind(@NonNull Intent intent) {
         switch (intent.getAction()) {
             default:
+                HeadsUpBase.getInstance().stop();
                 mNotificationListener.onListenerUnbind(this);
                 sService = null;
                 break;

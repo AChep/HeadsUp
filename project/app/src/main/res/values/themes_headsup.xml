@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2014 AChep@xda <artemchep@gmail.com>
+  ~
+  ~ This program is free software; you can redistribute it and/or
+  ~ modify it under the terms of the GNU General Public License
+  ~ as published by the Free Software Foundation; either version 2
+  ~ of the License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program; if not, write to the Free Software
+  ~ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+  ~ MA  02110-1301, USA.
+  -->
+<resources>
+
+    <!-- Light theme -->
+    <style name="HeadsUp_Theme" parent="MaterialTheme">
+        <item name="headsUpNotificationLayout">@layout/heads_up_notification</item>
+        <item name="headsUpNotificationBackground">@drawable/bg_heads_up_notification_light</item>
+        <item name="headsUpNotificationSmallIconBackground">@drawable/bg_heads_up_icon_light</item>
+
+        <item name="headsUpNotificationTitle">@style/MaterialHeadsUp.Notification.Title</item>
+        <item name="headsUpNotificationMessage">@style/MaterialHeadsUp.Notification.Message</item>
+        <item name="headsUpNotificationSubtext">@style/MaterialHeadsUp.Notification.Subtext</item>
+        <item name="headsUpNotificationAction">@style/MaterialHeadsUp.Notification.Action</item>
+
+        <!--
+            Material design.
+            -->
+        <item name="android:textColorPrimary">@color/material_light_primary_text</item>
+        <item name="android:textColorSecondary">@color/material_light_secondary_text</item>
+        <item name="android:textColorHint">@color/material_light_hint_text</item>
+    </style>
+
+    <!-- Dark theme -->
+    <style name="HeadsUp_Theme_Dark" parent="MaterialTheme">
+        <item name="headsUpNotificationLayout">@layout/heads_up_notification</item>
+        <item name="headsUpNotificationBackground">@drawable/bg_heads_up_notification_dark</item>
+        <item name="headsUpNotificationSmallIconBackground">@drawable/bg_heads_up_icon_dark</item>
+
+        <item name="headsUpNotificationTitle">@style/MaterialHeadsUp.Notification.Title</item>
+        <item name="headsUpNotificationMessage">@style/MaterialHeadsUp.Notification.Message</item>
+        <item name="headsUpNotificationSubtext">@style/MaterialHeadsUp.Notification.Subtext</item>
+        <item name="headsUpNotificationAction">@style/MaterialHeadsUp.Notification.Action</item>
+
+        <!--
+            Material design.
+            -->
+        <item name="android:textColorPrimary">@color/material_dark_primary_text</item>
+        <item name="android:textColorSecondary">@color/material_dark_secondary_text</item>
+        <item name="android:textColorHint">@color/material_dark_hint_text</item>
+    </style>
+
+</resources>
