@@ -476,7 +476,7 @@ public class HeadsUpBase implements
             widget.setHeadsUpManager(this);
             widget.setNotification(notification);
             widget.setOnClickListener(mOnWidgetClickListener);
-            widget.mTimeout.setTimeoutDelayed(getConfig().getNotifyDecayTime());
+            widget.resetDecayTime();
 
             int pos = container.getChildCount() - mHolder.containerOffset;
             mHolder.rootView.preventInstantInteractivity();
