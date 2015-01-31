@@ -27,6 +27,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.achep.acdisplay.Timeout;
 import com.achep.acdisplay.notifications.OpenNotification;
@@ -47,6 +48,8 @@ public class HeadsUpNotificationView extends NotificationWidget implements
     public final Timeout mTimeout;
     private Timeout.Gui mTimeoutGui;
     private ProgressBar mProgressBar;
+
+    private boolean mDarkTheme;
 
     private SwipeHelper mSwipeHelper;
 
@@ -100,10 +103,12 @@ public class HeadsUpNotificationView extends NotificationWidget implements
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        TextView titleView = (TextView) findViewById(R.id.title);
+        mDarkTheme = !hasDarkTextColor(titleView);
 
         if (mRipple) {
             View content = findViewById(R.id.content);
-            RippleUtils.makeFor(true /* parent is scrollable */, true, content);
+            RippleUtils.makeFor(true /* parent is scrollable */, mDarkTheme, content);
         }
 
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
@@ -113,7 +118,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
     @Override
     protected View initActionView(View view) {
         if (mRipple) {
-            RippleUtils.makeFor(true /* parent is scrollable */, true, view);
+            RippleUtils.makeFor(true /* parent is scrollable */, mDarkTheme, view);
         }
         return super.initActionView(view);
     }
