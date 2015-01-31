@@ -115,9 +115,8 @@ public class SwipeHelper implements Gefingerpoken {
     }
 
     private ObjectAnimator createTranslationAnimation(View v, float newPos) {
-        ObjectAnimator anim = ObjectAnimator.ofFloat(v,
+        return ObjectAnimator.ofFloat(v,
                 mSwipeDirection == X ? "translationX" : "translationY", newPos);
-        return anim;
     }
 
     private float getPerpendicularVelocity(VelocityTracker vt) {
@@ -204,6 +203,7 @@ public class SwipeHelper implements Gefingerpoken {
         }
     }
 
+    @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         final int action = ev.getAction();
 
@@ -329,6 +329,7 @@ public class SwipeHelper implements Gefingerpoken {
         anim.start();
     }
 
+    @Override
     public boolean onTouchEvent(MotionEvent ev) {
         if (mLongPressSent) {
             return true;

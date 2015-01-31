@@ -101,7 +101,7 @@ public class HeadsUpBase implements
      * Passes atomic events to {@link #onStart(android.content.Context)}
      * and {@link #onStop()}.
      */
-    private Atomic mStartAtomic = new Atomic(new Atomic.Callback() {
+    private final Atomic mStartAtomic = new Atomic(new Atomic.Callback() {
 
         @Override
         public void onStart(Object... objects) {
@@ -118,7 +118,7 @@ public class HeadsUpBase implements
      * Passes atomic events to {@link #onShow()}
      * and {@link #onHide(boolean)}.
      */
-    private Atomic mShowAtomic = new Atomic(new Atomic.Callback() {
+    private final Atomic mShowAtomic = new Atomic(new Atomic.Callback() {
 
         @Override
         public void onStart(Object... objects) {
@@ -210,10 +210,6 @@ public class HeadsUpBase implements
 
     //-- ATOMIC METHODS -------------------------------------------------------
 
-    public final synchronized void react(@NonNull Context context, boolean start) {
-        mStartAtomic.start(context, start);
-    }
-
     /**
      * Initializes resources and starts listening to notifications.
      * Note: this is safe to be run twice or more.
@@ -253,7 +249,7 @@ public class HeadsUpBase implements
 
     //-- ON WHATEVER IS HAPPENING ---------------------------------------------
 
-    protected void onStart(@NonNull Context context) {
+    void onStart(@NonNull Context context) {
         if (DEBUG) Log.d(TAG, "Starting heads-up...");
 
         mHolder = new Holder();
@@ -275,7 +271,7 @@ public class HeadsUpBase implements
             @Override
             public void onAnimationEnd(@NonNull Animation animation) {
                 super.onAnimationEnd(animation);
-                onHide(true);
+                onHide(true); // this is called inside of the #hide(boolean)
             }
         });
 
@@ -293,7 +289,7 @@ public class HeadsUpBase implements
         mEnabled = config.isEnabled();
     }
 
-    protected void onStop() {
+    void onStop() {
         if (DEBUG) Log.d(TAG, "Stopping heads-up...");
 
         NotificationPresenter.getInstance().unregisterListener(this);
@@ -306,11 +302,11 @@ public class HeadsUpBase implements
         mHolder = null;
     }
 
-    protected void onShow() {
+    void onShow() {
         attachToWindow();
     }
 
-    protected void onHide(boolean immediately) {
+    void onHide(boolean immediately) {
         if (immediately) {
             detachFromWindow();
 
@@ -436,7 +432,7 @@ public class HeadsUpBase implements
         return Config.getInstance();
     }
 
-    public void postHeadsUp(@NonNull OpenNotification notification) {
+    void postHeadsUp(@NonNull OpenNotification notification) {
         final ViewGroup container = mHolder.containerView;
         final ArrayList<HeadsUpNotificationView> list = mHolder.widgetList;
 
@@ -469,7 +465,6 @@ public class HeadsUpBase implements
                     new int[]{R.styleable.Theme_headsUpNotificationLayout});
             final int layoutRes = typedArray.getInt(0, R.layout.heads_up_notification);
             typedArray.recycle();
-            typedArray = null;
 
             // Inflate notification widget.
             final LayoutInflater inflater = (LayoutInflater) context
@@ -504,7 +499,6 @@ public class HeadsUpBase implements
                 mHolder.widgetList.remove(index);
 
                 mHolder.rootView.preventInstantInteractivity();
-                return;
             }
         }
     }
@@ -513,7 +507,7 @@ public class HeadsUpBase implements
      * @return the position of given {@link com.achep.acdisplay.notifications.OpenNotification} in
      * {@link #mHolder#mWidgetList list}, or {@code -1} if not found.
      */
-    public int indexOf(final @NonNull OpenNotification notification) {
+    int indexOf(final @NonNull OpenNotification notification) {
         final ArrayList<HeadsUpNotificationView> list = mHolder.widgetList;
         final int size = list.size();
         for (int i = 0; i < size; i++) {
