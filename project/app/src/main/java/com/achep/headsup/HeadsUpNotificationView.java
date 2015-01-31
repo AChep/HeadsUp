@@ -132,6 +132,8 @@ public class HeadsUpNotificationView extends NotificationWidget implements
         ViewUtils.setVisible(mProgressBar, true);
         mTimeout.registerListener(this);
         mTimeout.registerListener(mTimeoutGui);
+        // Update the timeout
+        resetDecayTime();
     }
 
     @Override
