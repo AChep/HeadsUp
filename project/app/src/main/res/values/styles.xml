@@ -162,7 +162,7 @@
 
     <style name="MaterialHeadsUp.Notification.Action" parent="MaterialHeadsUp.Notification">
         <item name="android:background">?android:listChoiceBackgroundIndicator</item>
-        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:maxLines">1</item>
