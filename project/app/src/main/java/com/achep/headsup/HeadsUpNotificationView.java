@@ -129,7 +129,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
         float pagingTouchSlop = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
         mSwipeHelper = new SwipeHelper(SwipeHelper.X, this, densityScale, pagingTouchSlop);
 
-        ViewUtils.setVisible(mProgressBar, true);
+        ViewUtils.setVisible(mProgressBar, false);
         mTimeout.registerListener(this);
         mTimeout.registerListener(mTimeoutGui);
         // Update the timeout
