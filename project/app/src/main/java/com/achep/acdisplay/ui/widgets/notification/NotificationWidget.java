@@ -270,6 +270,7 @@ public class NotificationWidget extends LinearLayout implements INotificatiable 
                     icon.setBounds(0, 0, size, size);
 
                     if (hasDarkTextColor(textView)) {
+                        icon = icon.mutate();
                         icon.setColorFilter(mColorFilterDark);
                     }
                 }
