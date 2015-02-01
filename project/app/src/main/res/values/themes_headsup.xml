@@ -20,7 +20,7 @@
 <resources>
 
     <!-- Light theme -->
-    <style name="HeadsUp_Theme" parent="MaterialTheme">
+    <style name="HeadsUp_Theme" parent="Theme.AppCompat.Light">
         <item name="headsUpNotificationLayout">@layout/heads_up_notification</item>
         <item name="headsUpNotificationBackground">@drawable/bg_heads_up_notification_light</item>
         <item name="headsUpNotificationSmallIconBackground">@drawable/bg_heads_up_icon_light</item>
@@ -39,7 +39,7 @@
     </style>
 
     <!-- Dark theme -->
-    <style name="HeadsUp_Theme_Dark" parent="MaterialTheme">
+    <style name="HeadsUp_Theme_Dark" parent="Theme.AppCompat">
         <item name="headsUpNotificationLayout">@layout/heads_up_notification</item>
         <item name="headsUpNotificationBackground">@drawable/bg_heads_up_notification_dark</item>
         <item name="headsUpNotificationSmallIconBackground">@drawable/bg_heads_up_icon_dark</item>

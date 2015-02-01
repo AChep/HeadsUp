@@ -129,22 +129,35 @@
     <style name="MaterialHeadsUp.Notification" parent="MaterialHeadsUp" />
 
     <style name="MaterialHeadsUp.Notification.Title" parent="MaterialHeadsUp.Notification">
+        <item name="android:textAppearance">?android:textAppearanceLarge</item>
         <item name="android:textColor">?android:textColorPrimary</item>
-        <item name="android:textSize">22sp</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
-        <item name="android:maxLines">1</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:maxLines">2</item>
         <item name="android:ellipsize">end</item>
+
+        <!-- Use custom font on Android KitKat or lower. -->
+        <item name="font">roboto_regular</item>
+        <item name="font_beforeApi">21</item>
     </style>
 
     <style name="MaterialHeadsUp.Notification.Subtext" parent="MaterialHeadsUp.Notification">
         <item name="android:textColor">?android:textColorHint</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
         <item name="android:maxLines">1</item>
+        <item name="android:textSize">12sp</item>
+
+        <!-- Use custom font on Android KitKat or lower. -->
+        <item name="font">roboto_regular</item>
+        <item name="font_beforeApi">21</item>
     </style>
 
     <style name="MaterialHeadsUp.Notification.Message" parent="MaterialHeadsUp.Notification">
-        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
         <item name="android:ellipsize">end</item>
+        <item name="android:textSize">14sp</item>
+
+        <!-- Use custom font on Android KitKat or lower. -->
+        <item name="font">roboto_regular</item>
+        <item name="font_beforeApi">21</item>
     </style>
 
     <style name="MaterialHeadsUp.Notification.Action" parent="MaterialHeadsUp.Notification">
