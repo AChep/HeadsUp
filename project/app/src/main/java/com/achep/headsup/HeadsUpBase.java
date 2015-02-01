@@ -391,7 +391,9 @@ public class HeadsUpBase implements
     private boolean canBeShown() {
         long now = SystemClock.elapsedRealtime();
         long disableElapsedTime = now - mDisableIntentTime;
-        return mEnabled && (disableElapsedTime > MAX_DISABLE_INTENT_DURATION || now == 0 /* emu */);
+        return mEnabled && (mDisableIntentTime == 0
+                || disableElapsedTime > MAX_DISABLE_INTENT_DURATION
+                || now == 0 /* emu */);
     }
 
     //-- ATTACH / DETACH VIEW -------------------------------------------------
