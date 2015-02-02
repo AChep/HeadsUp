@@ -132,6 +132,7 @@ public class HeadsUpBase implements
     });
 
     private boolean mEnabled;
+    private boolean mAttached;
     private long mDisableIntentTime;
 
     private final Handler mHandler = new Handler();
@@ -291,6 +292,11 @@ public class HeadsUpBase implements
 
     void onStop() {
         if (DEBUG) Log.d(TAG, "Stopping heads-up...");
+        if (mAttached) {
+            // Never let the view stay.
+            Log.w(TAG, "Detaching from window.");
+            detachFromWindow();
+        }
 
         NotificationPresenter.getInstance().unregisterListener(this);
         getConfig().unregisterListener(this);
@@ -404,6 +410,13 @@ public class HeadsUpBase implements
      * @see #detachFromWindow()
      */
     private void attachToWindow() {
+        if (mAttached) {
+            // Can happen if the view is still running
+            // exit animation.
+            mHolder.rootView.clearAnimation();
+            detachFromWindow();
+        }
+        mAttached = true;
         // TODO: Optionally add some flags to allow heads-up to be
         // shown above the keyguard and status bar.
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams(
@@ -426,6 +439,7 @@ public class HeadsUpBase implements
      */
     private void detachFromWindow() {
         mHolder.wm.removeView(mHolder.rootView);
+        mAttached = false;
     }
 
     //-- HANDLING HEADS-UP ----------------------------------------------------
