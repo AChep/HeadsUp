@@ -37,7 +37,6 @@ import com.achep.acdisplay.blacklist.Blacklist;
 import com.achep.acdisplay.blacklist.options.HideOption;
 import com.achep.acdisplay.blacklist.options.NonClearableOption;
 import com.achep.acdisplay.blacklist.options.Option;
-import com.achep.acdisplay.blacklist.options.RestrictOption;
 import com.achep.base.utils.ViewUtils;
 
 /**
@@ -85,7 +84,6 @@ public class BlacklistAppFragment extends Fragment {
         mPackageName = extractPackageName(getArguments(), savedInstanceState);
         mOptions = new Option[]{
                 new HideOption(activity, new CheckBox(activity), blacklist, mPackageName),
-                new RestrictOption(activity, new CheckBox(activity), blacklist, mPackageName),
                 new NonClearableOption(activity, new CheckBox(activity), blacklist, mPackageName)
         };
     }

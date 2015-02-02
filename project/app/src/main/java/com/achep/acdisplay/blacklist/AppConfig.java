@@ -36,32 +36,26 @@ public class AppConfig {
 
     private static final String TAG = "AppConfig";
 
-    public static final int DIFF_RESTRICTED = 2;
     public static final int DIFF_HIDDEN = 4;
     public static final int DIFF_NON_CLEARABLE = 8;
 
-    static final boolean DEFAULT_RESTRICTED = false;
     static final boolean DEFAULT_HIDDEN = false;
     static final boolean DEFAULT_NON_CLEARABLE = false;
 
     public String packageName;
-    public final boolean[] restricted = new boolean[]{DEFAULT_RESTRICTED};
     public final boolean[] hidden = new boolean[]{DEFAULT_HIDDEN};
     public final boolean[] nonClearable = new boolean[]{DEFAULT_NON_CLEARABLE};
 
     public AppConfig(String packageName) {
         this(packageName,
-                DEFAULT_RESTRICTED,
                 DEFAULT_HIDDEN,
                 DEFAULT_NON_CLEARABLE);
     }
 
     public AppConfig(String packageName,
-                     boolean restricted,
                      boolean hidden,
                      boolean nonClearable) {
         this.packageName = packageName;
-        setRestricted(restricted);
         setHidden(hidden);
         setNonClearableEnabled(nonClearable);
     }
@@ -70,7 +64,6 @@ public class AppConfig {
      * Resets all (except package name!) to default values.
      */
     public static void reset(AppConfig config) {
-        config.setRestricted(DEFAULT_RESTRICTED);
         config.setHidden(DEFAULT_HIDDEN);
         config.setNonClearableEnabled(DEFAULT_NON_CLEARABLE);
     }
@@ -85,7 +78,6 @@ public class AppConfig {
      */
     public static AppConfig copy(AppConfig config, AppConfig clone) {
         clone.packageName = config.packageName;
-        clone.setRestricted(config.isRestricted());
         clone.setHidden(config.isHidden());
         clone.setNonClearableEnabled(config.isNonClearableEnabled());
         return clone;
@@ -131,15 +123,10 @@ public class AppConfig {
     @Override
     public String toString() {
         return "AppConfig ["
-                + "restricted=" + isRestricted()
                 + " hidden=" + isHidden()
                 + " non-clearable=" + isNonClearableEnabled()
                 + " pkg=" + packageName
                 + "]";
-    }
-
-    public void setRestricted(boolean restricted) {
-        this.restricted[0] = restricted;
     }
 
     public void setHidden(boolean hidden) {
@@ -148,10 +135,6 @@ public class AppConfig {
 
     public void setNonClearableEnabled(boolean enabled) {
         this.nonClearable[0] = enabled;
-    }
-
-    public boolean isRestricted() {
-        return restricted[0];
     }
 
     public boolean isHidden() {
@@ -171,15 +154,13 @@ public class AppConfig {
 
     /**
      * @return {@code true} if all options are set to default, {@code false} otherwise.
-     * @see AppConfig#DEFAULT_RESTRICTED
      * @see AppConfig#DEFAULT_HIDDEN
      * @see AppConfig#DEFAULT_NON_CLEARABLE
      * @see #reset(AppConfig)
      */
     @SuppressWarnings("PointlessBooleanExpression")
     boolean equalsToDefault() {
-        return isRestricted() == AppConfig.DEFAULT_RESTRICTED
-                && isHidden() == AppConfig.DEFAULT_HIDDEN
+        return isHidden() == AppConfig.DEFAULT_HIDDEN
                 && isNonClearableEnabled() == AppConfig.DEFAULT_NON_CLEARABLE;
     }
 
@@ -191,7 +172,6 @@ public class AppConfig {
     static final class Saver extends SharedList.Saver<AppConfig> {
 
         private static final String KEY_PACKAGE = "package_name_";
-        private static final String KEY_RESTRICTED = "restricted_";
         private static final String KEY_HIDDEN = "hidden_";
         private static final String KEY_NON_CLEARABLE = "non-clearable_";
 
@@ -204,7 +184,6 @@ public class AppConfig {
                                             @NonNull SharedPreferences.Editor editor,
                                             int position) {
             editor.putString(KEY_PACKAGE + position, ps.packageName);
-            editor.putBoolean(KEY_RESTRICTED + position, ps.isRestricted());
             editor.putBoolean(KEY_HIDDEN + position, ps.isHidden());
             editor.putBoolean(KEY_NON_CLEARABLE + position, ps.isNonClearableEnabled());
             return editor;
@@ -216,10 +195,9 @@ public class AppConfig {
         @Override
         public AppConfig get(@NonNull SharedPreferences prefs, int position) {
             String pkg = prefs.getString(KEY_PACKAGE + position, null);
-            boolean restricted = prefs.getBoolean(KEY_RESTRICTED + position, DEFAULT_RESTRICTED);
             boolean hidden = prefs.getBoolean(KEY_HIDDEN + position, DEFAULT_HIDDEN);
             boolean ongoing = prefs.getBoolean(KEY_NON_CLEARABLE + position, DEFAULT_NON_CLEARABLE);
-            return new AppConfig(pkg, restricted, hidden, ongoing);
+            return new AppConfig(pkg, hidden, ongoing);
         }
     }
 
@@ -236,7 +214,6 @@ public class AppConfig {
         @Override
         public int compare(AppConfig object, AppConfig old) {
             return orZero(DIFF_HIDDEN, object.isHidden(), old.isHidden())
-                    | orZero(DIFF_RESTRICTED, object.isRestricted(), old.isRestricted())
                     | orZero(DIFF_NON_CLEARABLE, object.isNonClearableEnabled(), old.isNonClearableEnabled());
         }
 

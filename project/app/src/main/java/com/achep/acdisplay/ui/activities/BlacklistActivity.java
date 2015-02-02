@@ -554,7 +554,7 @@ public class BlacklistActivity extends PreferenceActivity {
 
                     // Show checked options in summary.
                     // TODO: Find the way to optimize it.
-                    if (config.isHidden() || config.isRestricted() || config.isNonClearableEnabled()) {
+                    if (config.isHidden() || config.isNonClearableEnabled()) {
                         StringBuilder sb = new StringBuilder();
                         boolean empty = true;
 
@@ -562,9 +562,6 @@ public class BlacklistActivity extends PreferenceActivity {
                                 // Hidden
                                 MathUtils.bool(config.isHidden()),
                                 R.string.blacklist_app_hide_title,
-                                // Restricted
-                                MathUtils.bool(config.isRestricted()),
-                                R.string.blacklist_app_restricted_title,
                                 // Non-clearable
                                 MathUtils.bool(config.isNonClearableEnabled()),
                                 R.string.blacklist_app_non_clearable_title,
