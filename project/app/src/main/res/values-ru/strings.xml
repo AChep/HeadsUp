@@ -25,7 +25,6 @@
         Device admin / notification access
          -->
 
-    <string name="permissions_auto_disabled">AcDisplay был отключен из-за удаления прав администратора.</string>
     <string name="permissions_dialog_title">Необходимые разрешения:</string>
     <string name="permissions_notifications">Уведомления</string>
     <!-- Description of why do we need notification listener rights -->
@@ -64,7 +63,7 @@
     <string name="privacy_mode_hidden_content">Содержимое скрыто.</string>
 
     <!-- Remote actions -->
-    <string name="remote_enable_acdisplay">AcDisplay включен.</string>
-    <string name="remote_disable_acdisplay">AcDisplay отключен.</string>
+    <string name="remote_enable_acdisplay">HeadsUp включен.</string>
+    <string name="remote_disable_acdisplay">HeadsUp отключен.</string>
 
 </resources>

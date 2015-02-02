@@ -37,7 +37,7 @@
     <string name="settings_override_fonts_title">Заместить системные шрифты</string>
 
     <!-- Other -->
-    <string name="settings_other_category">Other</string>
+    <string name="settings_other_category">Прочее</string>
     <string name="settings_notify_decay_time_title">Задержка отклонения уведомления</string>
     <string name="settings_notify_decay_time_dialog">Задержка отклонения уведомления</string>
     <string name="settings_notify_decay_time_summary">Уведомление автоматически скрывается через %1$s сек. после появления.</string>
