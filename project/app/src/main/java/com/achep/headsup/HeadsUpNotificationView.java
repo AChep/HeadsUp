@@ -108,7 +108,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
         if (mRipple) {
             View content = findViewById(R.id.content);
-            RippleUtils.makeFor(true /* parent is scrollable */, mDarkTheme, content);
+            RippleUtils.makeFor(false /* parent is scrollable */, mDarkTheme, content);
         }
 
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
@@ -118,7 +118,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
     @Override
     protected View initActionView(View view) {
         if (mRipple) {
-            RippleUtils.makeFor(true /* parent is scrollable */, mDarkTheme, view);
+            RippleUtils.makeFor(false /* parent is scrollable */, mDarkTheme, view);
         }
         return super.initActionView(view);
     }
