@@ -28,6 +28,7 @@
   <string name="settings_interface_category">Interface</string>
   <string name="settings_theme_title">Tema</string>
   <string name="settings_theme_summary">Tienes el tema %1$s.</string>
+  <string name="settings_overlap_sb_title">Overlap status bar</string>
   <string name="settings_emoticons_title">Emoticons</string>
   <string name="settings_override_fonts_title">Override system fonts</string>
   <string name="settings_other_category">Otros</string>

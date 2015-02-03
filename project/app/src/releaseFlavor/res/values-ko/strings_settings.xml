@@ -28,6 +28,7 @@
   <string name="settings_interface_category">Interface</string>
   <string name="settings_theme_title">테마</string>
   <string name="settings_theme_summary">당신은 %1$s 테마를 갖고 있습니다.</string>
+  <string name="settings_overlap_sb_title">Overlap status bar</string>
   <string name="settings_emoticons_title">Emoticons</string>
   <string name="settings_override_fonts_title">Override system fonts</string>
   <string name="settings_other_category">기타</string>
