@@ -446,9 +446,9 @@ public class NotificationWidget extends LinearLayout implements INotificatiable 
                     // Title text is dark.
                     && hasDarkTextColor(mTitleTextView)
                     // Icon has white color.
-                    && Color.red(averageColor = BitmapUtils.getAverageColor(bitmap)) > 127
-                    && Color.blue(averageColor) > 127
-                    && Color.green(averageColor) > 127) {
+                    && Color.red(averageColor = BitmapUtils.getAverageColor(bitmap)) > 200
+                    && Color.blue(averageColor) > 200
+                    && Color.green(averageColor) > 200) {
                 // The icon is PROBABLY not a profile icon,
                 // NOT a dark one and we must reverse its color to
                 // make it visible on white backgrounds.
