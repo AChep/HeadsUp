@@ -34,6 +34,11 @@
             android:title="@string/settings_theme_title" />
 
         <CheckBoxPreference
+            android:defaultValue="@bool/config_default_ui_overlap_sb"
+            android:key="ui_overlap_sb"
+            android:title="@string/settings_overlap_sb_title" />
+
+        <CheckBoxPreference
             android:defaultValue="@bool/config_default_ui_emoticons"
             android:key="ui_emoticons"
             android:title="@string/settings_emoticons_title" />

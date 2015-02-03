@@ -52,6 +52,7 @@ public final class Config extends ConfigBase {
 
     // interface
     public static final String KEY_UI_THEME = "ui_theme";
+    public static final String KEY_UI_OVERLAP_STATUS_BAR = "ui_overlap_sb";
     public static final String KEY_UI_OVERRIDE_FONTS = "ui_override_fonts";
     public static final String KEY_UI_EMOTICONS = "ui_emoticons";
 
@@ -77,6 +78,7 @@ public final class Config extends ConfigBase {
     private int mPrivacyMode;
     private int mUxNotifyDecayTime;
     private boolean mUxHideOnTouchOutside;
+    private boolean mUiOverlapSb;
     private boolean mUiEmoticons;
     private boolean mUiOverrideFonts;
     private String mUiTheme;
@@ -119,6 +121,8 @@ public final class Config extends ConfigBase {
         // interface
         mUiTheme = prefs.getString(KEY_UI_THEME,
                 res.getString(R.string.config_default_ui_theme));
+        mUiOverlapSb = prefs.getBoolean(KEY_UI_OVERLAP_STATUS_BAR,
+                res.getBoolean(R.bool.config_default_ui_overlap_sb));
         mUiOverrideFonts = prefs.getBoolean(KEY_UI_OVERRIDE_FONTS,
                 res.getBoolean(R.bool.config_default_ui_override_fonts));
         mUiEmoticons = prefs.getBoolean(KEY_UI_EMOTICONS,
@@ -156,6 +160,8 @@ public final class Config extends ConfigBase {
                 "mUiTheme", null, null, String.class));
         hashMap.put(KEY_UI_EMOTICONS, new ConfigBase.Option(
                 "mUiEmoticons", null, null, boolean.class));
+        hashMap.put(KEY_UI_OVERLAP_STATUS_BAR, new ConfigBase.Option(
+                "mUiOverlapSb", null, null, boolean.class));
         hashMap.put(KEY_UI_OVERRIDE_FONTS, new ConfigBase.Option(
                 "mUiOverrideFonts", null, null, boolean.class));
 
@@ -260,6 +266,10 @@ public final class Config extends ConfigBase {
      */
     public boolean isHideOnTouchOutsideEnabled() {
         return mUxHideOnTouchOutside;
+    }
+
+    public boolean isStatusBarOverlapEnabled() {
+        return mUiOverlapSb;
     }
 
     // //////////////////////////////////////////

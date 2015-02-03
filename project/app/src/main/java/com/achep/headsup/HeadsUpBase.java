@@ -23,6 +23,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.PixelFormat;
 import android.os.Handler;
@@ -417,8 +418,19 @@ public class HeadsUpBase implements
             detachFromWindow();
         }
         mAttached = true;
-        // TODO: Optionally add some flags to allow heads-up to be
-        // shown above the keyguard and status bar.
+
+        boolean overlapStatusBar = Config.getInstance().isStatusBarOverlapEnabled();
+
+        // Define the padding
+        Resources res = mHolder.context.getResources();
+        final int paddingTop = overlapStatusBar
+                ? 0
+                : res.getDimensionPixelSize(R.dimen.headsup_root_padding_top);
+        View v = mHolder.containerView;
+        v.setPadding(v.getPaddingLeft(), paddingTop, v.getPaddingRight(), v.getPaddingBottom());
+
+        // Add the view to the window.
+        int layoutInScreenFlag = overlapStatusBar ? WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN : 0;
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
@@ -426,7 +438,7 @@ public class HeadsUpBase implements
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                         | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
                         | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
-                        | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+                        | layoutInScreenFlag,
                 PixelFormat.TRANSLUCENT);
         lp.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
         mHolder.wm.addView(mHolder.rootView, lp);
