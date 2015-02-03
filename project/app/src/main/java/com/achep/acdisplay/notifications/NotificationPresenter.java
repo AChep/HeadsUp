@@ -22,7 +22,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.SystemClock;
 import android.service.notification.StatusBarNotification;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -68,6 +67,13 @@ public class NotificationPresenter implements
      * {@code false} to handle all notifications' updates normally.
      */
     private static final boolean FILTER_NOISY_NOTIFICATIONS = true;
+
+    private static final Filter LOCAL_FILTER = new Filter() {
+        @Override
+        public boolean isValid(@NonNull OpenNotification osbn) {
+            return !osbn.isRead();
+        }
+    };
 
     private static final int FRESH_NOTIFICATION_EXPIRY_TIME = 4000; // 4 sec.
 
@@ -222,6 +228,10 @@ public class NotificationPresenter implements
 
     private interface Comparator {
         public boolean needsRebuild(@NonNull OpenNotification osbn);
+    }
+
+    private interface Filter {
+        public boolean isValid(@NonNull OpenNotification osbn);
     }
 
     private void rebuildLocalList(@NonNull Comparator comparator) {
@@ -639,6 +649,10 @@ public class NotificationPresenter implements
 
         if (notification.getNotification().priority > mConfig.getNotifyMaxPriority()) {
             // Do not display too high-priority notification.
+            return false;
+        }
+
+        if (!LOCAL_FILTER.isValid(notification)) {
             return false;
         }
 

@@ -370,9 +370,78 @@ public class HeadsUpBase implements
                 removeHeadsUp(osbn);
                 break;
             case NotificationPresenter.EVENT_BATH:
-                // Fortunately there's no need to support bath
-                // changing list of notification.
+                rebuildNotifications();
                 break;
+        }
+    }
+
+    private void rebuildNotifications() {
+        if (DEBUG) Log.d(TAG, "Rebuilding notifications list.");
+        ArrayList<OpenNotification> list = NotificationPresenter.getInstance().getList();
+
+        final int notifyCount = list.size();
+        final int widgetCount = mHolder.widgetList.size();
+        final boolean[] notifyUsed = new boolean[notifyCount];
+        final boolean[] widgetUsed = new boolean[widgetCount];
+
+        for (int i = 0; i < widgetCount; i++) {
+            HeadsUpNotificationView widget = mHolder.widgetList.get(i);
+            OpenNotification target = widget.getNotification();
+
+            for (int j = 0; j < notifyCount; j++) {
+                OpenNotification n = list.get(j);
+                if (NotificationUtils.hasIdenticalIds(target, n)) {
+
+                    notifyUsed[j] = true;
+                    widgetUsed[i] = true;
+
+                    if (target != n) {
+                        widget.setNotification(n);
+                        widget.resetDecayTime();
+                    }
+                    break;
+                }
+            }
+        }
+
+        // Re-use free views and remove redundant views.
+        boolean removeAllAfter = false;
+        for (int a = 0, j = 0, offset = 0; a < widgetCount; a++) {
+            if (widgetUsed[a]) continue;
+            final int i = a + offset;
+
+            HeadsUpNotificationView widget = mHolder.widgetList.get(i);
+            removing_all_next_views:
+            {
+                if (!removeAllAfter) {
+                    for (; j < notifyCount; j++) {
+                        if (notifyUsed[j]) continue;
+
+                        assert widget != null;
+                        notifyUsed[j] = true;
+
+                        widget.setNotification(list.get(j));
+                        widget.resetDecayTime();
+                        break removing_all_next_views;
+                    }
+                }
+                removeAllAfter = true;
+
+                // Remove widget's icon.
+                mHolder.containerView.removeView(widget);
+                mHolder.widgetList.remove(i);
+                offset--;
+            }
+        }
+
+        for (int i = 0; i < notifyCount; i++) {
+            if (notifyUsed[i]) continue;
+            postHeadsUp(list.get(i));
+        }
+
+        mHolder.rootView.preventInstantInteractivity();
+        if (mHolder.widgetList.isEmpty()) {
+            hide(false);
         }
     }
 

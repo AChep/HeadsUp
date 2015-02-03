@@ -97,6 +97,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
      */
     private void hide() {
         OpenNotification notification = getNotification();
+        notification.markAsRead();
         mHeadsUpBase.removeHeadsUp(notification);
     }
 
