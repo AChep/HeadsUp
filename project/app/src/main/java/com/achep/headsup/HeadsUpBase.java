@@ -419,7 +419,7 @@ public class HeadsUpBase implements
         }
         mAttached = true;
 
-        boolean overlapStatusBar = Config.getInstance().isStatusBarOverlapEnabled();
+        boolean overlapStatusBar = getConfig().isStatusBarOverlapEnabled();
 
         // Define the padding
         Resources res = mHolder.context.getResources();
