@@ -147,6 +147,7 @@ public class HeadsUpBase implements
                         case ACTION_DISALLOW_HEADSUP:
                         case App.ACTION_EAT_HOME_PRESS_START: // for old versions of AcDisplay
                             mDisableIntentTime = SystemClock.elapsedRealtime();
+                        case Intent.ACTION_SCREEN_OFF:
                             hide(false);
                             break;
                         case ACTION_ALLOW_HEADSUP:
@@ -283,6 +284,7 @@ public class HeadsUpBase implements
         filter.addAction(ACTION_DISALLOW_HEADSUP);
         filter.addAction(App.ACTION_EAT_HOME_PRESS_STOP);
         filter.addAction(App.ACTION_EAT_HOME_PRESS_START);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
         mHolder.context.registerReceiver(mReceiver, filter);
 
         Config config = getConfig();
