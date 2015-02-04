@@ -20,7 +20,7 @@
 <resources>
 
     <integer name="config_timeout_minDurationMillis">3000</integer>
-    <integer name="config_timeout_maxDurationMillis">25000</integer>
+    <integer name="config_timeout_maxDurationMillis">60000</integer>
 
     <integer name="config_feedback_minMessageLength">15</integer>
 
