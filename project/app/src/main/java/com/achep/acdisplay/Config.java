@@ -23,12 +23,9 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
 
 import com.achep.acdisplay.plugins.powertoggles.ToggleReceiver;
 import com.achep.base.content.ConfigBase;
-import com.achep.headsup.HeadsUpBase;
 import com.achep.headsup.R;
 
 import java.util.HashMap;
@@ -59,6 +56,7 @@ public final class Config extends ConfigBase {
     // behavior
     public static final String KEY_NOTIFY_DECAY_TIME = "behavior_notify_decay_time";
     public static final String KEY_HIDE_ON_TOUCH_OUTSIDE = "behavior_hide_on_touch";
+    public static final String KEY_SHOW_ON_KEYGUARD = "behavior_show_on_keyguard";
     public static final String KEY_PRIVACY = "privacy_mode";
     public static final int PRIVACY_HIDE_CONTENT_MASK = 1;
     public static final int PRIVACY_HIDE_ACTIONS_MASK = 2;
@@ -78,6 +76,7 @@ public final class Config extends ConfigBase {
     private int mPrivacyMode;
     private int mUxNotifyDecayTime;
     private boolean mUxHideOnTouchOutside;
+    private boolean mUxShowOnKeyguard;
     private boolean mUiOverlapSb;
     private boolean mUiEmoticons;
     private boolean mUiOverrideFonts;
@@ -133,6 +132,8 @@ public final class Config extends ConfigBase {
                 res.getInteger(R.integer.config_default_notify_decay_time));
         mUxHideOnTouchOutside = prefs.getBoolean(KEY_HIDE_ON_TOUCH_OUTSIDE,
                 res.getBoolean(R.bool.config_default_hide_on_touch_outside_enabled));
+        mUxShowOnKeyguard = prefs.getBoolean(KEY_SHOW_ON_KEYGUARD,
+                res.getBoolean(R.bool.config_default_show_on_keyguard));
         mPrivacyMode = prefs.getInt(KEY_PRIVACY,
                 res.getInteger(R.integer.config_default_privacy_mode));
 
@@ -170,6 +171,8 @@ public final class Config extends ConfigBase {
                 "mUxNotifyDecayTime", null, null, int.class));
         hashMap.put(KEY_HIDE_ON_TOUCH_OUTSIDE, new ConfigBase.Option(
                 "mUxHideOnTouchOutside", null, null, boolean.class));
+        hashMap.put(KEY_SHOW_ON_KEYGUARD, new ConfigBase.Option(
+                "mUxShowOnKeyguard", null, null, boolean.class));
         hashMap.put(KEY_PRIVACY, new ConfigBase.Option(
                 "mPrivacyMode", null, null, int.class));
 
@@ -266,6 +269,10 @@ public final class Config extends ConfigBase {
      */
     public boolean isHideOnTouchOutsideEnabled() {
         return mUxHideOnTouchOutside;
+    }
+
+    public boolean isShownOnKeyguard() {
+        return mUxShowOnKeyguard;
     }
 
     public boolean isStatusBarOverlapEnabled() {

@@ -107,6 +107,7 @@ public class KeyguardSettings extends PreferenceFragment implements ConfigBase.O
         syncPreference(Config.KEY_UI_OVERRIDE_FONTS);
         syncPreference(Config.KEY_UI_EMOTICONS);
         syncPreference(Config.KEY_HIDE_ON_TOUCH_OUTSIDE);
+        syncPreference(Config.KEY_SHOW_ON_KEYGUARD);
 
         mNotifyDecayTimePreference = findPreference(Config.KEY_NOTIFY_DECAY_TIME);
     }

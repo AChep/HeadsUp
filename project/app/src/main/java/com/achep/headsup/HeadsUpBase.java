@@ -18,6 +18,7 @@
  */
 package com.achep.headsup;
 
+import android.app.KeyguardManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -339,6 +340,11 @@ public class HeadsUpBase implements
             // There's no point of showing heads-up
             // while screen is off.
             return;
+        } else if (!getConfig().isShownOnKeyguard()) {
+            KeyguardManager km = (KeyguardManager) mHolder.context.getSystemService(Context.KEYGUARD_SERVICE);
+            if (km.isKeyguardLocked()) {
+                return;
+            }
         }
 
         assert osbn != null;

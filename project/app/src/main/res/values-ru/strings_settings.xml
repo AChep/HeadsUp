@@ -43,6 +43,7 @@
     <string name="settings_notify_decay_time_dialog">Задержка отклонения уведомления</string>
     <string name="settings_notify_decay_time_summary">Уведомление автоматически скрывается через %1$s сек. после появления.</string>
     <string name="settings_hide_on_touch_outside_title">Скрывать по касанию вне уведомления</string>
+    <string name="settings_show_on_keyguard_title">Отображать на экране блокировки</string>
     <string name="settings_app_settings_title">Приложения</string>
     <string name="settings_app_settings_summary">Настройка каждого приложения.</string>
 

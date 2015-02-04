@@ -81,6 +81,11 @@
             android:key="behavior_hide_on_touch"
             android:title="@string/settings_hide_on_touch_outside_title" />
 
+        <CheckBoxPreference
+            android:defaultValue="@bool/config_default_show_on_keyguard"
+            android:key="behavior_show_on_keyguard"
+            android:title="@string/settings_show_on_keyguard_title" />
+
         <Preference
             android:summary="@string/settings_app_settings_summary"
             android:title="@string/settings_app_settings_title">
