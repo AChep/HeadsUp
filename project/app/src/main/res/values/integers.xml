@@ -22,4 +22,7 @@
     <!-- Dashboard number of columns -->
     <integer name="dashboard_num_columns">1</integer>
 
+    <!-- Milliseconds before the heads up notification accepts touches. -->
+    <integer name="heads_up_sensitivity_delay">700</integer>
+
 </resources>

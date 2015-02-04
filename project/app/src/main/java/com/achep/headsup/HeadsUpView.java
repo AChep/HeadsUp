@@ -44,7 +44,7 @@ public class HeadsUpView extends FrameLayout {
 
     public HeadsUpView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        mTouchSensitivityDelay = 500;//getResources().getInteger(R.integer.heads_up_sensitivity_delay);
+        mTouchSensitivityDelay = getResources().getInteger(R.integer.heads_up_sensitivity_delay);
     }
 
     public void setHeadsUpManager(HeadsUpBase manager) {
