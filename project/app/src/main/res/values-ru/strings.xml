@@ -30,7 +30,7 @@
     <!-- Description of why do we need notification listener rights -->
     <string name="permissions_notifications_description">Необходимо, чтобы иметь доступ к уведомлениям.</string>
     <!-- Shown as a toast, when clicking a button failed. -->
-    <string name="permissions_notifications_grant_manually">Перейдите в Настройки > Безопасность > Доступ к уведомлениям и включите AcDisplay.</string>
+    <string name="permissions_notifications_grant_manually">Перейдите в Настройки > Безопасность > Доступ к уведомлениям и включите HeadsUp.</string>
 
     <!--
         Actions

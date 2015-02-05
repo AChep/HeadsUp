@@ -38,7 +38,7 @@
     <!-- Description of why do we need notification listener rights -->
     <string name="permissions_notifications_description">Needed to get access to notifications.</string>
     <!-- Shown as a toast, when clicking a button failed. -->
-    <string name="permissions_notifications_grant_manually">Go to Settings > Security > Notification access and check AcDisplay on.</string>
+    <string name="permissions_notifications_grant_manually">Go to Settings > Security > Notification access and check HeadsUp on.</string>
 
     <!--
         Actions
