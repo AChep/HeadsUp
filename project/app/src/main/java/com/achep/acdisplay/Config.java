@@ -49,6 +49,7 @@ public final class Config extends ConfigBase {
 
     // interface
     public static final String KEY_UI_THEME = "ui_theme";
+    public static final String KEY_UI_SHOW_AT_TOP = "ui_at_top";
     public static final String KEY_UI_OVERLAP_STATUS_BAR = "ui_overlap_sb";
     public static final String KEY_UI_OVERRIDE_FONTS = "ui_override_fonts";
     public static final String KEY_UI_EMOTICONS = "ui_emoticons";
@@ -77,6 +78,7 @@ public final class Config extends ConfigBase {
     private int mUxNotifyDecayTime;
     private boolean mUxHideOnTouchOutside;
     private boolean mUxShowOnKeyguard;
+    private boolean mUiShowAtTop;
     private boolean mUiOverlapSb;
     private boolean mUiEmoticons;
     private boolean mUiOverrideFonts;
@@ -120,6 +122,8 @@ public final class Config extends ConfigBase {
         // interface
         mUiTheme = prefs.getString(KEY_UI_THEME,
                 res.getString(R.string.config_default_ui_theme));
+        mUiShowAtTop = prefs.getBoolean(KEY_UI_SHOW_AT_TOP,
+                res.getBoolean(R.bool.config_default_ui_at_top));
         mUiOverlapSb = prefs.getBoolean(KEY_UI_OVERLAP_STATUS_BAR,
                 res.getBoolean(R.bool.config_default_ui_overlap_sb));
         mUiOverrideFonts = prefs.getBoolean(KEY_UI_OVERRIDE_FONTS,
@@ -163,6 +167,8 @@ public final class Config extends ConfigBase {
                 "mUiEmoticons", null, null, boolean.class));
         hashMap.put(KEY_UI_OVERLAP_STATUS_BAR, new ConfigBase.Option(
                 "mUiOverlapSb", null, null, boolean.class));
+        hashMap.put(KEY_UI_SHOW_AT_TOP, new ConfigBase.Option(
+                "mUiShowAtTop", null, null, boolean.class));
         hashMap.put(KEY_UI_OVERRIDE_FONTS, new ConfigBase.Option(
                 "mUiOverrideFonts", null, null, boolean.class));
 
@@ -273,6 +279,10 @@ public final class Config extends ConfigBase {
 
     public boolean isShownOnKeyguard() {
         return mUxShowOnKeyguard;
+    }
+
+    public boolean isShownAtTop() {
+        return mUiShowAtTop;
     }
 
     public boolean isStatusBarOverlapEnabled() {

@@ -26,6 +26,7 @@
     <bool name="config_default_hide_on_touch_outside_enabled">true</bool>
     <bool name="config_default_ui_overlap_sb">true</bool>
     <bool name="config_default_show_on_keyguard">false</bool>
+    <bool name="config_default_ui_at_top">true</bool>
     <integer name="config_default_notify_min_priority">0</integer>
     <integer name="config_default_notify_max_priority">2</integer>
     <integer name="config_default_privacy_mode">0</integer>

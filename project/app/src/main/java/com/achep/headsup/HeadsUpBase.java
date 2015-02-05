@@ -135,6 +135,7 @@ public class HeadsUpBase implements
 
     private boolean mEnabled;
     private boolean mAttached;
+    private boolean mShownAtTop;
     private long mDisableIntentTime;
 
     private final Handler mHandler = new Handler();
@@ -466,6 +467,11 @@ public class HeadsUpBase implements
                     hide(false);
                 }
                 break;
+            case Config.KEY_UI_SHOW_AT_TOP:
+                if (!mAttached) {
+                    mShownAtTop = (boolean) value;
+                }
+                break;
         }
     }
 
@@ -496,7 +502,7 @@ public class HeadsUpBase implements
         }
         mAttached = true;
 
-        boolean overlapStatusBar = getConfig().isStatusBarOverlapEnabled();
+        boolean overlapStatusBar = mShownAtTop && getConfig().isStatusBarOverlapEnabled();
 
         // Define the padding
         Resources res = mHolder.context.getResources();
@@ -505,6 +511,8 @@ public class HeadsUpBase implements
                 : res.getDimensionPixelSize(R.dimen.headsup_root_padding_top);
         View v = mHolder.containerView;
         v.setPadding(v.getPaddingLeft(), paddingTop, v.getPaddingRight(), v.getPaddingBottom());
+        // And the rotation
+        v.setRotationX(mShownAtTop ? 0 : 180);
 
         // Add the view to the window.
         int layoutInScreenFlag = overlapStatusBar ? WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN : 0;
@@ -517,7 +525,7 @@ public class HeadsUpBase implements
                         | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
                         | layoutInScreenFlag,
                 PixelFormat.TRANSLUCENT);
-        lp.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
+        lp.gravity = (mShownAtTop ? Gravity.TOP : Gravity.BOTTOM) | Gravity.CENTER_HORIZONTAL;
         mHolder.wm.addView(mHolder.rootView, lp);
     }
 
@@ -529,6 +537,7 @@ public class HeadsUpBase implements
     private void detachFromWindow() {
         mHolder.wm.removeView(mHolder.rootView);
         mAttached = false;
+        mShownAtTop = getConfig().isShownAtTop();
     }
 
     //-- HANDLING HEADS-UP ----------------------------------------------------
@@ -582,6 +591,7 @@ public class HeadsUpBase implements
             widget.setNotification(notification);
             widget.setOnClickListener(mOnWidgetClickListener);
             widget.resetDecayTime();
+            widget.setRotationX(mShownAtTop ? 0 : 180);
 
             int pos = container.getChildCount() - mHolder.containerOffset;
             mHolder.rootView.preventInstantInteractivity();

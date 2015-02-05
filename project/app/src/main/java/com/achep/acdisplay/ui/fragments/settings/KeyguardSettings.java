@@ -103,6 +103,7 @@ public class KeyguardSettings extends PreferenceFragment implements ConfigBase.O
         syncPreference(Config.KEY_NOTIFY_MIN_PRIORITY, mListPreferenceNotifyPrioritySetter);
         syncPreference(Config.KEY_NOTIFY_MAX_PRIORITY, mListPreferenceNotifyPrioritySetter);
         syncPreference(Config.KEY_UI_THEME, mListPreferenceThemeSetter);
+        syncPreference(Config.KEY_UI_SHOW_AT_TOP);
         syncPreference(Config.KEY_UI_OVERLAP_STATUS_BAR);
         syncPreference(Config.KEY_UI_OVERRIDE_FONTS);
         syncPreference(Config.KEY_UI_EMOTICONS);

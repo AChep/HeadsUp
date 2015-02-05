@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2014 AChep@xda <artemchep@gmail.com>
   ~
   ~ This program is free software; you can redistribute it and/or
@@ -34,8 +33,15 @@
             android:title="@string/settings_theme_title" />
 
         <CheckBoxPreference
+            android:defaultValue="@bool/config_default_ui_at_top"
+            android:key="ui_at_top"
+            android:title="@string/settings_at_top_title" />
+
+        <CheckBoxPreference
             android:defaultValue="@bool/config_default_ui_overlap_sb"
+            android:dependency="ui_at_top"
             android:key="ui_overlap_sb"
+            android:layout="?android:preferenceLayoutChild"
             android:title="@string/settings_overlap_sb_title" />
 
         <CheckBoxPreference
@@ -71,9 +77,9 @@
     <PreferenceCategory android:title="@string/settings_other_category">
 
         <com.achep.acdisplay.ui.preferences.TimeoutPreference
-            android:key="behavior_notify_decay_time"
             android:dialogIcon="@drawable/ic_dialog_timeout_white"
             android:dialogTitle="@string/settings_notify_decay_time_dialog"
+            android:key="behavior_notify_decay_time"
             android:title="@string/settings_notify_decay_time_title" />
 
         <CheckBoxPreference
