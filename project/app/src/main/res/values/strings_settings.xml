@@ -48,7 +48,7 @@
     <string name="settings_app_settings_summary">Set preferences per application.</string>
 
     <!-- Preference: Sleep timeouts -->
-    <string name="preference_timeout_normal">Automatically hide notification after:</string>
+    <string name="preference_timeout_normal">Automatically hide notification after (set to 0 to disable):</string>
     <string name="preference_timeout_sec">%1$s sec.</string>
 
 </resources>

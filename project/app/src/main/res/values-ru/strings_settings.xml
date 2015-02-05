@@ -48,7 +48,7 @@
     <string name="settings_app_settings_summary">Настройка каждого приложения.</string>
 
     <!-- Preference: Sleep timeouts -->
-    <string name="preference_timeout_normal">При запуске или смене выбраного уведомления</string>
+    <string name="preference_timeout_normal">Автоматически скрыть уведомление через (установите на 0, чтобы отключить):</string>
     <string name="preference_timeout_sec">%1$s сек.</string>
 
 </resources>
