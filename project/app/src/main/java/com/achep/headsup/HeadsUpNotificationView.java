@@ -81,6 +81,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
         int delay = mHeadsUpBase.getConfig().getNotifyDecayTime();
         if (delay > 0) {
             delay += Math.max(getNotification().getNotification().priority * 750, 0);
+            if (!getNotification().isDismissible()) delay += 1000;
             mTimeout.setTimeoutDelayed(delay, true);
         }
     }
