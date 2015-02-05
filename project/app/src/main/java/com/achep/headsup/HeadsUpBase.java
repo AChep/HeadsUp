@@ -499,6 +499,8 @@ public class HeadsUpBase implements
             // exit animation.
             mHolder.rootView.clearAnimation();
             detachFromWindow();
+        } else {
+            getConfig().getTriggers().incrementLaunchCount(mHolder.context, this);
         }
         mAttached = true;
 
