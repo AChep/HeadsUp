@@ -387,6 +387,7 @@ public class HeadsUpBase implements
     private void rebuildNotifications() {
         if (DEBUG) Log.d(TAG, "Rebuilding notifications list.");
         ArrayList<OpenNotification> list = NotificationPresenter.getInstance().getList();
+        if (list.isEmpty()) hide(false);
 
         final int notifyCount = list.size();
         final int widgetCount = mHolder.widgetList.size();
@@ -449,9 +450,6 @@ public class HeadsUpBase implements
         }
 
         mHolder.rootView.preventInstantInteractivity();
-        if (mHolder.widgetList.isEmpty()) {
-            hide(false);
-        }
     }
 
     /**
