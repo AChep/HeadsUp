@@ -20,18 +20,18 @@
   -->
 <resources>
   <string-array name="feedback_types">
-    <item>Issue</item>
-    <item>Suggestion</item>
-    <item>Other</item>
+    <item>問題</item>
+    <item>建議</item>
+    <item>其他</item>
   </string-array>
   <string-array name="privacy_mode">
-    <item>Hide notifications\' content</item>
-    <item>Hide notifications\' actions</item>
+    <item>隱藏通知的內容</item>
+    <item>隱藏通知的動作</item>
   </string-array>
   <string-array name="notify_priorities">
-    <item>Critical and urgent (missed calls, directions, emergency alerts)</item>
-    <item>Important (communications, important mail)</item>
-    <item>Normal (+notifications from old apps)</item>
+    <item>重要及緊急事件 (未接來電、方向指示、緊急警示)</item>
+    <item>重要 (通訊、重要郵件)</item>
+    <item>一般 (先前應用程式中的通知)</item>
     <item>Non-important (software updates, junk mail)</item>
     <item>Contextual and background info (weather, expired events, suggestions)</item>
   </string-array>

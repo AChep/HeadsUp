@@ -28,6 +28,7 @@
   <string name="settings_interface_category">Интерфейс</string>
   <string name="settings_theme_title">Тема оформления</string>
   <string name="settings_theme_summary">Установлена %1$s тема оформления.</string>
+  <string name="settings_at_top_title">Отображать в верхней части экрана</string>
   <string name="settings_overlap_sb_title">Перекрыть строку состояния</string>
   <string name="settings_emoticons_title">Графические смайлы</string>
   <string name="settings_override_fonts_title">Заместить системные шрифты</string>
@@ -36,8 +37,9 @@
   <string name="settings_notify_decay_time_dialog">Задержка отклонения уведомления</string>
   <string name="settings_notify_decay_time_summary">Уведомление автоматически скрывается через %1$s сек. после появления.</string>
   <string name="settings_hide_on_touch_outside_title">Скрывать по касанию вне уведомления</string>
+  <string name="settings_show_on_keyguard_title">Отображать на экране блокировки</string>
   <string name="settings_app_settings_title">Приложения</string>
   <string name="settings_app_settings_summary">Настройка каждого приложения.</string>
-  <string name="preference_timeout_normal">При запуске или смене выбраного уведомления</string>
+  <string name="preference_timeout_normal">Автоматически скрыть уведомление через (установите на 0, чтобы отключить):</string>
   <string name="preference_timeout_sec">%1$s сек.</string>
 </resources>

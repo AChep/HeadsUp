@@ -28,6 +28,7 @@
   <string name="settings_interface_category">Interface</string>
   <string name="settings_theme_title">Tema</string>
   <string name="settings_theme_summary">Vocôe tem o tema %1$s aplicado.</string>
+  <string name="settings_at_top_title">Show at top of the screen</string>
   <string name="settings_overlap_sb_title">Overlap status bar</string>
   <string name="settings_emoticons_title">Emoticons</string>
   <string name="settings_override_fonts_title">Override system fonts</string>
@@ -36,8 +37,9 @@
   <string name="settings_notify_decay_time_dialog">Tempo de descarte</string>
   <string name="settings_notify_decay_time_summary">A notificação é descartada %1$s segundo após a aparição.</string>
   <string name="settings_hide_on_touch_outside_title">Ocultar ao tocar fora</string>
+  <string name="settings_show_on_keyguard_title">Show on the lockscreen</string>
   <string name="settings_app_settings_title">Apps</string>
   <string name="settings_app_settings_summary">Definir preferências por aplicação.</string>
-  <string name="preference_timeout_normal">Ocultar automaticamente notificação após:</string>
+  <string name="preference_timeout_normal">Automatically hide notification after (set to 0 to disable):</string>
   <string name="preference_timeout_sec">%1$s seg.</string>
 </resources>

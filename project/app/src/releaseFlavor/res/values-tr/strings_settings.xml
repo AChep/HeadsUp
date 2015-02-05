@@ -28,6 +28,7 @@
   <string name="settings_interface_category">Interface</string>
   <string name="settings_theme_title">Tema</string>
   <string name="settings_theme_summary">Tema uygulayabilmek için %1$s gereklidir.</string>
+  <string name="settings_at_top_title">Show at top of the screen</string>
   <string name="settings_overlap_sb_title">Overlap status bar</string>
   <string name="settings_emoticons_title">Emoticons</string>
   <string name="settings_override_fonts_title">Override system fonts</string>
@@ -36,8 +37,9 @@
   <string name="settings_notify_decay_time_dialog">Zaman aşımını red et</string>
   <string name="settings_notify_decay_time_summary">Bildirim %1$s saniye sonra kaybolsun.</string>
   <string name="settings_hide_on_touch_outside_title">Bildirim alanı dışına dokununca gizle</string>
+  <string name="settings_show_on_keyguard_title">Show on the lockscreen</string>
   <string name="settings_app_settings_title">Uygulamalar</string>
   <string name="settings_app_settings_summary">Her uygulama için ayrı tercih ayarlayın.</string>
-  <string name="preference_timeout_normal">Bildirim otomatik olarak kapanacak:</string>
+  <string name="preference_timeout_normal">Automatically hide notification after (set to 0 to disable):</string>
   <string name="preference_timeout_sec">%1$s saniye.</string>
 </resources>

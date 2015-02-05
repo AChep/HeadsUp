@@ -21,8 +21,8 @@
 <resources>
   <string name="blacklist">Liste noire</string>
   <string name="blacklist_app_config">Paramètres de l\'application</string>
-  <string name="blacklist_app_hide_title">Cacher</string>
-  <string name="blacklist_app_hide_summary">Les notifications de cette appli ne seront pas montrées.</string>
+  <string name="blacklist_app_hide_title">Masquer</string>
+  <string name="blacklist_app_hide_summary">Les notifications de cette appli ne seront pas affichées.</string>
   <string name="blacklist_app_non_clearable_title">Notifications permanentes</string>
   <string name="blacklist_app_non_clearable_summary">Afficher les notifications permanentes, telles que celles des services.</string>
 </resources>

@@ -20,24 +20,26 @@
   -->
 <resources>
   <string name="settings">Paramètres</string>
-  <string name="settings_multi_list_divider">,</string>
+  <string name="settings_multi_list_divider">,&#160;</string>
   <string name="settings_unknown_value">Valeur inconnue</string>
   <string name="settings_notifications_category">Notifications</string>
   <string name="settings_notify_min_priority_title">Priorité minimale</string>
-  <string name="settings_notify_max_priority_title">Maximum priority</string>
+  <string name="settings_notify_max_priority_title">Priorité maximale</string>
   <string name="settings_interface_category">Interface</string>
   <string name="settings_theme_title">Thème</string>
   <string name="settings_theme_summary">Vous avez le  thème %1$s défini.</string>
-  <string name="settings_overlap_sb_title">Overlap status bar</string>
-  <string name="settings_emoticons_title">Emoticons</string>
-  <string name="settings_override_fonts_title">Override system fonts</string>
-  <string name="settings_other_category">Autres</string>
+  <string name="settings_at_top_title">Afficher en haut de l\'écran</string>
+  <string name="settings_overlap_sb_title">Chevaucher la barre d\'état</string>
+  <string name="settings_emoticons_title">Émoticônes</string>
+  <string name="settings_override_fonts_title">Remplacer les polices système</string>
+  <string name="settings_other_category">Autre</string>
   <string name="settings_notify_decay_time_title">Délai avant rejet</string>
   <string name="settings_notify_decay_time_dialog">Délai avant rejet</string>
   <string name="settings_notify_decay_time_summary">Les notifications sont masquées %1$s sec. après affichage.</string>
-  <string name="settings_hide_on_touch_outside_title">Cacher en touchant à l\'extérieur</string>
+  <string name="settings_hide_on_touch_outside_title">Masquer en appuyant en dehors</string>
+  <string name="settings_show_on_keyguard_title">Afficher sur l\'écran de verrouillage</string>
   <string name="settings_app_settings_title">Applications</string>
   <string name="settings_app_settings_summary">Définir les préférences par application.</string>
-  <string name="preference_timeout_normal">Masquer automatiquement les notifications après :</string>
+  <string name="preference_timeout_normal">Masquer automatiquement la notification après (régler sur 0 pour désactiver) :</string>
   <string name="preference_timeout_sec">%1$s sec.</string>
 </resources>

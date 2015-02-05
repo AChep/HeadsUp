@@ -23,7 +23,7 @@
   <string name="permissions_dialog_title">Required permissions:</string>
   <string name="permissions_notifications">Notifications</string>
   <string name="permissions_notifications_description">Needed to get access to notifications.</string>
-  <string name="permissions_notifications_grant_manually">Go to Settings &gt; Security &gt; Notification access and check AcDisplay on.</string>
+  <string name="permissions_notifications_grant_manually">Go to Settings &gt; Security &gt; Notification access and check HeadsUp on.</string>
   <string name="action_about">About</string>
   <string name="action_donate">Donate</string>
   <string name="action_feedback">Feedback</string>

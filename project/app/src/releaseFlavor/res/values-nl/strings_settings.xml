@@ -28,6 +28,7 @@
   <string name="settings_interface_category">Interface</string>
   <string name="settings_theme_title">Thema</string>
   <string name="settings_theme_summary">U hebt het %1$s thema ingesteld.</string>
+  <string name="settings_at_top_title">Show at top of the screen</string>
   <string name="settings_overlap_sb_title">Overlap status bar</string>
   <string name="settings_emoticons_title">Emoticons</string>
   <string name="settings_override_fonts_title">Override system fonts</string>
@@ -36,8 +37,9 @@
   <string name="settings_notify_decay_time_dialog">Negeer timeout</string>
   <string name="settings_notify_decay_time_summary">Melding wordt genegeerd na %1$s sec. na verschijning.</string>
   <string name="settings_hide_on_touch_outside_title">Verberg na aanraken buiten</string>
+  <string name="settings_show_on_keyguard_title">Show on the lockscreen</string>
   <string name="settings_app_settings_title">Apps</string>
   <string name="settings_app_settings_summary">Stel voorkeuren per applicatie in.</string>
-  <string name="preference_timeout_normal">Verberg melding automatisch na:</string>
+  <string name="preference_timeout_normal">Automatically hide notification after (set to 0 to disable):</string>
   <string name="preference_timeout_sec">%1$s sec.</string>
 </resources>

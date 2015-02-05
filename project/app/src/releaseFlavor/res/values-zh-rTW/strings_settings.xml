@@ -19,25 +19,27 @@
   ~ MA  02110-1301, USA.
   -->
 <resources>
-  <string name="settings">Settings</string>
+  <string name="settings">設定</string>
   <string name="settings_multi_list_divider">,&#160;</string>
-  <string name="settings_unknown_value">Unknown value</string>
-  <string name="settings_notifications_category">Notifications</string>
-  <string name="settings_notify_min_priority_title">Minimum priority</string>
-  <string name="settings_notify_max_priority_title">Maximum priority</string>
-  <string name="settings_interface_category">Interface</string>
-  <string name="settings_theme_title">Theme</string>
-  <string name="settings_theme_summary">You have the %1$s theme set.</string>
-  <string name="settings_overlap_sb_title">Overlap status bar</string>
-  <string name="settings_emoticons_title">Emoticons</string>
-  <string name="settings_override_fonts_title">Override system fonts</string>
-  <string name="settings_other_category">Other</string>
-  <string name="settings_notify_decay_time_title">Dismiss timeout</string>
-  <string name="settings_notify_decay_time_dialog">Dismiss timeout</string>
-  <string name="settings_notify_decay_time_summary">Notification hides after %1$s sec. after appearance.</string>
-  <string name="settings_hide_on_touch_outside_title">Hide on touch outside</string>
-  <string name="settings_app_settings_title">Apps</string>
-  <string name="settings_app_settings_summary">Set preferences per application.</string>
-  <string name="preference_timeout_normal">Automatically hide notification after:</string>
-  <string name="preference_timeout_sec">%1$s sec.</string>
+  <string name="settings_unknown_value">未知的值</string>
+  <string name="settings_notifications_category">通知</string>
+  <string name="settings_notify_min_priority_title">最低優先權</string>
+  <string name="settings_notify_max_priority_title">最高優先權</string>
+  <string name="settings_interface_category">介面</string>
+  <string name="settings_theme_title">主題</string>
+  <string name="settings_theme_summary">您已將主題設為「%1$s」。</string>
+  <string name="settings_at_top_title">Show at top of the screen</string>
+  <string name="settings_overlap_sb_title">與狀態列重疊</string>
+  <string name="settings_emoticons_title">表情符號</string>
+  <string name="settings_override_fonts_title">覆寫系統字型</string>
+  <string name="settings_other_category">其他</string>
+  <string name="settings_notify_decay_time_title">忽略逾時</string>
+  <string name="settings_notify_decay_time_dialog">忽略逾時</string>
+  <string name="settings_notify_decay_time_summary">通知會在出現 %1$s 秒後隱藏。</string>
+  <string name="settings_hide_on_touch_outside_title">輕觸其他位置時隱藏</string>
+  <string name="settings_show_on_keyguard_title">Show on the lockscreen</string>
+  <string name="settings_app_settings_title">應用程式</string>
+  <string name="settings_app_settings_summary">針對個別應用程式調整偏好設定。</string>
+  <string name="preference_timeout_normal">Automatically hide notification after (set to 0 to disable):</string>
+  <string name="preference_timeout_sec">%1$s 秒</string>
 </resources>
