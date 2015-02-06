@@ -293,6 +293,7 @@ public class HeadsUpBase implements
         NotificationPresenter.getInstance().registerListener(this);
 
         mEnabled = config.isEnabled();
+        mShownAtTop = config.isShownAtTop();
     }
 
     void onStop() {
