@@ -29,14 +29,18 @@
     <item>隱藏通知的動作</item>
   </string-array>
   <string-array name="notify_priorities">
-    <item>重要及緊急事件 (未接來電、方向指示、緊急警示)</item>
-    <item>重要 (通訊、重要郵件)</item>
-    <item>一般 (先前應用程式中的通知)</item>
-    <item>Non-important (software updates, junk mail)</item>
-    <item>Contextual and background info (weather, expired events, suggestions)</item>
+    <item>重大及緊急通知 (未接來電、方向指示、緊急警示)</item>
+    <item>重要通知 (通訊、重要郵件)</item>
+    <item>一般通知 (先前應用程式中的通知)</item>
+    <item>不重要的通知 (軟體更新、垃圾郵件)</item>
+    <item>內容關聯與背景資訊 (天氣、過期的活動、建議)</item>
   </string-array>
   <string-array name="themes">
-    <item>Light</item>
-    <item>Dark</item>
+    <item>淺色</item>
+    <item>深色</item>
+  </string-array>
+  <string-array name="st_actions">
+    <item>Dismisses notification</item>
+    <item>Hides notification</item>
   </string-array>
 </resources>

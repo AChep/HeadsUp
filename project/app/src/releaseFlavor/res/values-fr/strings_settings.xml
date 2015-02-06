@@ -27,12 +27,14 @@
   <string name="settings_notify_max_priority_title">Priorité maximale</string>
   <string name="settings_interface_category">Interface</string>
   <string name="settings_theme_title">Thème</string>
-  <string name="settings_theme_summary">Vous avez le  thème %1$s défini.</string>
+  <string name="settings_theme_summary">Vous avez défini le thème %1$s.</string>
   <string name="settings_at_top_title">Afficher en haut de l\'écran</string>
   <string name="settings_overlap_sb_title">Chevaucher la barre d\'état</string>
   <string name="settings_emoticons_title">Émoticônes</string>
   <string name="settings_override_fonts_title">Remplacer les polices système</string>
   <string name="settings_other_category">Autre</string>
+  <string name="settings_ux_str_action_title">Swipe to right</string>
+  <string name="settings_ux_stl_action_title">Swipe to left</string>
   <string name="settings_notify_decay_time_title">Délai avant rejet</string>
   <string name="settings_notify_decay_time_dialog">Délai avant rejet</string>
   <string name="settings_notify_decay_time_summary">Les notifications sont masquées %1$s sec. après affichage.</string>

@@ -25,18 +25,22 @@
     <item>Outro</item>
   </string-array>
   <string-array name="privacy_mode">
-    <item>ocultar o conteúdo de notificações</item>
-    <item>esconder as ações de notificações</item>
+    <item>Ocultar o conteúdo das notificações</item>
+    <item>Esconder as ações das notificações</item>
   </string-array>
   <string-array name="notify_priorities">
     <item>máximo</item>
     <item>Alto</item>
     <item>Normal</item>
     <item>Baixo</item>
-    <item>Contextual e informações em background (tempo, eventos expirados, sugestões)</item>
+    <item>Contextual e informações de segundo plano (tempo, eventos expirados, sugestões)</item>
   </string-array>
   <string-array name="themes">
     <item>Claro</item>
     <item>Escuro</item>
+  </string-array>
+  <string-array name="st_actions">
+    <item>Dismisses notification</item>
+    <item>Hides notification</item>
   </string-array>
 </resources>

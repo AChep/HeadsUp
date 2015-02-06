@@ -39,4 +39,8 @@
     <item>ライト</item>
     <item>ダーク</item>
   </string-array>
+  <string-array name="st_actions">
+    <item>Dismisses notification</item>
+    <item>Hides notification</item>
+  </string-array>
 </resources>

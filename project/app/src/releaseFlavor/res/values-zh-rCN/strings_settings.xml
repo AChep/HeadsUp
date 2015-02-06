@@ -33,6 +33,8 @@
   <string name="settings_emoticons_title">Emoticons</string>
   <string name="settings_override_fonts_title">Override system fonts</string>
   <string name="settings_other_category">其它</string>
+  <string name="settings_ux_str_action_title">Swipe to right</string>
+  <string name="settings_ux_stl_action_title">Swipe to left</string>
   <string name="settings_notify_decay_time_title">解除超时</string>
   <string name="settings_notify_decay_time_dialog">解除超时</string>
   <string name="settings_notify_decay_time_summary">通知显示 %1$s 秒后解除</string>

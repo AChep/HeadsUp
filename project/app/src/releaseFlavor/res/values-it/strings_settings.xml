@@ -33,6 +33,8 @@
   <string name="settings_emoticons_title">Emoticons</string>
   <string name="settings_override_fonts_title">Override system fonts</string>
   <string name="settings_other_category">Altro</string>
+  <string name="settings_ux_str_action_title">Swipe to right</string>
+  <string name="settings_ux_stl_action_title">Swipe to left</string>
   <string name="settings_notify_decay_time_title">Timeout scomparsa</string>
   <string name="settings_notify_decay_time_dialog">Timeout scomparsa</string>
   <string name="settings_notify_decay_time_summary">Notifica ignorata dopo %1$s sec dalla comparsa.</string>

@@ -20,26 +20,28 @@
   -->
 <resources>
   <string name="settings">設定</string>
-  <string name="settings_multi_list_divider">,&#160;</string>
-  <string name="settings_unknown_value">未知的值</string>
+  <string name="settings_multi_list_divider">、</string>
+  <string name="settings_unknown_value">未知數值</string>
   <string name="settings_notifications_category">通知</string>
-  <string name="settings_notify_min_priority_title">最低優先權</string>
-  <string name="settings_notify_max_priority_title">最高優先權</string>
+  <string name="settings_notify_min_priority_title">最低優先順序</string>
+  <string name="settings_notify_max_priority_title">最高優先順序</string>
   <string name="settings_interface_category">介面</string>
   <string name="settings_theme_title">主題</string>
   <string name="settings_theme_summary">您已將主題設為「%1$s」。</string>
-  <string name="settings_at_top_title">Show at top of the screen</string>
+  <string name="settings_at_top_title">在螢幕頂端顯示</string>
   <string name="settings_overlap_sb_title">與狀態列重疊</string>
   <string name="settings_emoticons_title">表情符號</string>
   <string name="settings_override_fonts_title">覆寫系統字型</string>
   <string name="settings_other_category">其他</string>
-  <string name="settings_notify_decay_time_title">忽略逾時</string>
-  <string name="settings_notify_decay_time_dialog">忽略逾時</string>
+  <string name="settings_ux_str_action_title">Swipe to right</string>
+  <string name="settings_ux_stl_action_title">Swipe to left</string>
+  <string name="settings_notify_decay_time_title">關閉逾時</string>
+  <string name="settings_notify_decay_time_dialog">關閉逾時</string>
   <string name="settings_notify_decay_time_summary">通知會在出現 %1$s 秒後隱藏。</string>
   <string name="settings_hide_on_touch_outside_title">輕觸其他位置時隱藏</string>
-  <string name="settings_show_on_keyguard_title">Show on the lockscreen</string>
+  <string name="settings_show_on_keyguard_title">在鎖定畫面上顯示</string>
   <string name="settings_app_settings_title">應用程式</string>
   <string name="settings_app_settings_summary">針對個別應用程式調整偏好設定。</string>
-  <string name="preference_timeout_normal">Automatically hide notification after (set to 0 to disable):</string>
+  <string name="preference_timeout_normal">在經過以下時間後自動隱藏通知 (設為 0 即停用)：</string>
   <string name="preference_timeout_sec">%1$s 秒</string>
 </resources>

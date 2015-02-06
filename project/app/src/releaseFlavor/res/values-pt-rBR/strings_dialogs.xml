@@ -20,38 +20,38 @@
   -->
 <resources>
   <string name="about_dialog_message"><![CDATA[
-        HeadsUp is a free and <a href="https://github.com/AChep/HeadsUp">open source</a> app.
-        Copyright 2014-%2$s <a href="http://artemchep.com">Artem Chepurnoy</a>. All Rights Reserved.<br/>
+        HeadsUp é um app gratuito e <a href="https://github.com/AChep/HeadsUp">open source</a>.
+        Copyright 2014-%2$s <a href="http://artemchep.com">Artem Chepurnoy</a>. Todos os direitos reservados.<br/>
         <br/>
-        Many thanks to those open source tools: %1$s and to all who
-        <a href="https://crowdin.com/project/headsup">helped with translations</a> or donated.
+        Muitos agradecimentos a essas ferramentas open source: %1$s e para todos que
+        <a href="https://crowdin.com/project/headsup">ajudaram com traduções</a> ou doaram.
     ]]></string>
-  <string name="donate_dialog_title">Donate to developers</string>
-  <string name="donate_dialog_message">HeadsUp is a free and open source app. You can show your appreciation and support development by donating:</string>
-  <string name="donate_alert_no_responsibility">Notice that Google is not responsible for this payments method.</string>
-  <string name="donate_billing_not_supported">In-app purchases are not supported on the device.</string>
-  <string name="donate_thanks">Thank you very much!</string>
-  <string name="donation_1">An ice cream</string>
-  <string name="donation_4">A cup of coffee</string>
-  <string name="donation_10">Electricity bills</string>
-  <string name="donation_20">The right pillow</string>
-  <string name="donation_50">Solid-state drive</string>
-  <string name="donation_99">Sound system</string>
-  <string name="cry_dialog_title">Support development</string>
+  <string name="donate_dialog_title">Doar aos desenvolvedores</string>
+  <string name="donate_dialog_message">HeadsUp é um app gratuito e open source. Você pode mostrar a sua apreciação e apoiar o desenvolvimento doando:</string>
+  <string name="donate_alert_no_responsibility">O Google não é responsável por esse método de pagamento.</string>
+  <string name="donate_billing_not_supported">Compras no app não são suportadas neste dispositivo.</string>
+  <string name="donate_thanks">Muito obrigado!</string>
+  <string name="donation_1">Um sorvete</string>
+  <string name="donation_4">Uma xícara de café</string>
+  <string name="donation_10">Contas de luz</string>
+  <string name="donation_20">O travesseiro ideal</string>
+  <string name="donation_50">Um SSD</string>
+  <string name="donation_99">Sistema de som</string>
+  <string name="cry_dialog_title">Ajude no desenvolvimento</string>
   <string name="cry_dialog_message"><![CDATA[
-        HeadsUp is a free and <a href="https://github.com/AChep/HeadsUp">open source</a> app and we spend
-        a lot of time and resources on keeping it with time. Please, consider a donation to show your
-        appreciation and to support further development.
+        HeadsUp é um app gratuito e <a href="https://github.com/AChep/HeadsUp">open source</a> e nós gastamos
+        muito tempo e recursos para mantê-lo atualizado. Por favor, considere uma doação para mostrar
+        sua apreciação e ajudar no desenvolvimento.
     ]]></string>
-  <string name="help_dialog_title">Help</string>
+  <string name="help_dialog_title">Ajuda</string>
   <string name="feedback_dialog_title">Feedback</string>
-  <string name="feedback_dialog_message_hint">Your message. Device specs will be included automatically.</string>
-  <string name="feedback_dialog_attach_log">Attach a log</string>
-  <string name="feedback_dialog_read_help">Frequently asked questions</string>
-  <string name="feedback_error_no_app">Install any of email apps.</string>
-  <string name="feedback_error_msg_too_short">Message must contain at least %1$d symbols.</string>
-  <string name="feedback_error_accessing_log">Error accessing app\'s log. The error is: %1$s</string>
-  <string name="compat_dialog_title">Compatibility mode</string>
-  <string name="compat_dialog_message">HeadsUp is running in a compatibility mode to support Android %1$s: %2$s</string>
-  <string name="compat_dialog_item_notification">Because HeadsUp is using the accessibility service, it cannot detect notifications being dismissed/updated, or dismiss notifications from the notifications drawer.</string>
+  <string name="feedback_dialog_message_hint">Sua mensagem. Especificações do dispositivo serão incluídas automaticamente.</string>
+  <string name="feedback_dialog_attach_log">Anexar um registro</string>
+  <string name="feedback_dialog_read_help">Perguntas frequentes</string>
+  <string name="feedback_error_no_app">Instale um app de e-mail.</string>
+  <string name="feedback_error_msg_too_short">Mensagem deve conter pelo menos %1$d caracteres.</string>
+  <string name="feedback_error_accessing_log">Erro ao acessar o registro do app. O erro é: %1$s</string>
+  <string name="compat_dialog_title">Modo de compatibilidade</string>
+  <string name="compat_dialog_message">HeadsUp está executando no modo de compatibilidade para dar suporte ao Android %1$s: %2$s</string>
+  <string name="compat_dialog_item_notification">Já que o HeadsUp está usando o serviço de acessibilidade, não é possível detectar notificações que são dispensadas/atualizadas, ou dispensar notificações do painel.</string>
 </resources>

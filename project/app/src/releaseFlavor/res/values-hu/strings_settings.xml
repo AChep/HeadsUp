@@ -33,6 +33,8 @@
   <string name="settings_emoticons_title">Emoticons</string>
   <string name="settings_override_fonts_title">Override system fonts</string>
   <string name="settings_other_category">Egyéb</string>
+  <string name="settings_ux_str_action_title">Swipe to right</string>
+  <string name="settings_ux_stl_action_title">Swipe to left</string>
   <string name="settings_notify_decay_time_title">Időkorlát megszüntetése</string>
   <string name="settings_notify_decay_time_dialog">Időkorlát megszüntetése</string>
   <string name="settings_notify_decay_time_summary">Értesítés törlése %1$s mp. a megjelenítés után.</string>

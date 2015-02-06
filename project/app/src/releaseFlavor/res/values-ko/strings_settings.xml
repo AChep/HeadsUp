@@ -33,6 +33,8 @@
   <string name="settings_emoticons_title">이모티콘</string>
   <string name="settings_override_fonts_title">Override system fonts</string>
   <string name="settings_other_category">기타</string>
+  <string name="settings_ux_str_action_title">Swipe to right</string>
+  <string name="settings_ux_stl_action_title">Swipe to left</string>
   <string name="settings_notify_decay_time_title">해제 시간 제한</string>
   <string name="settings_notify_decay_time_dialog">해제 시간 제한</string>
   <string name="settings_notify_decay_time_summary">알림이 표시되고 %1$s초 후에 제거됩니다.</string>

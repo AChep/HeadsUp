@@ -24,5 +24,5 @@
   <string name="blacklist_app_hide_title">隱藏</string>
   <string name="blacklist_app_hide_summary">系統將不再顯示此應用程式的通知。</string>
   <string name="blacklist_app_non_clearable_title">無法清除的通知</string>
-  <string name="blacklist_app_non_clearable_summary">顯示無法清除的通知 (例如服務通知)。</string>
+  <string name="blacklist_app_non_clearable_summary">顯示無法清除的通知/持續性通知 (例如服務通知)。</string>
 </resources>

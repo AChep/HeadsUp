@@ -39,4 +39,8 @@
     <item>Φωτεινό</item>
     <item>Σκοτεινό</item>
   </string-array>
+  <string-array name="st_actions">
+    <item>Dismisses notification</item>
+    <item>Hides notification</item>
+  </string-array>
 </resources>

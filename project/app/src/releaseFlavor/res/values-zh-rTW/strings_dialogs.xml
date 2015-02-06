@@ -20,18 +20,16 @@
   -->
 <resources>
   <string name="about_dialog_message"><![CDATA[
-        HeadsUp 是免費且<a href="https://github.com/AChep/HeadsUp">開放原始碼</a>的應用程式。
-        Copyright 2014-%2$s <a href="http://artemchep.com">Artem Chepurnoy</a>. All Rights Reserved.<br/>
+        HeadsUp 是免費且<a href="https://github.com/AChep/HeadsUp">開放原始碼</a>的應用程式。Copyright 2014-%2$s <a href="http://artemchep.com">Artem Chepurnoy</a>. All Rights Reserved.<br/>
         <br/>
-        誠摯感謝以下開放原始碼工具：%1$s，以及所有
-        <a href="https://crowdin.com/project/headsup">協助翻譯</a>或提供贊助的使用者。
+        誠摯感謝下列開放原始碼工具：%1$s，以及所有<a href="https://crowdin.com/project/headsup">協助翻譯</a>或提供贊助的使用者。
     ]]></string>
   <string name="donate_dialog_title">贊助開發人員</string>
   <string name="donate_dialog_message">HeadsUp 是免費且開放原始碼的應用程式，您可以透過贊助表示感謝與支持：</string>
   <string name="donate_alert_no_responsibility">請注意，Google 對此付款方式不負任何責任。</string>
   <string name="donate_billing_not_supported">您的裝置不支援應用程式內購買功能。</string>
-  <string name="donate_thanks">非常感謝您！</string>
-  <string name="donation_1">一份冰淇淋</string>
+  <string name="donate_thanks">非常感謝！</string>
+  <string name="donation_1">一球冰淇淋</string>
   <string name="donation_4">一杯咖啡</string>
   <string name="donation_10">電費帳單</string>
   <string name="donation_20">舒服的枕頭</string>
@@ -51,5 +49,5 @@
   <string name="feedback_error_accessing_log">存取應用程式紀錄檔時發生錯誤，錯誤內容為：%1$s</string>
   <string name="compat_dialog_title">相容性模式</string>
   <string name="compat_dialog_message">為支援 Android %1$s: %2$s，HeadsUp 正在相容性模式下執行</string>
-  <string name="compat_dialog_item_notification">HeadsUp 正在使用協助工具服務，因此無法偵測已忽略或更新的通知，或是從通知列表中忽略通知。</string>
+  <string name="compat_dialog_item_notification">HeadsUp 正在使用協助工具服務，因此無法偵測已忽略或更新的通知，或是關閉通知列表中的通知。</string>
 </resources>
