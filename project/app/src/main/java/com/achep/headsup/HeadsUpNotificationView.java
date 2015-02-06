@@ -198,7 +198,14 @@ public class HeadsUpNotificationView extends NotificationWidget implements
     public void onTimeoutEvent(@NonNull Timeout timeout, int event) {
         switch (event) {
             case Timeout.EVENT_TIMEOUT:
-                hide();
+                // Running #hide() it this thread may cause the
+                // java.util.ConcurrentModificationException.
+                post(new Runnable() {
+                    @Override
+                    public void run() {
+                        hide();
+                    }
+                });
                 break;
         }
     }
