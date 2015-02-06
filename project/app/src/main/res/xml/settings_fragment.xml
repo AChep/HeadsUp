@@ -76,6 +76,20 @@
 
     <PreferenceCategory android:title="@string/settings_other_category">
 
+        <ListPreference
+            android:defaultValue="@integer/config_default_str_action"
+            android:entries="@array/st_actions"
+            android:entryValues="@array/st_actions_entries"
+            android:key="ux_str_action"
+            android:title="@string/settings_ux_str_action_title" />
+
+        <ListPreference
+            android:defaultValue="@integer/config_default_stl_action"
+            android:entries="@array/st_actions"
+            android:entryValues="@array/st_actions_entries"
+            android:key="ux_stl_action"
+            android:title="@string/settings_ux_stl_action_title" />
+
         <com.achep.acdisplay.ui.preferences.TimeoutPreference
             android:dialogIcon="@drawable/ic_dialog_timeout_white"
             android:dialogTitle="@string/settings_notify_decay_time_dialog"

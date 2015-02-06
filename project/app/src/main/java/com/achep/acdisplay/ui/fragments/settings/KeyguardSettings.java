@@ -27,9 +27,9 @@ import android.text.TextUtils;
 import com.achep.acdisplay.App;
 import com.achep.acdisplay.Config;
 import com.achep.base.content.ConfigBase;
-import com.achep.headsup.R;
 import com.achep.base.permissions.Permission;
 import com.achep.base.ui.fragments.PreferenceFragment;
+import com.achep.headsup.R;
 
 /**
  * Created by Artem on 09.02.14.
@@ -87,6 +87,22 @@ public class KeyguardSettings extends PreferenceFragment implements ConfigBase.O
 
             };
 
+    private final ListPreferenceSetter mListPreferenceStSetter =
+            new ListPreferenceSetter() {
+
+                @Override
+                public void updateSummary(@NonNull Preference preference,
+                                          @NonNull Config.Option option,
+                                          @NonNull Object value) {
+                    int v = (int) value;
+                    ListPreference cbp = (ListPreference) preference;
+                    cbp.setSummary(getString(
+                            R.string.settings_ux_st_action_summary,
+                            cbp.getEntries()[v]));
+                }
+
+            };
+
     private Preference mNotifyDecayTimePreference;
 
     @Override
@@ -103,6 +119,8 @@ public class KeyguardSettings extends PreferenceFragment implements ConfigBase.O
         syncPreference(Config.KEY_NOTIFY_MIN_PRIORITY, mListPreferenceNotifyPrioritySetter);
         syncPreference(Config.KEY_NOTIFY_MAX_PRIORITY, mListPreferenceNotifyPrioritySetter);
         syncPreference(Config.KEY_UI_THEME, mListPreferenceThemeSetter);
+        syncPreference(Config.KEY_UX_STR_ACTION, mListPreferenceStSetter);
+        syncPreference(Config.KEY_UX_STL_ACTION, mListPreferenceStSetter);
         syncPreference(Config.KEY_UI_SHOW_AT_TOP);
         syncPreference(Config.KEY_UI_OVERLAP_STATUS_BAR);
         syncPreference(Config.KEY_UI_OVERRIDE_FONTS);

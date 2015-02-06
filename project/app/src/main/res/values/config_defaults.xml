@@ -31,6 +31,8 @@
     <integer name="config_default_notify_max_priority">2</integer>
     <integer name="config_default_privacy_mode">0</integer>
     <integer name="config_default_notify_decay_time">5000</integer>
+    <integer name="config_default_str_action">0</integer>
+    <integer name="config_default_stl_action">0</integer>
     <string name="config_default_ui_theme" translatable="false">light</string>
 
 </resources>

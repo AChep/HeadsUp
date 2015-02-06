@@ -23,15 +23,18 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.achep.acdisplay.Config;
 import com.achep.acdisplay.Timeout;
 import com.achep.acdisplay.notifications.OpenNotification;
 import com.achep.acdisplay.ui.widgets.notification.NotificationWidget;
+import com.achep.base.Build;
 import com.achep.base.utils.RippleUtils;
 import com.achep.base.utils.ViewUtils;
 
@@ -223,7 +226,28 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
     @Override
     public void onChildDismissed(View v) {
-        dismiss();
+        if (v.getTranslationX() == 0) Log.w(TAG, "Failed to detect the swipe\'s direction!" +
+                " Assuming it\'s RTL...");
+
+        final boolean toRight = v.getTranslationX() > 0;
+        final int action = toRight
+                ? Config.getInstance().getStrAction()
+                : Config.getInstance().getStlAction();
+
+        if (Build.DEBUG) Log.d(TAG, "swiped_to_right=" + toRight + " action=" + action);
+
+        switch (action) {
+            case Config.ST_DISMISS:
+                dismiss();
+                break;
+            case Config.ST_HIDE:
+                hide();
+                break;
+            case Config.ST_SNOOZE:
+                // TODO: Implement swipe-to-snooze
+            default:
+                throw new IllegalArgumentException();
+        }
     }
 
     @Override

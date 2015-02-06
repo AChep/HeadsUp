@@ -40,6 +40,8 @@
 
     <!-- Other -->
     <string name="settings_other_category">Прочее</string>
+    <string name="settings_ux_str_action_title">Бросок вправо</string>
+    <string name="settings_ux_stl_action_title">Бросок влево</string>
     <string name="settings_notify_decay_time_title">Задержка отклонения уведомления</string>
     <string name="settings_notify_decay_time_dialog">Задержка отклонения уведомления</string>
     <string name="settings_notify_decay_time_summary">Уведомление автоматически скрывается через %1$s сек. после появления.</string>

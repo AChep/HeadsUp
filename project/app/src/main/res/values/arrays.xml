@@ -62,6 +62,16 @@
         <item>dark</item>
     </string-array>
 
+    <!-- Swipe to -->
+    <string-array name="st_actions">
+        <item>Dismisses notification</item>
+        <item>Hides notification</item>
+    </string-array>
+    <string-array name="st_actions_entries" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
     <!--
         Smiley
         -->

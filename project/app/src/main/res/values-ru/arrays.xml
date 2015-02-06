@@ -47,4 +47,10 @@
         <item>Тёмная</item>
     </string-array>
 
+    <!-- Swipe to -->
+    <string-array name="st_actions">
+        <item>Отклоняет уведомление</item>
+        <item>Скрывает уведомление</item>
+    </string-array>
+
 </resources>

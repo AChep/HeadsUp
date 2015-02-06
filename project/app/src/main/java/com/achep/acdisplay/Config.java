@@ -61,6 +61,11 @@ public final class Config extends ConfigBase {
     public static final String KEY_PRIVACY = "privacy_mode";
     public static final int PRIVACY_HIDE_CONTENT_MASK = 1;
     public static final int PRIVACY_HIDE_ACTIONS_MASK = 2;
+    public static final String KEY_UX_STR_ACTION = "ux_str_action";
+    public static final String KEY_UX_STL_ACTION = "ux_stl_action";
+    public static final int ST_DISMISS = 0;
+    public static final int ST_HIDE = 1;
+    public static final int ST_SNOOZE = 2;
 
     // triggers
     public static final String KEY_TRIG_PREVIOUS_VERSION = "trigger_previous_version";
@@ -75,6 +80,8 @@ public final class Config extends ConfigBase {
     private int mNotifyMinPriority;
     private int mNotifyMaxPriority;
     private int mPrivacyMode;
+    private int mUxStrAction;
+    private int mUxStlAction;
     private int mUxNotifyDecayTime;
     private boolean mUxHideOnTouchOutside;
     private boolean mUxShowOnKeyguard;
@@ -140,6 +147,10 @@ public final class Config extends ConfigBase {
                 res.getBoolean(R.bool.config_default_show_on_keyguard));
         mPrivacyMode = prefs.getInt(KEY_PRIVACY,
                 res.getInteger(R.integer.config_default_privacy_mode));
+        mUxStrAction = prefs.getInt(KEY_UX_STR_ACTION,
+                res.getInteger(R.integer.config_default_str_action));
+        mUxStlAction = prefs.getInt(KEY_UX_STL_ACTION,
+                res.getInteger(R.integer.config_default_stl_action));
 
         // triggers
         mTrigHelpRead = prefs.getBoolean(KEY_TRIG_HELP_READ, false);
@@ -181,6 +192,10 @@ public final class Config extends ConfigBase {
                 "mUxShowOnKeyguard", null, null, boolean.class));
         hashMap.put(KEY_PRIVACY, new ConfigBase.Option(
                 "mPrivacyMode", null, null, int.class));
+        hashMap.put(KEY_UX_STR_ACTION, new ConfigBase.Option(
+                "mUxStrAction", null, null, int.class));
+        hashMap.put(KEY_UX_STL_ACTION, new ConfigBase.Option(
+                "mUxStlAction", null, null, int.class));
 
         // triggers
         hashMap.put(KEY_TRIG_DONATION_ASKED, new ConfigBase.Option(
@@ -267,6 +282,28 @@ public final class Config extends ConfigBase {
      */
     public int getNotifyDecayTime() {
         return mUxNotifyDecayTime;
+    }
+
+    /**
+     * @return the action of the swipe-to-right.
+     * @see #getStlAction()
+     * @see #ST_DISMISS
+     * @see #ST_HIDE
+     * @see #ST_SNOOZE
+     */
+    public int getStrAction() {
+        return mUxStrAction;
+    }
+
+    /**
+     * @return the action of the swipe-to-left.
+     * @see #getStrAction()
+     * @see #ST_DISMISS
+     * @see #ST_HIDE
+     * @see #ST_SNOOZE
+     */
+    public int getStlAction() {
+        return mUxStlAction;
     }
 
     /**

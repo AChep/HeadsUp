@@ -40,6 +40,9 @@
 
     <!-- Other -->
     <string name="settings_other_category">Other</string>
+    <string name="settings_ux_str_action_title">Swipe to right</string>
+    <string name="settings_ux_stl_action_title">Swipe to left</string>
+    <string name="settings_ux_st_action_summary" translatable="false">%1$s.</string>
     <string name="settings_notify_decay_time_title">Dismiss timeout</string>
     <string name="settings_notify_decay_time_dialog">Dismiss timeout</string>
     <string name="settings_notify_decay_time_summary">Notification hides after %1$s sec. after appearance.</string>
