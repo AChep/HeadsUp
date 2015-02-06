@@ -23,6 +23,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.Preference;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -409,7 +410,7 @@ public abstract class ConfigBase implements
             if (preferenceScreen != null) {
                 if (Device.hasTargetApi(group.option.maxSdkVersion + 1)
                         || !Device.hasTargetApi(group.option.minSdkVersion)) {
-                    preferenceScreen.removePreference(preference);
+                    removePreference(preferenceScreen, preference);
                     return;
                 }
             }
@@ -419,6 +420,20 @@ public abstract class ConfigBase implements
             if (mStarted) {
                 startListeningGroup(group);
             }
+        }
+
+        private boolean removePreference(@NonNull PreferenceGroup pg,
+                                         @NonNull Preference preference) {
+            for (int i = pg.getPreferenceCount() - 1; i >= 0; i--) {
+                Preference child = pg.getPreference(i);
+                if (child == preference) {
+                    pg.removePreference(preference);
+                    return true;
+                } else if (child instanceof PreferenceGroup) {
+                    if (removePreference((PreferenceGroup) child, preference)) return true;
+                }
+            }
+            return false;
         }
 
         /**
