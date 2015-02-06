@@ -48,11 +48,11 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.achep.headsup.R;
 import com.achep.acdisplay.blacklist.AppConfig;
 import com.achep.acdisplay.blacklist.Blacklist;
 import com.achep.acdisplay.ui.fragments.BlacklistAppFragment;
 import com.achep.base.utils.MathUtils;
+import com.achep.headsup.R;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

@@ -29,10 +29,10 @@ import android.support.annotation.NonNull;
 import android.support.v4.os.AsyncTaskCompat;
 import android.util.Log;
 
-import com.achep.headsup.R;
 import com.achep.acdisplay.notifications.NotificationUtils;
 import com.achep.acdisplay.notifications.OpenNotification;
 import com.achep.base.async.AsyncTask;
+import com.achep.headsup.R;
 
 import static com.achep.base.Build.DEBUG;
 

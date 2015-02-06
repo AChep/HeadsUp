@@ -25,8 +25,8 @@ import android.util.Log;
 
 import com.achep.acdisplay.App;
 import com.achep.acdisplay.Config;
-import com.achep.headsup.R;
 import com.achep.base.utils.ToastUtils;
+import com.achep.headsup.R;
 
 /**
  * Created by Artem on 11.03.14.

@@ -41,7 +41,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.achep.headsup.R;
 import com.achep.acdisplay.interfaces.INotificatiable;
 import com.achep.acdisplay.notifications.Action;
 import com.achep.acdisplay.notifications.Formatter;
@@ -51,6 +50,7 @@ import com.achep.acdisplay.notifications.OpenNotification;
 import com.achep.acdisplay.utils.BitmapUtils;
 import com.achep.base.Device;
 import com.achep.base.utils.ViewUtils;
+import com.achep.headsup.R;
 
 import java.util.Arrays;
 

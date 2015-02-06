@@ -19,10 +19,7 @@
 package com.achep.acdisplay.receiver;
 
 import android.app.Activity;
-import android.app.admin.DevicePolicyManager;
 import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,9 +27,7 @@ import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.achep.headsup.R;
 import com.achep.base.utils.PackageUtils;
-import com.achep.base.utils.ToastUtils;
 
 /**
  * Created by Artem on 12.03.14.

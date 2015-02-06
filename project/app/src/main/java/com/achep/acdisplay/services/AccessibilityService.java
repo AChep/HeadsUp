@@ -24,7 +24,6 @@ import android.content.Context;
 import android.os.Parcelable;
 import android.view.accessibility.AccessibilityEvent;
 
-import com.achep.acdisplay.Config;
 import com.achep.acdisplay.notifications.NotificationPresenter;
 import com.achep.acdisplay.notifications.OpenNotification;
 import com.achep.base.Device;

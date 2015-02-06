@@ -21,9 +21,9 @@ package com.achep.acdisplay.blacklist.options;
 import android.content.Context;
 import android.widget.CompoundButton;
 
-import com.achep.headsup.R;
 import com.achep.acdisplay.blacklist.AppConfig;
 import com.achep.acdisplay.blacklist.Blacklist;
+import com.achep.headsup.R;
 
 /**
  * Created by Artem on 28.02.14.

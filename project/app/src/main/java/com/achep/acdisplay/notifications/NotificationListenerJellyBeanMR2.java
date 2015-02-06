@@ -30,8 +30,8 @@ import android.service.notification.StatusBarNotification;
 import android.support.annotation.NonNull;
 
 import com.achep.acdisplay.App;
-import com.achep.headsup.R;
 import com.achep.acdisplay.services.MediaService;
+import com.achep.headsup.R;
 
 /**
  * Created by Artem Chepurnoy on 15.01.2015.

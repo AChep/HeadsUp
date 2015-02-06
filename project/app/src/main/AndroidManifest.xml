@@ -34,10 +34,7 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
 
     <!-- Needed to be able to show a headsup. -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -120,15 +117,6 @@
                 <data android:scheme="headsup" />
             </intent-filter>
         </activity>
-
-        <!-- A receiver to start some services. -->
-        <receiver android:name="com.achep.acdisplay.receiver.ReceiverSystem">
-            <intent-filter>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
 
         <!-- Receiver for a widget -->
         <receiver android:name="com.achep.acdisplay.providers.ToggleWidgetProvider">

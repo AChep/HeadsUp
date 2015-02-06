@@ -28,9 +28,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.achep.acdisplay.Config;
-import com.achep.headsup.R;
 import com.achep.base.content.ConfigBase;
 import com.achep.base.ui.DialogBuilder;
+import com.achep.headsup.R;
 
 import java.lang.ref.SoftReference;
 

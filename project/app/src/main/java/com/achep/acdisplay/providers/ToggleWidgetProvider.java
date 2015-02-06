@@ -31,9 +31,9 @@ import android.widget.RemoteViews;
 
 import com.achep.acdisplay.App;
 import com.achep.acdisplay.Config;
-import com.achep.headsup.R;
 import com.achep.base.Build;
 import com.achep.base.content.ConfigBase;
+import com.achep.headsup.R;
 
 /**
  * Toggle widget provider.

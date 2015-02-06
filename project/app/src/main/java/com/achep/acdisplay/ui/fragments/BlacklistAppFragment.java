@@ -32,12 +32,12 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.achep.headsup.R;
 import com.achep.acdisplay.blacklist.Blacklist;
 import com.achep.acdisplay.blacklist.options.HideOption;
 import com.achep.acdisplay.blacklist.options.NonClearableOption;
 import com.achep.acdisplay.blacklist.options.Option;
 import com.achep.base.utils.ViewUtils;
+import com.achep.headsup.R;
 
 /**
  * Created by Artem on 09.02.14.

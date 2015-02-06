@@ -26,8 +26,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
-import com.achep.headsup.R;
 import com.achep.base.Device;
+import com.achep.headsup.R;
 
 /**
  * {@inheritDoc}

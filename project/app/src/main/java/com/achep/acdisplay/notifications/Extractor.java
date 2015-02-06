@@ -32,8 +32,8 @@ import android.view.ViewGroup;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 
-import com.achep.headsup.R;
 import com.achep.base.Device;
+import com.achep.headsup.R;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

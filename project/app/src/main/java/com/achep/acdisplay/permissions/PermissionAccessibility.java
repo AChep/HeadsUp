@@ -28,11 +28,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.util.Log;
 
-import com.achep.headsup.R;
 import com.achep.acdisplay.services.AccessibilityService;
 import com.achep.base.Device;
 import com.achep.base.permissions.Permission;
 import com.achep.base.tests.Check;
+import com.achep.headsup.R;
 
 /**
  * The Accessibility notification permission.
