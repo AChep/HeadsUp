@@ -21,6 +21,7 @@ package com.achep.acdisplay;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -193,9 +194,11 @@ public final class Config extends ConfigBase {
         hashMap.put(KEY_PRIVACY, new ConfigBase.Option(
                 "mPrivacyMode", null, null, int.class));
         hashMap.put(KEY_UX_STR_ACTION, new ConfigBase.Option(
-                "mUxStrAction", null, null, int.class));
+                "mUxStrAction", null, null, int.class,
+                Build.VERSION_CODES.JELLY_BEAN_MR2, Integer.MAX_VALUE - 1));
         hashMap.put(KEY_UX_STL_ACTION, new ConfigBase.Option(
-                "mUxStlAction", null, null, int.class));
+                "mUxStlAction", null, null, int.class,
+                Build.VERSION_CODES.JELLY_BEAN_MR2, Integer.MAX_VALUE - 1));
 
         // triggers
         hashMap.put(KEY_TRIG_DONATION_ASKED, new ConfigBase.Option(
