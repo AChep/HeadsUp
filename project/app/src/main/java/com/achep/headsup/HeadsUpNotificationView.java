@@ -85,7 +85,8 @@ public class HeadsUpNotificationView extends NotificationWidget implements
         if (delay > 0) {
             delay += Math.max(getNotification().getNotification().priority * 750, 0);
             if (!getNotification().isDismissible()) delay += 1000;
-            mTimeout.setTimeoutDelayed(delay, true);
+            mTimeout.set(delay, true);
+            mTimeout.resume();
         }
     }
 
@@ -194,7 +195,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
     //-- TIMEOUT --------------------------------------------------------------
 
     @Override
-    public void onTimeoutEvent(Timeout timeout, int event) {
+    public void onTimeoutEvent(@NonNull Timeout timeout, int event) {
         switch (event) {
             case Timeout.EVENT_TIMEOUT:
                 hide();
