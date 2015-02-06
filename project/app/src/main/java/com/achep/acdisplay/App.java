@@ -42,9 +42,9 @@ public class App extends Application {
     public static final int ID_NOTIFY_INIT = 30;
     public static final int ID_NOTIFY_TEST = 40;
 
-    public static final String ACTION_ENABLE = "com.achep.acdisplay.ENABLE";
-    public static final String ACTION_DISABLE = "com.achep.acdisplay.DISABLE";
-    public static final String ACTION_TOGGLE = "com.achep.acdisplay.TOGGLE";
+    public static final String ACTION_ENABLE = "com.achep.headsup.ENABLE";
+    public static final String ACTION_DISABLE = "com.achep.headsup.DISABLE";
+    public static final String ACTION_TOGGLE = "com.achep.headsup.TOGGLE";
 
     public static final String ACTION_EAT_HOME_PRESS_START = "com.achep.acdisplay.EAT_HOME_PRESS_START";
     public static final String ACTION_EAT_HOME_PRESS_STOP = "com.achep.acdisplay.EAT_HOME_PRESS_STOP";
