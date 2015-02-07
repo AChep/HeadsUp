@@ -105,7 +105,7 @@
             android:layout_below="@id/title"
             android:layout_toEndOf="@id/icon"
             android:layout_toRightOf="@id/icon"
-            android:layout_marginBottom="16dp"
+            android:paddingBottom="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:orientation="vertical"/>
