@@ -40,7 +40,7 @@
     <item>深色</item>
   </string-array>
   <string-array name="st_actions">
-    <item>Dismisses notification</item>
-    <item>Hides notification</item>
+    <item>關閉通知</item>
+    <item>隱藏通知</item>
   </string-array>
 </resources>

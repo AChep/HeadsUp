@@ -28,13 +28,13 @@
   <string name="settings_interface_category">인터페이스</string>
   <string name="settings_theme_title">테마</string>
   <string name="settings_theme_summary">당신은 %1$s 테마를 갖고 있습니다.</string>
-  <string name="settings_at_top_title">Show at top of the screen</string>
+  <string name="settings_at_top_title">화면 상단에 표시</string>
   <string name="settings_overlap_sb_title">상태표시줄 위에 표시</string>
   <string name="settings_emoticons_title">이모티콘</string>
-  <string name="settings_override_fonts_title">Override system fonts</string>
+  <string name="settings_override_fonts_title">시스템 글꼴 무시</string>
   <string name="settings_other_category">기타</string>
-  <string name="settings_ux_str_action_title">Swipe to right</string>
-  <string name="settings_ux_stl_action_title">Swipe to left</string>
+  <string name="settings_ux_str_action_title">오른쪽으로 밀기</string>
+  <string name="settings_ux_stl_action_title">왼쪽으로 밀기</string>
   <string name="settings_notify_decay_time_title">해제 시간 제한</string>
   <string name="settings_notify_decay_time_dialog">해제 시간 제한</string>
   <string name="settings_notify_decay_time_summary">알림이 표시되고 %1$s초 후에 제거됩니다.</string>
@@ -42,6 +42,6 @@
   <string name="settings_show_on_keyguard_title">잠금화면에 표시</string>
   <string name="settings_app_settings_title">앱</string>
   <string name="settings_app_settings_summary">개별 앱 설정</string>
-  <string name="preference_timeout_normal">Automatically hide notification after (set to 0 to disable):</string>
+  <string name="preference_timeout_normal">다음 시간 후에 알림 사라짐 (0이면 사라지지 않음)</string>
   <string name="preference_timeout_sec">%1$s초</string>
 </resources>
