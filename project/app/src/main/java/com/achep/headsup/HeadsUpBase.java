@@ -57,6 +57,7 @@ import com.achep.base.Device;
 import com.achep.base.content.ConfigBase;
 import com.achep.base.tests.Check;
 import com.achep.base.ui.animations.AnimationListenerAdapter;
+import com.achep.base.utils.power.PowerSaveDetector;
 import com.achep.base.utils.power.PowerUtils;
 
 import java.util.ArrayList;
@@ -124,12 +125,14 @@ public class HeadsUpBase implements
 
         @Override
         public void onStart(Object... objects) {
+            mHolder.psd.start();
             HeadsUpBase.this.onShow();
         }
 
         @Override
         public void onStop(Object... objects) {
             HeadsUpBase.this.onHide((boolean) objects[0]);
+            mHolder.psd.stop();
         }
     });
 
@@ -197,6 +200,7 @@ public class HeadsUpBase implements
 
         Context context;
         WindowManager wm;
+        PowerSaveDetector psd;
 
         // Views
         HeadsUpView rootView;
@@ -260,6 +264,7 @@ public class HeadsUpBase implements
         mHolder = new Holder();
         mHolder.context = context;
         mHolder.wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        mHolder.psd = PowerSaveDetector.newInstance(context);
         mHolder.widgetList = new ArrayList<>();
 
         // Setup views.
@@ -319,6 +324,7 @@ public class HeadsUpBase implements
     }
 
     void onHide(boolean immediately) {
+        immediately |= isPowerSaveMode();
         if (immediately) {
             detachFromWindow();
 
@@ -553,7 +559,8 @@ public class HeadsUpBase implements
 
         int index = indexOf(notification);
         if (index != -1) {
-            if (Device.hasKitKatApi() && mHolder.containerView.isLaidOut()) {
+            if (Device.hasKitKatApi() && mHolder.containerView.isLaidOut()
+                    && !isPowerSaveMode()) {
                 TransitionManager.beginDelayedTransition(mHolder.containerView);
             }
 
@@ -610,7 +617,7 @@ public class HeadsUpBase implements
             if (size > 1) {
                 // Remove view from the container.
                 View view = mHolder.widgetList.get(index);
-                addSpaceToContainer(view.getHeight());
+                if (!isPowerSaveMode()) addSpaceToContainer(view.getHeight());
                 mHolder.containerView.removeView(view);
                 mHolder.widgetList.remove(index);
 
@@ -657,6 +664,10 @@ public class HeadsUpBase implements
                 mHolder.containerOffset--;
             }
         }, LAYOUT_ANIMATION_TIME);
+    }
+
+    private boolean isPowerSaveMode() {
+        return mHolder.psd.isPowerSaveMode();
     }
 
 }
