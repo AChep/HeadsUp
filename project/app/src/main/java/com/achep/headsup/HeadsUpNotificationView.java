@@ -69,6 +69,10 @@ public class HeadsUpNotificationView extends NotificationWidget implements
         a.recycle();
 
         mTimeout = new Timeout();
+
+        float densityScale = getResources().getDisplayMetrics().density;
+        float pagingTouchSlop = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
+        mSwipeHelper = new SwipeHelper(SwipeHelper.X, this, densityScale, pagingTouchSlop);
     }
 
     public void setHeadsUpManager(HeadsUpBase headsUpBase) {
@@ -131,10 +135,6 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
     @Override
     public void onAttachedToWindow() {
-        float densityScale = getResources().getDisplayMetrics().density;
-        float pagingTouchSlop = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
-        mSwipeHelper = new SwipeHelper(SwipeHelper.X, this, densityScale, pagingTouchSlop);
-
         ViewUtils.setVisible(mProgressBar, false);
         mTimeout.registerListener(this);
         mTimeout.registerListener(mTimeoutGui);
