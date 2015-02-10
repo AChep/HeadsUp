@@ -135,6 +135,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
     @Override
     public void onAttachedToWindow() {
+        super.onAttachedToWindow();
         ViewUtils.setVisible(mProgressBar, false);
         mTimeout.registerListener(this);
         mTimeout.registerListener(mTimeoutGui);
@@ -144,11 +145,10 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
     @Override
     protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-
         mTimeout.clear();
         mTimeout.unregisterListener(this);
         mTimeout.unregisterListener(mTimeoutGui);
+        super.onDetachedFromWindow();
     }
 
     /**
