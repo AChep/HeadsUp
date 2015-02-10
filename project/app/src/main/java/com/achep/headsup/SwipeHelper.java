@@ -31,6 +31,7 @@ import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.LinearInterpolator;
 
+import com.achep.base.utils.power.PowerSaveDetector;
 import com.achep.headsup.interfaces.Gefingerpoken;
 
 public class SwipeHelper implements Gefingerpoken {
@@ -77,6 +78,8 @@ public class SwipeHelper implements Gefingerpoken {
     private Runnable mWatchLongPress;
     private long mLongPressTimeout;
 
+    private PowerSaveDetector mPowerSaveDetector;
+
     public SwipeHelper(int swipeDirection, Callback callback, float densityScale,
                        float pagingTouchSlop) {
         mCallback = callback;
@@ -87,6 +90,10 @@ public class SwipeHelper implements Gefingerpoken {
         mPagingTouchSlop = pagingTouchSlop;
 
         mLongPressTimeout = (long) (ViewConfiguration.getLongPressTimeout() * 1.5f); // extra long-press!
+    }
+
+    public void setPowerSaveDetector(PowerSaveDetector psd) {
+        mPowerSaveDetector = psd;
     }
 
     public void setLongPressListener(View.OnLongClickListener listener) {
@@ -290,6 +297,11 @@ public class SwipeHelper implements Gefingerpoken {
                             .abs(velocity)));
         } else {
             duration = DEFAULT_ESCAPE_ANIMATION_DURATION;
+        }
+
+        if (mPowerSaveDetector != null && mPowerSaveDetector.isPowerSaveMode()) {
+            mCallback.onChildDismissed(view);
+            return;
         }
 
         animView.setLayerType(View.LAYER_TYPE_HARDWARE, null);

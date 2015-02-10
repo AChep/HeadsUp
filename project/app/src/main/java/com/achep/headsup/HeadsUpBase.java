@@ -340,6 +340,11 @@ public class HeadsUpBase implements
         }
     }
 
+
+    PowerSaveDetector getPowerSaveDetector() {
+        return mHolder.psd;
+    }
+
     /**
      * {@inheritDoc}
      */

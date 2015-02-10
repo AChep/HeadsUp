@@ -77,6 +77,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
     public void setHeadsUpManager(HeadsUpBase headsUpBase) {
         mHeadsUpBase = headsUpBase;
+        mSwipeHelper.setPowerSaveDetector(headsUpBase.getPowerSaveDetector());
     }
 
     /**
