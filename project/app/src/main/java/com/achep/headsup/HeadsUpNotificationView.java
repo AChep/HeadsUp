@@ -54,7 +54,8 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
     private boolean mDarkTheme;
 
-    private SwipeHelper mSwipeHelper;
+    private SwipeHelper mSwipeHelperX,
+                        mSwipeHelperY;
 
     private HeadsUpBase mHeadsUpBase;
 
@@ -72,12 +73,14 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
         float densityScale = getResources().getDisplayMetrics().density;
         float pagingTouchSlop = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
-        mSwipeHelper = new SwipeHelper(SwipeHelper.X, this, densityScale, pagingTouchSlop);
+        mSwipeHelperX = new SwipeHelper(SwipeHelper.X, this, densityScale, pagingTouchSlop);
+        mSwipeHelperY = new SwipeHelper(SwipeHelper.TOP, this, densityScale, pagingTouchSlop, false);
     }
 
     public void setHeadsUpManager(HeadsUpBase headsUpBase) {
         mHeadsUpBase = headsUpBase;
-        mSwipeHelper.setPowerSaveDetector(headsUpBase.getPowerSaveDetector());
+        mSwipeHelperX.setPowerSaveDetector(headsUpBase.getPowerSaveDetector());
+        mSwipeHelperY.setPowerSaveDetector(headsUpBase.getPowerSaveDetector());
     }
 
     /**
@@ -157,7 +160,8 @@ public class HeadsUpNotificationView extends NotificationWidget implements
      */
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        return mSwipeHelper.onInterceptTouchEvent(event)
+        return mSwipeHelperX.onInterceptTouchEvent(event)
+                || mSwipeHelperY.onInterceptTouchEvent(event)
                 || super.onInterceptTouchEvent(event);
     }
 
@@ -175,7 +179,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
         // while swiping.
         final MotionEvent ev = MotionEvent.obtainNoHistory(event);
         ev.offsetLocation(getTranslationX(), getTranslationY());
-        boolean handled = mSwipeHelper.onTouchEvent(ev);
+        boolean handled = mSwipeHelperX.onTouchEvent(ev) || mSwipeHelperY.onTouchEvent(ev);
         ev.recycle();
 
         return handled || super.onTouchEvent(event);
@@ -188,9 +192,11 @@ public class HeadsUpNotificationView extends NotificationWidget implements
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         float densityScale = getResources().getDisplayMetrics().density;
-        mSwipeHelper.setDensityScale(densityScale);
+        mSwipeHelperX.setDensityScale(densityScale);
+        mSwipeHelperY.setDensityScale(densityScale);
         float pagingTouchSlop = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
-        mSwipeHelper.setPagingTouchSlop(pagingTouchSlop);
+        mSwipeHelperX.setPagingTouchSlop(pagingTouchSlop);
+        mSwipeHelperY.setPagingTouchSlop(pagingTouchSlop);
     }
 
     //-- TIMEOUT --------------------------------------------------------------
@@ -199,7 +205,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
     public void onTimeoutEvent(@NonNull Timeout timeout, int event) {
         switch (event) {
             case Timeout.EVENT_TIMEOUT:
-                // Running #hide() it this thread may cause the
+                // Running #hide() in this thread may cause the
                 // java.util.ConcurrentModificationException.
                 post(new Runnable() {
                     @Override
@@ -235,15 +241,18 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
     @Override
     public void onChildDismissed(View v) {
-        if (v.getTranslationX() == 0) Log.w(TAG, "Failed to detect the swipe\'s direction!" +
-                " Assuming it\'s RTL...");
+        if (v.getTranslationX() == 0 && v.getTranslationY() == 0)
+            Log.w(TAG, "Failed to detect the swipe\'s direction!" + " Assuming it\'s RTL...");
 
         final boolean toRight = v.getTranslationX() > 0;
+        final boolean toTop = v.getTranslationY() < 0;
         final int action = toRight
                 ? Config.getInstance().getStrAction()
-                : Config.getInstance().getStlAction();
+                : (toTop ? Config.ST_HIDE
+                         : Config.getInstance().getStlAction());
 
-        if (Build.DEBUG) Log.d(TAG, "swiped_to_right=" + toRight + " action=" + action);
+        if (Build.DEBUG) Log.d(TAG, "swiped_to_right=" + toRight +
+                " swiped_to_top=" + toTop + " action=" + action);
 
         switch (action) {
             case Config.ST_DISMISS:
