@@ -178,7 +178,16 @@ public class HeadsUpNotificationView extends NotificationWidget implements
     public boolean onTouchEvent(@NonNull MotionEvent event) {
         // Do not let notification to be timed-out while
         // we are touching it.
-        resetDecayTime();
+        switch(event.getAction()){
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                mTimeout.resume();
+                resetDecayTime();
+                break;
+            default:
+                mTimeout.pause();
+                break;
+        }
 
         // Translate touch event too to correspond with
         // view's translation changes and prevent lags
