@@ -79,6 +79,12 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
     public void setHeadsUpManager(HeadsUpBase headsUpBase) {
         mHeadsUpBase = headsUpBase;
+
+        int swipeDirY = mHeadsUpBase.getConfig().isShownAtTop()
+                ? SwipeHelper.TOP
+                : SwipeHelper.BOTTOM;
+        mSwipeHelperY.setSwipeDirection(swipeDirY);
+
         mSwipeHelperX.setPowerSaveDetector(headsUpBase.getPowerSaveDetector());
         mSwipeHelperY.setPowerSaveDetector(headsUpBase.getPowerSaveDetector());
     }
@@ -245,14 +251,14 @@ public class HeadsUpNotificationView extends NotificationWidget implements
             Log.w(TAG, "Failed to detect the swipe\'s direction!" + " Assuming it\'s RTL...");
 
         final boolean toRight = v.getTranslationX() > 0;
-        final boolean toTop = v.getTranslationY() < 0;
+        final boolean toTopOrBottom = v.getTranslationY() != 0;
         final int action = toRight
                 ? Config.getInstance().getStrAction()
-                : (toTop ? Config.ST_HIDE
+                : (toTopOrBottom ? Config.ST_HIDE
                          : Config.getInstance().getStlAction());
 
         if (Build.DEBUG) Log.d(TAG, "swiped_to_right=" + toRight +
-                " swiped_to_top=" + toTop + " action=" + action);
+                " swiped_to_top=" + toTopOrBottom + " action=" + action);
 
         switch (action) {
             case Config.ST_DISMISS:

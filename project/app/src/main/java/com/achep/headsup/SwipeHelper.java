@@ -101,6 +101,10 @@ public class SwipeHelper implements Gefingerpoken {
         fadeOutDuringSwipe = fade;
     }
 
+    public void setSwipeDirection(final int direction) {
+        mSwipeDirection = direction;
+    }
+
     public void setPowerSaveDetector(PowerSaveDetector psd) {
         mPowerSaveDetector = psd;
     }
