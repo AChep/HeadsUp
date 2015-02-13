@@ -524,7 +524,8 @@ public class HeadsUpBase implements
         View v = mHolder.containerView;
         v.setPadding(v.getPaddingLeft(), paddingTop, v.getPaddingRight(), v.getPaddingBottom());
         // And the rotation
-        v.setRotationX(mShownAtTop ? 0 : 180);
+        if(!mShownAtTop) v.setBackground(res.getDrawable(R.drawable.bg_shade_flipped));
+        else v.setBackground(res.getDrawable(R.drawable.bg_shade));
 
         // Add the view to the window.
         int layoutInScreenFlag = overlapStatusBar ? WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN : 0;
@@ -604,9 +605,9 @@ public class HeadsUpBase implements
             widget.setNotification(notification);
             widget.setOnClickListener(mOnWidgetClickListener);
             widget.resetDecayTime();
-            widget.setRotationX(mShownAtTop ? 0 : 180);
 
-            int pos = container.getChildCount() - mHolder.containerOffset;
+            int pos = getConfig().isShownAtTop()
+					? container.getChildCount() - mHolder.containerOffset : 0;
             mHolder.rootView.preventInstantInteractivity();
             container.addView(widget, pos);
             list.add(widget);
