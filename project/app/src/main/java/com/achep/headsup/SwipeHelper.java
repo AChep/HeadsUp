@@ -47,6 +47,7 @@ public class SwipeHelper implements Gefingerpoken {
     public static final int X = 0;
     public static final int Y = 1;
     public static final int TOP = 2;
+    public static final int BOTTOM = 3;
 
     private static LinearInterpolator sLinearInterpolator = new LinearInterpolator();
 
@@ -145,6 +146,8 @@ public class SwipeHelper implements Gefingerpoken {
         } else {
             if (mSwipeDirection == TOP)
                 translate = translate > 0 ? 0 : translate;
+            else if(mSwipeDirection == BOTTOM)
+                translate = translate < 0 ? 0 : translate;
             v.setTranslationY(translate);
         }
     }
@@ -401,7 +404,7 @@ public class SwipeHelper implements Gefingerpoken {
                             Math.abs(getTranslation(mCurrAnimView)) > 0.4 * getSize(mCurrAnimView);
                     boolean childSwipedFastEnough = (Math.abs(velocity) > escapeVelocity) &&
                             (Math.abs(velocity) > Math.abs(perpendicularVelocity)) &&
-                            (velocity > 0) == (getTranslation(mCurrAnimView) > 0);
+                            (Math.abs(velocity) > 0) && (Math.abs(getTranslation(mCurrAnimView)) > 0);
 
                     boolean dismissChild = mCallback.canChildBeDismissed(mCurrView) &&
                             (childSwipedFastEnough || childSwipedFarEnough);
