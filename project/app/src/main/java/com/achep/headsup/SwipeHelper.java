@@ -402,13 +402,15 @@ public class SwipeHelper implements Gefingerpoken {
                     float escapeVelocity = SWIPE_ESCAPE_VELOCITY * mDensityScale;
                     float velocity = getVelocity(mVelocityTracker);
                     float perpendicularVelocity = getPerpendicularVelocity(mVelocityTracker);
+                    float translation = getTranslation(mCurrAnimView);
 
                     // Decide whether to dismiss the current view
                     boolean childSwipedFarEnough = DISMISS_IF_SWIPED_FAR_ENOUGH &&
-                            Math.abs(getTranslation(mCurrAnimView)) > 0.4 * getSize(mCurrAnimView);
+                            Math.abs(translation) > 0.4 * getSize(mCurrAnimView);
                     boolean childSwipedFastEnough = (Math.abs(velocity) > escapeVelocity) &&
                             (Math.abs(velocity) > Math.abs(perpendicularVelocity)) &&
-                            (Math.abs(velocity) > 0) && (Math.abs(getTranslation(mCurrAnimView)) > 0);
+                            (velocity > 0) == (translation > 0) &&
+                            velocity != 0 && translation != 0;
 
                     boolean dismissChild = mCallback.canChildBeDismissed(mCurrView) &&
                             (childSwipedFastEnough || childSwipedFarEnough);
