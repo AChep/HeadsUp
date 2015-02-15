@@ -524,7 +524,7 @@ public class HeadsUpBase implements
         View v = mHolder.containerView;
         v.setPadding(v.getPaddingLeft(), paddingTop, v.getPaddingRight(), v.getPaddingBottom());
         // And the rotation
-        if(!mShownAtTop) v.setBackground(res.getDrawable(R.drawable.bg_shade_flipped));
+        if (!mShownAtTop) v.setBackground(res.getDrawable(R.drawable.bg_shade_flipped));
         else v.setBackground(res.getDrawable(R.drawable.bg_shade));
 
         // Add the view to the window.
@@ -607,7 +607,7 @@ public class HeadsUpBase implements
             widget.resetDecayTime();
 
             int pos = getConfig().isShownAtTop()
-					? container.getChildCount() - mHolder.containerOffset : 0;
+                    ? container.getChildCount() - mHolder.containerOffset : 0;
             mHolder.rootView.preventInstantInteractivity();
             container.addView(widget, pos);
             list.add(widget);

@@ -178,7 +178,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
     public boolean onTouchEvent(@NonNull MotionEvent event) {
         // Do not let notification to be timed-out while
         // we are touching it.
-        switch(event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 mTimeout.resume();
@@ -267,7 +267,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
                          : Config.getInstance().getStlAction());
 
         if (Build.DEBUG) Log.d(TAG, "swiped_to_right=" + toRight +
-                " swiped_to_top=" + toTopOrBottom + " action=" + action);
+                " swiped_in_y-axis=" + toTopOrBottom + " action=" + action);
 
         switch (action) {
             case Config.ST_DISMISS:

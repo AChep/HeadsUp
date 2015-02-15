@@ -150,7 +150,7 @@ public class SwipeHelper implements Gefingerpoken {
         } else {
             if (mSwipeDirection == TOP)
                 translate = translate > 0 ? 0 : translate;
-            else if(mSwipeDirection == BOTTOM)
+            else if (mSwipeDirection == BOTTOM)
                 translate = translate < 0 ? 0 : translate;
             v.setTranslationY(translate);
         }
