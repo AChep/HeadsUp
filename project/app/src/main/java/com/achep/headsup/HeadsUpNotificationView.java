@@ -152,11 +152,27 @@ public class HeadsUpNotificationView extends NotificationWidget implements
         super.onDetachedFromWindow();
     }
 
+    private void handleTimeout(@NonNull MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mTimeout.pause();
+                break;
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                resetDecayTime();
+                break;
+        }
+    }
+
     /**
      * {@inheritDoc}
      */
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
+        // Do not let notification to be timed-out while
+        // we are touching it.
+        handleTimeout(event);
+
         return mSwipeHelper.onInterceptTouchEvent(event)
                 || super.onInterceptTouchEvent(event);
     }
@@ -168,7 +184,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
     public boolean onTouchEvent(@NonNull MotionEvent event) {
         // Do not let notification to be timed-out while
         // we are touching it.
-        resetDecayTime();
+        handleTimeout(event);
 
         // Translate touch event too to correspond with
         // view's translation changes and prevent lags
