@@ -221,10 +221,12 @@ public class Timeout implements ISubscriptable<Timeout.OnTimeoutEventListener> {
     private void internalResume() {
         if (mTimeoutPausedAt != 0) {
             checkThread();
+
+            final long pausedAt = mTimeoutPausedAt;
             mTimeoutPausedAt = 0;
 
             if (mTimeoutAt > 0) {
-                long delta = uptimeMillis() - mTimeoutPausedAt;
+                long delta = uptimeMillis() - pausedAt;
                 mTimeoutAt += delta;
                 mHandler.sendEmptyMessageAtTime(TIMEOUT, mTimeoutAt);
                 notifyListeners(EVENT_RESUMED);
