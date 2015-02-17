@@ -22,7 +22,7 @@
   <string name="blacklist">黑名单</string>
   <string name="blacklist_app_config">应用设置</string>
   <string name="blacklist_app_hide_title">隐藏通知</string>
-  <string name="blacklist_app_hide_summary">不显示此应用的通知</string>
+  <string name="blacklist_app_hide_summary">这个应用的通知将不会被显示</string>
   <string name="blacklist_app_non_clearable_title">固定通知</string>
-  <string name="blacklist_app_non_clearable_summary">显示诸如服务发起的固定通知</string>
+  <string name="blacklist_app_non_clearable_summary">显示如服务提供的固定通知</string>
 </resources>

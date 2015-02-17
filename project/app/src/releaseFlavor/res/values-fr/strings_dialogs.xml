@@ -29,7 +29,7 @@
   <string name="donate_dialog_title">Faire un don aux développeurs</string>
   <string name="donate_dialog_message">HeadsUp est une application gratuite et open source. Vous pouvez montrer votre reconnaissance et soutenir le développement en faisant un don :</string>
   <string name="donate_alert_no_responsibility">Notez que Google n\'est pas responsable pour cette méthode de paiement.</string>
-  <string name="donate_billing_not_supported">Les achats via l\'application ne sont pas prises en compte sur cet appareil.</string>
+  <string name="donate_billing_not_supported">Les achats via l\'application ne sont pas pris en charge sur cet appareil.</string>
   <string name="donate_thanks">Merci beaucoup !</string>
   <string name="donation_1">Une crème glacée</string>
   <string name="donation_4">Un café</string>

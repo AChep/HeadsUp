@@ -19,7 +19,7 @@
   ~ MA  02110-1301, USA.
   -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_description">HeadsUp 是 AcDisplay 的分支應用程式，主要功能是可在您使用裝置時顯示通知。當您上網、玩遊戲或看電影時，如果有新的通知，它就會顯示一個極簡而精美的彈出式窗格來提醒您，可讓您直接開啟通知或執行其他動作。</string>
+  <string name="app_description">HeadsUp 是 AcDisplay 的分支應用程式，可在您使用裝置時顯示通知。當您上網、玩遊戲或看電影時，如果您有新的通知，HeadsUp 就會顯示一個簡潔而精美的彈出式窗格來提醒您，讓您直接開啟通知或執行其他動作。</string>
   <string name="permissions_dialog_title">所需權限：</string>
   <string name="permissions_notifications">通知</string>
   <string name="permissions_notifications_description">取得通知存取時所需的權限。</string>

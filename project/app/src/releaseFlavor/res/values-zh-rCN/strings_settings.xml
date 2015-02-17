@@ -24,10 +24,10 @@
   <string name="settings_unknown_value">未知值</string>
   <string name="settings_notifications_category">通知</string>
   <string name="settings_notify_min_priority_title">最低优先级</string>
-  <string name="settings_notify_max_priority_title">Maximum priority</string>
+  <string name="settings_notify_max_priority_title">最高优先级</string>
   <string name="settings_interface_category">外观</string>
   <string name="settings_theme_title">主题</string>
-  <string name="settings_theme_summary">您已将主题设为%1$s。</string>
+  <string name="settings_theme_summary">您已将主题设为%1$s</string>
   <string name="settings_at_top_title">在屏幕上方显示</string>
   <string name="settings_overlap_sb_title">覆盖状态栏</string>
   <string name="settings_emoticons_title">表情</string>
@@ -37,11 +37,11 @@
   <string name="settings_ux_stl_action_title">向左滑动</string>
   <string name="settings_notify_decay_time_title">消除超时</string>
   <string name="settings_notify_decay_time_dialog">消除超时</string>
-  <string name="settings_notify_decay_time_summary">通知在显示的%1$s秒后消除。</string>
+  <string name="settings_notify_decay_time_summary">通知在显示后%1$s秒消除</string>
   <string name="settings_hide_on_touch_outside_title">触摸其它区域时隐藏</string>
-  <string name="settings_show_on_keyguard_title">在锁定屏幕显示</string>
+  <string name="settings_show_on_keyguard_title">在锁屏界面上显示</string>
   <string name="settings_app_settings_title">应用</string>
-  <string name="settings_app_settings_summary">为各个应用设置选项。</string>
+  <string name="settings_app_settings_summary">为各个应用设置偏好选项</string>
   <string name="preference_timeout_normal">自动在以下时间后隐藏通知（设置为0则禁用）：</string>
-  <string name="preference_timeout_sec">%1$s秒。</string>
+  <string name="preference_timeout_sec">%1$s秒</string>
 </resources>

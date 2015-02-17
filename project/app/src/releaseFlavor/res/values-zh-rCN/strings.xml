@@ -19,11 +19,11 @@
   ~ MA  02110-1301, USA.
   -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_description">HeadsUp is a fork of AcDisplay mainly focused on displaying notifications while your device is on. It will inform you about new notifications, while you\'re browsing/gaming/watching movies, by showing a minimal, beautiful popup, allowing you to open them directly or perform an action.</string>
-  <string name="permissions_dialog_title">需要的权限：</string>
+  <string name="app_description">HeadsUp是一款主要侧重于当设备开启时显示通知应用AcDisplay的一个分支。当你在浏览网页、游戏或看电影时，它会通过显示一个小巧精美的弹窗告知你有关新的通知，允许你直接打开它们或执行一个动作。</string>
+  <string name="permissions_dialog_title">需要的权限</string>
   <string name="permissions_notifications">通知</string>
-  <string name="permissions_notifications_description">Needed to get access to notifications.</string>
-  <string name="permissions_notifications_grant_manually">Go to Settings &gt; Security &gt; Notification access and check HeadsUp on.</string>
+  <string name="permissions_notifications_description">需要用来取得通知</string>
+  <string name="permissions_notifications_grant_manually">转到 设置 &gt; 安全 &gt; 通知读取权限 并将HeadsUp设为开。</string>
   <string name="action_about">关于</string>
   <string name="action_donate">捐赠</string>
   <string name="action_feedback">反馈</string>
@@ -32,15 +32,15 @@
   <string name="action_send_test_notify">发送测试通知</string>
   <string name="action_show_system_apps">系统应用</string>
   <string name="close">关闭</string>
-  <string name="later">稍后</string>
+  <string name="later">稍后再说</string>
   <string name="send">发送</string>
   <string name="on">开</string>
   <string name="off">关</string>
   <string name="enabled">已启用</string>
   <string name="disabled">已禁用</string>
-  <string name="notification_init_text">忽略这条通知就行。</string>
-  <string name="notification_test_message">这是一条示例通知。</string>
-  <string name="privacy_mode_hidden_content">Hidden content.</string>
-  <string name="remote_enable_acdisplay">HeadsUp 已启用。</string>
-  <string name="remote_disable_acdisplay">HeadsUp 已禁用。</string>
+  <string name="notification_init_text">清除这条通知就行</string>
+  <string name="notification_test_message">这是一条示范通知</string>
+  <string name="privacy_mode_hidden_content">隐藏内容</string>
+  <string name="remote_enable_acdisplay">HeadsUp已启用。</string>
+  <string name="remote_disable_acdisplay">HeadsUp已禁用。</string>
 </resources>

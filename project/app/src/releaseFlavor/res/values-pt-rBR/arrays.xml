@@ -30,8 +30,8 @@
   </string-array>
   <string-array name="notify_priorities">
     <item>máximo</item>
-    <item>Alto</item>
-    <item>Normal</item>
+    <item>Importante (comunicações, email importante)</item>
+    <item>Normal (+notificações de apps antigos)</item>
     <item>Baixo</item>
     <item>Contextual e informações de segundo plano (tempo, eventos expirados, sugestões)</item>
   </string-array>
@@ -40,7 +40,7 @@
     <item>Escuro</item>
   </string-array>
   <string-array name="st_actions">
-    <item>Dismisses notification</item>
-    <item>Hides notification</item>
+    <item>Descarta a notificação</item>
+    <item>Oculta a notificação</item>
   </string-array>
 </resources>

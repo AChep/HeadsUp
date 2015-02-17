@@ -33,11 +33,11 @@
   <string name="settings_emoticons_title">Emoticons</string>
   <string name="settings_override_fonts_title">Substituir fontes do sistema</string>
   <string name="settings_other_category">Outro</string>
-  <string name="settings_ux_str_action_title">Swipe to right</string>
-  <string name="settings_ux_stl_action_title">Swipe to left</string>
+  <string name="settings_ux_str_action_title">Deslizar para a direita</string>
+  <string name="settings_ux_stl_action_title">Deslizar para a esquerda</string>
   <string name="settings_notify_decay_time_title">Tempo de descarte</string>
   <string name="settings_notify_decay_time_dialog">Tempo de descarte</string>
-  <string name="settings_notify_decay_time_summary">A notificação é descartada %1$s segundo após a aparição.</string>
+  <string name="settings_notify_decay_time_summary">A notificação é dispensada %1$s seg. após aparecer.</string>
   <string name="settings_hide_on_touch_outside_title">Ocultar ao tocar fora</string>
   <string name="settings_show_on_keyguard_title">Mostrar na tela de bloqueio</string>
   <string name="settings_app_settings_title">Apps</string>

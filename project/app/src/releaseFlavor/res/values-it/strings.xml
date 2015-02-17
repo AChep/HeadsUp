@@ -19,7 +19,7 @@
   ~ MA  02110-1301, USA.
   -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_description">HeadsUp is a fork of AcDisplay mainly focused on displaying notifications while your device is on. It will inform you about new notifications, while you\'re browsing/gaming/watching movies, by showing a minimal, beautiful popup, allowing you to open them directly or perform an action.</string>
+  <string name="app_description">HeadsUp è una derivazione di AcDisplay principalmente  concentrato  nel visualizzare notifiche  quando il cellulare è attivo.ti informerà su nuove notifiche mentre giochi,navighi,vedi video,mostrando  un popup minimale che ti permette di aprirle direttamente o di fare un azione </string>
   <string name="permissions_dialog_title">Required permissions:</string>
   <string name="permissions_notifications">Notifications</string>
   <string name="permissions_notifications_description">Needed to get access to notifications.</string>

@@ -20,38 +20,39 @@
   -->
 <resources>
   <string name="about_dialog_message"><![CDATA[
-        HeadsUp 是一个免费且 <a href="https://github.com/AChep/HeadsUp">开源</a> 的应用。
+        HeadsUp是一个免费且<a href="https://github.com/AChep/HeadsUp">开源</a>的应用。
         Copyright 2014-%2$s <a href="http://artemchep.com">Artem Chepurnoy</a>. All Rights Reserved.<br/>
         <br/>
-        非常感谢那些开源工具：%1$s以及所有
+        非常感谢这些开源工具：%1$s以及所有
         <a href="https://crowdin.com/project/headsup">帮助翻译</a>或捐赠的人。
     ]]></string>
   <string name="donate_dialog_title">捐赠给开发者</string>
-  <string name="donate_dialog_message">HeadsUp is a free and open source app. You can show your appreciation and support development by donating:</string>
-  <string name="donate_alert_no_responsibility">Notice that Google is not responsible for this payments method.</string>
-  <string name="donate_billing_not_supported">此设备不支持应用内付费。</string>
+  <string name="donate_dialog_message">HeadsUp是一个免费且开源的应用。如果你想表达你的感谢或支持开发，可以捐赠我们：</string>
+  <string name="donate_alert_no_responsibility">请注意Google不会为此支付方式承担责任</string>
+  <string name="donate_billing_not_supported">此设备不支持应用内付费</string>
   <string name="donate_thanks">非常感谢！</string>
-  <string name="donation_1">一个冰淇淋</string>
+  <string name="donation_1">一支冰淇淋</string>
   <string name="donation_4">一杯咖啡</string>
-  <string name="donation_10">Electricity bills</string>
-  <string name="donation_20">The right pillow</string>
-  <string name="donation_50">Solid-state drive</string>
-  <string name="donation_99">Sound system</string>
-  <string name="cry_dialog_title">Support development</string>
+  <string name="donation_10">电子账单</string>
+  <string name="donation_20">舒适的枕头</string>
+  <string name="donation_50">固态硬盘</string>
+  <string name="donation_99">音响系统</string>
+  <string name="cry_dialog_title">支持开发</string>
   <string name="cry_dialog_message"><![CDATA[
-        HeadsUp is a free and <a href="https://github.com/AChep/HeadsUp">open source</a> app and we spend
-        a lot of time and resources on keeping it with time. Please, consider a donation to show your
-        appreciation and to support further development.
+        HeadsUp是一个免费且<a href="https://github.com/AChep/HeadsUp">开源</a>的应用，而且我们花费了
+        很多时间和资源来让它保持更新。
+        敬请考虑一下捐赠来展示
+        您的感谢并支持日后的开发。
     ]]></string>
   <string name="help_dialog_title">帮助</string>
   <string name="feedback_dialog_title">反馈</string>
-  <string name="feedback_dialog_message_hint">Your message. Device specs will be included automatically.</string>
-  <string name="feedback_dialog_attach_log">Attach a log</string>
-  <string name="feedback_dialog_read_help">Frequently asked questions</string>
-  <string name="feedback_error_no_app">Install any of email apps.</string>
-  <string name="feedback_error_msg_too_short">Message must contain at least %1$d symbols.</string>
-  <string name="feedback_error_accessing_log">Error accessing app\'s log. The error is: %1$s</string>
-  <string name="compat_dialog_title">Compatibility mode</string>
-  <string name="compat_dialog_message">HeadsUp is running in a compatibility mode to support Android %1$s: %2$s</string>
-  <string name="compat_dialog_item_notification">因为 HeadsUp 使用辅助功能服务，它不能检测被清除或更新的通知，或者在通知中心消除通知。</string>
+  <string name="feedback_dialog_message_hint">在此填写你的留言。设备信息将自动包括在里面。</string>
+  <string name="feedback_dialog_attach_log">附加日志文件</string>
+  <string name="feedback_dialog_read_help">常见问题</string>
+  <string name="feedback_error_no_app">安装任一电子邮件应用</string>
+  <string name="feedback_error_msg_too_short">留言必须至少含有%1$d个字符</string>
+  <string name="feedback_error_accessing_log">访问应用程序的日志时出错。错误内容：%1$s</string>
+  <string name="compat_dialog_title">兼容模式</string>
+  <string name="compat_dialog_message">HeadsUp需要在兼容模式下运行来支持Android %1$s：%2$s</string>
+  <string name="compat_dialog_item_notification">因为HeadsUp需要使用辅助功能服务，它不能直接检测通知是否被清除/有更新，也不能在通知中心消除通知。</string>
 </resources>

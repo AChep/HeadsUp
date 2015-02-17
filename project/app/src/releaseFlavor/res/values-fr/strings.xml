@@ -38,8 +38,8 @@
   <string name="off">Désactivé</string>
   <string name="enabled">Activé</string>
   <string name="disabled">Désactivé</string>
-  <string name="notification_init_text">Masquer simplement cette notification.</string>
-  <string name="notification_test_message">Ceci est un exemple de notification.</string>
+  <string name="notification_init_text">Rejeter cette notification.</string>
+  <string name="notification_test_message">Exemple de notification.</string>
   <string name="privacy_mode_hidden_content">Contenu masqué.</string>
   <string name="remote_enable_acdisplay">HeadsUp est activé.</string>
   <string name="remote_disable_acdisplay">HeadsUp est désactivé.</string>

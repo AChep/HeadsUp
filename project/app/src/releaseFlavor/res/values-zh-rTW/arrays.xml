@@ -31,9 +31,9 @@
   <string-array name="notify_priorities">
     <item>重大及緊急通知 (未接來電、方向指示、緊急警示)</item>
     <item>重要通知 (通訊、重要郵件)</item>
-    <item>一般通知 (先前應用程式中的通知)</item>
+    <item>一般通知 (以及先前應用程式中的通知)</item>
     <item>不重要的通知 (軟體更新、垃圾郵件)</item>
-    <item>內容關聯與背景資訊 (天氣、過期的活動、建議)</item>
+    <item>內容相關與背景資訊 (天氣、過期的活動、建議)</item>
   </string-array>
   <string-array name="themes">
     <item>淺色</item>
