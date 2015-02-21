@@ -40,11 +40,14 @@ public class SwipeHelper implements Gefingerpoken {
     private static final boolean DEBUG_INVALIDATE = false;
     private static final boolean SLOW_ANIMATIONS = false; // DEBUG;
     private static final boolean CONSTRAIN_SWIPE = true;
-    private static final boolean FADE_OUT_DURING_SWIPE = true;
     private static final boolean DISMISS_IF_SWIPED_FAR_ENOUGH = true;
+
+    private boolean fadeOutDuringSwipe = true;
 
     public static final int X = 0;
     public static final int Y = 1;
+    public static final int TOP = 2;
+    public static final int BOTTOM = 3;
 
     private static LinearInterpolator sLinearInterpolator = new LinearInterpolator();
 
@@ -92,6 +95,16 @@ public class SwipeHelper implements Gefingerpoken {
         mLongPressTimeout = (long) (ViewConfiguration.getLongPressTimeout() * 1.5f); // extra long-press!
     }
 
+    public SwipeHelper(int swipeDirection, Callback callback, float densityScale,
+                       float pagingTouchSlop, boolean fade) {
+        this(swipeDirection, callback, densityScale, pagingTouchSlop);
+        fadeOutDuringSwipe = fade;
+    }
+
+    public void setSwipeDirection(final int direction) {
+        mSwipeDirection = direction;
+    }
+
     public void setPowerSaveDetector(PowerSaveDetector psd) {
         mPowerSaveDetector = psd;
     }
@@ -135,6 +148,10 @@ public class SwipeHelper implements Gefingerpoken {
         if (mSwipeDirection == X) {
             v.setTranslationX(translate);
         } else {
+            if (mSwipeDirection == TOP)
+                translate = translate > 0 ? 0 : translate;
+            else if (mSwipeDirection == BOTTOM)
+                translate = translate < 0 ? 0 : translate;
             v.setTranslationY(translate);
         }
     }
@@ -162,7 +179,7 @@ public class SwipeHelper implements Gefingerpoken {
     }
 
     private void updateAlphaFromOffset(View animView, boolean dismissable) {
-        if (FADE_OUT_DURING_SWIPE && dismissable) {
+        if (fadeOutDuringSwipe && dismissable) {
             float alpha = getAlphaForOffset(animView);
             if (alpha != 0f && alpha != 1f) {
                 animView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
@@ -385,13 +402,15 @@ public class SwipeHelper implements Gefingerpoken {
                     float escapeVelocity = SWIPE_ESCAPE_VELOCITY * mDensityScale;
                     float velocity = getVelocity(mVelocityTracker);
                     float perpendicularVelocity = getPerpendicularVelocity(mVelocityTracker);
+                    float translation = getTranslation(mCurrAnimView);
 
                     // Decide whether to dismiss the current view
                     boolean childSwipedFarEnough = DISMISS_IF_SWIPED_FAR_ENOUGH &&
-                            Math.abs(getTranslation(mCurrAnimView)) > 0.4 * getSize(mCurrAnimView);
+                            Math.abs(translation) > 0.4 * getSize(mCurrAnimView);
                     boolean childSwipedFastEnough = (Math.abs(velocity) > escapeVelocity) &&
                             (Math.abs(velocity) > Math.abs(perpendicularVelocity)) &&
-                            (velocity > 0) == (getTranslation(mCurrAnimView) > 0);
+                            (velocity > 0) == (translation > 0) &&
+                            velocity != 0 && translation != 0;
 
                     boolean dismissChild = mCallback.canChildBeDismissed(mCurrView) &&
                             (childSwipedFastEnough || childSwipedFarEnough);
