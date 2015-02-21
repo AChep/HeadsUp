@@ -54,8 +54,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
     private boolean mDarkTheme;
 
-    private SwipeHelper mSwipeHelperX,
-                        mSwipeHelperY;
+    private SwipeHelper mSwipeHelperX;
 
     private HeadsUpBase mHeadsUpBase;
 
@@ -74,19 +73,12 @@ public class HeadsUpNotificationView extends NotificationWidget implements
         float densityScale = getResources().getDisplayMetrics().density;
         float pagingTouchSlop = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
         mSwipeHelperX = new SwipeHelper(SwipeHelper.X, this, densityScale, pagingTouchSlop);
-        mSwipeHelperY = new SwipeHelper(SwipeHelper.TOP, this, densityScale, pagingTouchSlop, false);
     }
 
     public void setHeadsUpManager(HeadsUpBase headsUpBase) {
         mHeadsUpBase = headsUpBase;
 
-        int swipeDirY = mHeadsUpBase.getConfig().isShownAtTop()
-                ? SwipeHelper.TOP
-                : SwipeHelper.BOTTOM;
-        mSwipeHelperY.setSwipeDirection(swipeDirY);
-
         mSwipeHelperX.setPowerSaveDetector(headsUpBase.getPowerSaveDetector());
-        mSwipeHelperY.setPowerSaveDetector(headsUpBase.getPowerSaveDetector());
     }
 
     /**
@@ -183,7 +175,6 @@ public class HeadsUpNotificationView extends NotificationWidget implements
         handleTimeout(event);
 
         return mSwipeHelperX.onInterceptTouchEvent(event)
-                || mSwipeHelperY.onInterceptTouchEvent(event)
                 || super.onInterceptTouchEvent(event);
     }
 
@@ -201,7 +192,7 @@ public class HeadsUpNotificationView extends NotificationWidget implements
         // while swiping.
         final MotionEvent ev = MotionEvent.obtainNoHistory(event);
         ev.offsetLocation(getTranslationX(), getTranslationY());
-        boolean handled = mSwipeHelperX.onTouchEvent(ev) || mSwipeHelperY.onTouchEvent(ev);
+        boolean handled = mSwipeHelperX.onTouchEvent(ev);
         ev.recycle();
 
         return handled || super.onTouchEvent(event);
@@ -215,10 +206,8 @@ public class HeadsUpNotificationView extends NotificationWidget implements
         super.onConfigurationChanged(newConfig);
         float densityScale = getResources().getDisplayMetrics().density;
         mSwipeHelperX.setDensityScale(densityScale);
-        mSwipeHelperY.setDensityScale(densityScale);
         float pagingTouchSlop = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
         mSwipeHelperX.setPagingTouchSlop(pagingTouchSlop);
-        mSwipeHelperY.setPagingTouchSlop(pagingTouchSlop);
     }
 
     //-- TIMEOUT --------------------------------------------------------------
@@ -263,18 +252,15 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
     @Override
     public void onChildDismissed(View v) {
-        if (v.getTranslationX() == 0 && v.getTranslationY() == 0)
-            Log.w(TAG, "Failed to detect the swipe\'s direction!" + " Assuming it\'s RTL...");
+        if (v.getTranslationX() == 0) Log.w(TAG, "Failed to detect the swipe\'s direction!"
+                + " Assuming it\'s RTL...");
 
         final boolean toRight = v.getTranslationX() > 0;
-        final boolean toTopOrBottom = v.getTranslationY() != 0;
         final int action = toRight
                 ? Config.getInstance().getStrAction()
-                : (toTopOrBottom ? Config.ST_HIDE
-                         : Config.getInstance().getStlAction());
+                : Config.getInstance().getStlAction();
 
-        if (Build.DEBUG) Log.d(TAG, "swiped_to_right=" + toRight +
-                " swiped_in_y-axis=" + toTopOrBottom + " action=" + action);
+        if (Build.DEBUG) Log.d(TAG, "swiped_to_right=" + toRight + "action=" + action);
 
         switch (action) {
             case Config.ST_DISMISS:

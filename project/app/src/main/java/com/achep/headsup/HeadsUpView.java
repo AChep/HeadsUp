@@ -19,20 +19,27 @@
 package com.achep.headsup;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 /**
  * Created by Artem Chepurnoy on 16.09.2014.
  */
-public class HeadsUpView extends FrameLayout {
+public class HeadsUpView extends FrameLayout implements
+        SwipeHelper.Callback {
 
+    private final SwipeHelper mSwipeHelperY;
     private final int mTouchSensitivityDelay;
     private long mStartTouchTime;
 
     private HeadsUpBase mManager;
+    private ViewGroup mContent;
 
     public HeadsUpView(Context context) {
         this(context, null);
@@ -45,10 +52,26 @@ public class HeadsUpView extends FrameLayout {
     public HeadsUpView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         mTouchSensitivityDelay = getResources().getInteger(R.integer.heads_up_sensitivity_delay);
+        float densityScale = getResources().getDisplayMetrics().density;
+        float pagingTouchSlop = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
+        mSwipeHelperY = new SwipeHelper(SwipeHelper.TOP, this, densityScale, pagingTouchSlop, false);
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        mContent = (ViewGroup) findViewById(R.id.content);
     }
 
     public void setHeadsUpManager(HeadsUpBase manager) {
         mManager = manager;
+
+        mSwipeHelperY.setPowerSaveDetector(mManager.getPowerSaveDetector());
+    }
+
+    public void setShownOnTop(boolean shownOnTop) {
+        int swipeDirY = shownOnTop ? SwipeHelper.TOP : SwipeHelper.BOTTOM;
+        mSwipeHelperY.setSwipeDirection(swipeDirY);
     }
 
     /**
@@ -73,7 +96,9 @@ public class HeadsUpView extends FrameLayout {
      */
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        return ignoreAnyInteractivity() || super.onInterceptTouchEvent(event);
+        return ignoreAnyInteractivity()
+                || mSwipeHelperY.onInterceptTouchEvent(event)
+                || super.onInterceptTouchEvent(event);
     }
 
     /**
@@ -92,8 +117,51 @@ public class HeadsUpView extends FrameLayout {
                 }
                 return true;
             default:
-                return super.onTouchEvent(event);
+                return mSwipeHelperY.onTouchEvent(event) || super.onTouchEvent(event);
         }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        float densityScale = getResources().getDisplayMetrics().density;
+        mSwipeHelperY.setDensityScale(densityScale);
+        float pagingTouchSlop = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
+        mSwipeHelperY.setPagingTouchSlop(pagingTouchSlop);
+    }
+
+    //-- SWIPE HELPER'S METHODS -----------------------------------------------
+
+    @Override
+    public View getChildAtPosition(MotionEvent ev) {
+        return mContent;
+    }
+
+    @Override
+    public View getChildContentView(View v) {
+        return mContent;
+    }
+
+    @Override
+    public boolean canChildBeDismissed(View v) {
+        return true;
+    }
+
+    @Override
+    public void onBeginDrag(View v) {
+        requestDisallowInterceptTouchEvent(true);
+    }
+
+    @Override
+    public void onChildDismissed(View v) {
+        mManager.hide(false);
+    }
+
+    @Override
+    public void onDragCancelled(View v) {
     }
 
 }

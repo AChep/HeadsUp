@@ -515,6 +515,7 @@ public class HeadsUpBase implements
         mAttached = true;
 
         boolean overlapStatusBar = mShownAtTop && getConfig().isStatusBarOverlapEnabled();
+        mHolder.rootView.setShownOnTop(mShownAtTop);
 
         // Define the padding
         Resources res = mHolder.context.getResources();
@@ -523,6 +524,7 @@ public class HeadsUpBase implements
                 : res.getDimensionPixelSize(R.dimen.headsup_root_padding_top);
         View v = mHolder.containerView;
         v.setPadding(v.getPaddingLeft(), paddingTop, v.getPaddingRight(), v.getPaddingBottom());
+        v.setTranslationY(0);
         // And the rotation
         if (!mShownAtTop) v.setBackground(res.getDrawable(R.drawable.bg_shade_flipped));
         else v.setBackground(res.getDrawable(R.drawable.bg_shade));
