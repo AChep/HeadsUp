@@ -163,9 +163,11 @@ public class KeyguardSettings extends PreferenceFragment implements ConfigBase.O
     }
 
     private void updateNotifyDecayTimeSummary(Config config) {
-        mNotifyDecayTimePreference.setSummary(getString(
-                R.string.settings_notify_decay_time_summary,
-                Float.toString(config.getNotifyDecayTime() / 1000f)));
+        int decayTime = config.getNotifyDecayTime();
+        mNotifyDecayTimePreference.setSummary(decayTime == 0
+                ? getString(R.string.settings_notify_decay_time_summary_never)
+                : getString(R.string.settings_notify_decay_time_summary,
+                Float.toString(decayTime / 1000f)));
     }
 
 }
