@@ -38,6 +38,7 @@
   <string name="settings_notify_decay_time_title">消除超时</string>
   <string name="settings_notify_decay_time_dialog">消除超时</string>
   <string name="settings_notify_decay_time_summary">通知在显示后%1$s秒消除</string>
+  <string name="settings_notify_decay_time_summary_never">Never</string>
   <string name="settings_hide_on_touch_outside_title">触摸其它区域时隐藏</string>
   <string name="settings_show_on_keyguard_title">在锁屏界面上显示</string>
   <string name="settings_app_settings_title">应用</string>

@@ -38,6 +38,7 @@
   <string name="settings_notify_decay_time_title">Afvis timeout</string>
   <string name="settings_notify_decay_time_dialog">Afvis timeout</string>
   <string name="settings_notify_decay_time_summary">Underretninger afvises efter %1$s sek. efter udseende.</string>
+  <string name="settings_notify_decay_time_summary_never">Never</string>
   <string name="settings_hide_on_touch_outside_title">Skjul ved tryk udenfor</string>
   <string name="settings_show_on_keyguard_title">Show on the lockscreen</string>
   <string name="settings_app_settings_title">Apps</string>

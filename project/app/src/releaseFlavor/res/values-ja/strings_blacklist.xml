@@ -22,7 +22,7 @@
   <string name="blacklist">ブラックリスト</string>
   <string name="blacklist_app_config">アプリの設定</string>
   <string name="blacklist_app_hide_title">非表示</string>
-  <string name="blacklist_app_hide_summary">This app\'s notifications won\'t be displayed.</string>
-  <string name="blacklist_app_non_clearable_title">Non-clearable notifies</string>
+  <string name="blacklist_app_hide_summary">このアプリの通知は表示されません</string>
+  <string name="blacklist_app_non_clearable_title">クリアできない通知</string>
   <string name="blacklist_app_non_clearable_summary">Show non-clearable/ongoing notifications, such as those from services.</string>
 </resources>

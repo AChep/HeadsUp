@@ -38,6 +38,7 @@
   <string name="settings_notify_decay_time_title">해제 시간 제한</string>
   <string name="settings_notify_decay_time_dialog">해제 시간 제한</string>
   <string name="settings_notify_decay_time_summary">알림이 표시되고 %1$s초 후에 제거됩니다.</string>
+  <string name="settings_notify_decay_time_summary_never">Never</string>
   <string name="settings_hide_on_touch_outside_title">바깥 터치로 알림 숨기기</string>
   <string name="settings_show_on_keyguard_title">잠금화면에 표시</string>
   <string name="settings_app_settings_title">앱</string>

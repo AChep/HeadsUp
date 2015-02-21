@@ -19,39 +19,37 @@
   ~ MA  02110-1301, USA.
   -->
 <resources>
-  <string name="about_dialog_message"><![CDATA[
-        HeadsUp is a free and <a href="https://github.com/AChep/HeadsUp">open source</a> app.
-        Copyright 2014-%2$s <a href="http://artemchep.com">Artem Chepurnoy</a>. All Rights Reserved.<br/>
+  <string name="about_dialog_message"><![CDATA[        HeadsUpは無料で<a href="https://github.com/AChep/HeadsUp">オープンソースの</a>アプリです。
+        Copyright2014-%2$s<a href="http://artemchep.com">Artem Chrpurnoy</a>All Rights Reserved.<br/>
         <br/>
-        Many thanks to those open source tools: %1$s and to all who
-        <a href="https://crowdin.com/project/headsup">helped with translations</a> or donated.
+        これらのオープンソースツールに感謝します:%1$sとその他のツール
+        <a href="https://crowdin.com/project/headsup">翻訳の協力</a>か寄付をお願いします。
     ]]></string>
-  <string name="donate_dialog_title">Donate to developers</string>
-  <string name="donate_dialog_message">HeadsUp is a free and open source app. You can show your appreciation and support development by donating:</string>
-  <string name="donate_alert_no_responsibility">Notice that Google is not responsible for this payments method.</string>
-  <string name="donate_billing_not_supported">In-app purchases are not supported on the device.</string>
-  <string name="donate_thanks">Thank you very much!</string>
-  <string name="donation_1">An ice cream</string>
-  <string name="donation_4">A cup of coffee</string>
-  <string name="donation_10">Electricity bills</string>
-  <string name="donation_20">The right pillow</string>
-  <string name="donation_50">Solid-state drive</string>
-  <string name="donation_99">Sound system</string>
-  <string name="cry_dialog_title">Support development</string>
-  <string name="cry_dialog_message"><![CDATA[
-        HeadsUp is a free and <a href="https://github.com/AChep/HeadsUp">open source</a> app and we spend
-        a lot of time and resources on keeping it with time. Please, consider a donation to show your
-        appreciation and to support further development.
+  <string name="donate_dialog_title">開発者に寄付</string>
+  <string name="donate_dialog_message">HeadsUpは、フリーでオープン ソースのアプリケーションです。寄付することによって感謝を伝え、開発を援助することができます。</string>
+  <string name="donate_alert_no_responsibility">この決済についてはGoogleが責任を負わないことに注意してください。</string>
+  <string name="donate_billing_not_supported">アプリ内購入がデバイスでサポートされていません。</string>
+  <string name="donate_thanks">ありがとうございました!</string>
+  <string name="donation_1">アイスクリーム</string>
+  <string name="donation_4">コーヒー 1 杯</string>
+  <string name="donation_10">電気代</string>
+  <string name="donation_20">ちょうど良い枕</string>
+  <string name="donation_50">SSD</string>
+  <string name="donation_99">サウンドシステム</string>
+  <string name="cry_dialog_title">開発をサポート</string>
+  <string name="cry_dialog_message"><![CDATA[        HeadsUpは無料で<a href="https://github.com/AChep/HeadsUp">オープンソース</a>のアプリです
+        たくさんの時間とリソースが必要です。私たちへの更なる寄付の検討をお願いします
+        開発のサポートを支援していただいたことに感謝します
     ]]></string>
-  <string name="help_dialog_title">Help</string>
-  <string name="feedback_dialog_title">Feedback</string>
-  <string name="feedback_dialog_message_hint">Your message. Device specs will be included automatically.</string>
-  <string name="feedback_dialog_attach_log">Attach a log</string>
-  <string name="feedback_dialog_read_help">Frequently asked questions</string>
-  <string name="feedback_error_no_app">Install any of email apps.</string>
-  <string name="feedback_error_msg_too_short">Message must contain at least %1$d symbols.</string>
-  <string name="feedback_error_accessing_log">Error accessing app\'s log. The error is: %1$s</string>
-  <string name="compat_dialog_title">Compatibility mode</string>
+  <string name="help_dialog_title">ヘルプ</string>
+  <string name="feedback_dialog_title">フィードバック</string>
+  <string name="feedback_dialog_message_hint">メッセージには端末のスペックが自動的に含まれます。</string>
+  <string name="feedback_dialog_attach_log">ログを添付</string>
+  <string name="feedback_dialog_read_help">よくある質問（FAQ）</string>
+  <string name="feedback_error_no_app">メールアプリをインストールしてください</string>
+  <string name="feedback_error_msg_too_short">メッセージは%1$d文字以上にする必要があります。</string>
+  <string name="feedback_error_accessing_log">アプリのログにアクセス中エラーが発生しました。エラーは: %1$s</string>
+  <string name="compat_dialog_title">互換モード</string>
   <string name="compat_dialog_message">HeadsUp is running in a compatibility mode to support Android %1$s: %2$s</string>
   <string name="compat_dialog_item_notification">Because HeadsUp is using the accessibility service, it cannot detect notifications being dismissed/updated, or dismiss notifications from the notifications drawer.</string>
 </resources>

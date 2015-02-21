@@ -38,6 +38,7 @@
   <string name="settings_notify_decay_time_title">Czas wyświetlania</string>
   <string name="settings_notify_decay_time_dialog">Czas wyświetlania</string>
   <string name="settings_notify_decay_time_summary">Powiadomienie znika po %1$s s. od pokazania.</string>
+  <string name="settings_notify_decay_time_summary_never">Never</string>
   <string name="settings_hide_on_touch_outside_title">Ukryj po dotknięciu obok</string>
   <string name="settings_show_on_keyguard_title">Show on the lockscreen</string>
   <string name="settings_app_settings_title">Aplikacje</string>

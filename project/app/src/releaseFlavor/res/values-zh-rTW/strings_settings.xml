@@ -38,6 +38,7 @@
   <string name="settings_notify_decay_time_title">關閉逾時</string>
   <string name="settings_notify_decay_time_dialog">關閉逾時</string>
   <string name="settings_notify_decay_time_summary">通知會在顯示 %1$s 秒後隱藏。</string>
+  <string name="settings_notify_decay_time_summary_never">Never</string>
   <string name="settings_hide_on_touch_outside_title">輕觸其他位置時隱藏通知</string>
   <string name="settings_show_on_keyguard_title">在鎖定畫面上顯示通知</string>
   <string name="settings_app_settings_title">應用程式</string>

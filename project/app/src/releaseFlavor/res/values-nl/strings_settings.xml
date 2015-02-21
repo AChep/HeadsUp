@@ -38,6 +38,7 @@
   <string name="settings_notify_decay_time_title">Negeer timeout</string>
   <string name="settings_notify_decay_time_dialog">Negeer timeout</string>
   <string name="settings_notify_decay_time_summary">Melding wordt genegeerd na %1$s sec. na verschijning.</string>
+  <string name="settings_notify_decay_time_summary_never">Never</string>
   <string name="settings_hide_on_touch_outside_title">Verberg na aanraken buiten</string>
   <string name="settings_show_on_keyguard_title">Show on the lockscreen</string>
   <string name="settings_app_settings_title">Apps</string>

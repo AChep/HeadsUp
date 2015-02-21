@@ -20,27 +20,27 @@
   -->
 <resources>
   <string-array name="feedback_types">
-    <item>Issue</item>
+    <item>Sorun</item>
     <item>Öneri</item>
     <item>Diğer</item>
   </string-array>
   <string-array name="privacy_mode">
-    <item>Hide notifications\' content</item>
-    <item>Hide notifications\' actions</item>
+    <item>Bildirimlerin içeriğini gizle</item>
+    <item>Bildirim eylemlerini gizle</item>
   </string-array>
   <string-array name="notify_priorities">
-    <item>Maksimum</item>
-    <item>Yüksek</item>
-    <item>Normal</item>
-    <item>Düşük</item>
-    <item>En az</item>
+    <item>Kritik ve acil (cevapsız aramalar, yönergeler, acil durum uyarıları)</item>
+    <item>Önemli (konuşmalar, önemli e-posta)</item>
+    <item>Normal (+eski uygulamalardan bildirimler)</item>
+    <item>Önemsiz (uygulama güncellemeleri, önemsiz e-postalar)</item>
+    <item>İçerik ve arka plan bilgileri (hava durumu, süresi dolmuş etkinlikler, öneriler)</item>
   </string-array>
   <string-array name="themes">
-    <item>Açık</item>
+    <item>Beyaz</item>
     <item>Koyu</item>
   </string-array>
   <string-array name="st_actions">
-    <item>Dismisses notification</item>
-    <item>Hides notification</item>
+    <item>Bildirim yoksayılır</item>
+    <item>Bildirim gizlenir</item>
   </string-array>
 </resources>

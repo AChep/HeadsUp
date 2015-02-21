@@ -38,6 +38,7 @@
   <string name="settings_notify_decay_time_title">Délai avant rejet</string>
   <string name="settings_notify_decay_time_dialog">Délai avant rejet</string>
   <string name="settings_notify_decay_time_summary">Les notifications sont masquées %1$s sec. après affichage.</string>
+  <string name="settings_notify_decay_time_summary_never">Never</string>
   <string name="settings_hide_on_touch_outside_title">Masquer en appuyant en dehors</string>
   <string name="settings_show_on_keyguard_title">Afficher sur l\'écran de verrouillage</string>
   <string name="settings_app_settings_title">Applications</string>
