@@ -257,8 +257,8 @@ public class HeadsUpNotificationView extends NotificationWidget implements
 
         final boolean toRight = v.getTranslationX() > 0;
         final int action = toRight
-                ? Config.getInstance().getStrAction()
-                : Config.getInstance().getStlAction();
+                ? mHeadsUpBase.getConfig().getStrAction()
+                : mHeadsUpBase.getConfig().getStlAction();
 
         if (Build.DEBUG) Log.d(TAG, "swiped_to_right=" + toRight + "action=" + action);
 
